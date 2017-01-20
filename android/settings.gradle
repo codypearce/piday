@@ -1,0 +1,3 @@
+rootProject.name = 'piday'
+
+include ':app'
