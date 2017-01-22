@@ -12,20 +12,16 @@ import {
   View
 } from 'react-native';
 
+import Game from './app/components/Game'
+
 export default class piday extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Pi day
+        <Text>
+            Piday
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Game />
       </View>
     );
   }
@@ -42,12 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+}
 });
 
 AppRegistry.registerComponent('piday', () => piday);
