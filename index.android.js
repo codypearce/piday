@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 
 import Game from './app/components/Game'
@@ -17,12 +18,12 @@ import Game from './app/components/Game'
 export default class piday extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>
-            Piday
-        </Text>
-        <Game />
-      </View>
+        <Navigator
+            initialRoute={{title: "Game", index: 0}}
+            renderScene={(route, navigator) => {
+                return <Game title={route.title} />
+            }}
+        />
     );
   }
 }
