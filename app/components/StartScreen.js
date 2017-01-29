@@ -8,7 +8,7 @@ import {
   Navigator
 } from 'react-native';
 
-export default class Game extends React.Component {
+export default class StartScreen extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -17,10 +17,22 @@ export default class Game extends React.Component {
     };
     render() {
         return (
-            <View>
+            <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}
+
+            >
                 <Text>
                     {this.props.title}
                 </Text>
+                <Button
+                title="Start"
+                color="blue"
+                onPress={this.onButtonPress}
+                />
             </View>
         )
     }

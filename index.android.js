@@ -13,15 +13,16 @@ import {
   Navigator
 } from 'react-native';
 
+import StartScreen from './app/components/StartScreen'
 import Game from './app/components/Game'
 
 export default class piday extends Component {
   render() {
     return (
         <Navigator
-            initialRoute={{title: "Game", index: 0}}
+            initialRoute={{title: "Start", index: 0}}
             renderScene={(route, navigator) => {
-                return <Game title={route.title} />
+                return <StartScreen title={route.title} />
             }}
         />
     );
