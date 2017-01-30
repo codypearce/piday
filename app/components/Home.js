@@ -5,16 +5,22 @@ import {
   View,
   Button,
   Alert,
-  Navigator
+  Navigator,
+  TouchableHighlight
 } from 'react-native';
 
-export default class StartScreen extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
     }
     onButtonPress() {
       Alert.alert('Button has been pressed!');
     };
+    _navigate(){
+      this.props.navigator.push({
+        name: 'Game',
+      })
+    }
     render() {
         return (
             <View style={{
@@ -28,11 +34,9 @@ export default class StartScreen extends React.Component {
                 <Text>
                     {this.props.title}
                 </Text>
-                <Button
-                title="Start"
-                color="blue"
-                onPress={this.onButtonPress}
-                />
+                <TouchableHighlight onPress={ () => this._navigate() }>
+                    <Text>Play</Text>
+                </TouchableHighlight>
             </View>
         )
     }

@@ -5,7 +5,8 @@ import {
   View,
   Button,
   Alert,
-  Navigator
+  Navigator,
+  TouchableHighlight
 } from 'react-native';
 
 export default class Game extends React.Component {
@@ -15,12 +16,27 @@ export default class Game extends React.Component {
     onButtonPress() {
       Alert.alert('Button has been pressed!');
     };
+    _navigate(){
+      this.props.navigator.push({
+        name: 'Home', // Matches route.name
+      })
+    }
     render() {
         return (
-            <View>
+            <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}
+
+            >
                 <Text>
                     {this.props.title}
                 </Text>
+                <TouchableHighlight onPress={ () => this._navigate() }>
+                    <Text>Home</Text>
+                </TouchableHighlight>
             </View>
         )
     }

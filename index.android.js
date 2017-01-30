@@ -13,20 +13,26 @@ import {
   Navigator
 } from 'react-native';
 
-import StartScreen from './app/components/StartScreen'
+import Home from './app/components/Home'
 import Game from './app/components/Game'
 
 export default class piday extends Component {
-  render() {
-    return (
-        <Navigator
-            initialRoute={{title: "Start", index: 0}}
-            renderScene={(route, navigator) => {
-                return <StartScreen title={route.title} />
-            }}
-        />
-    );
-  }
+    renderScene(route, navigator) {
+        if(route.name == 'Home') {
+            return <Home navigator={navigator} />
+        }
+        if(route.name == 'Game') {
+            return <Game navigator={navigator} />
+        }
+    }
+    render() {
+        return (
+            <Navigator
+                initialRoute={{title: "Home", name: 'Home', component: Home}}
+                renderScene={this.renderScene}
+            />
+        );
+    }
 }
 
 const styles = StyleSheet.create({
