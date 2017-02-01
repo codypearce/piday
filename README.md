@@ -2,4 +2,4 @@
 
 A react native pi game with multiple game modes.
 
-![alt tag](/assets/images/piday.png)
+<img src="https://github.com/codypearce/piday/blob/master/assets/images/piday.png" height="200">
