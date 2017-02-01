@@ -35,33 +35,35 @@ export default class Home extends React.Component {
                 <Text
                     style={{
                         color: 'white',
-                        fontSize: 24
+                        fontSize: 24,
+                        marginTop: -100,
+                        marginBottom: 100
                     }}
                 >
                     Pi day
                 </Text>
                 <TouchableHighlight  onPress={ () => this._navigate('Game') }>
-                    <Text>
+                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
                         Play
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Timed') }>
-                    <Text>
+                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
                         Timed
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Quiz') }>
-                    <Text>
+                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
                         Quiz
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Learn') }>
-                    <Text>
+                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
                         Learn
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('About') }>
-                    <Text>
+                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
                         About
                     </Text>
                 </TouchableHighlight>
