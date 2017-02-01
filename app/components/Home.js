@@ -16,14 +16,15 @@ export default class Home extends React.Component {
     onButtonPress() {
       Alert.alert('Button has been pressed!');
     };
-    _navigate(){
+    _navigate(route){
       this.props.navigator.push({
-        name: 'Game',
+        name: route,
       })
     }
     render() {
         return (
             <View style={{
+                backgroundColor: '#1976D2',
                 flex: 1,
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -31,12 +32,40 @@ export default class Home extends React.Component {
             }}
 
             >
-                <Text>
-                    {this.props.title}
+                <Text
+                    style={{
+                        color: 'white',
+                        fontSize: 24
+                    }}
+                >
+                    Pi day
                 </Text>
-                <TouchableHighlight onPress={ () => this._navigate() }>
-                    <Text>Play</Text>
+                <TouchableHighlight  onPress={ () => this._navigate('Game') }>
+                    <Text>
+                        Play
+                    </Text>
                 </TouchableHighlight>
+                <TouchableHighlight  onPress={ () => this._navigate('Timed') }>
+                    <Text>
+                        Timed
+                    </Text>
+                </TouchableHighlight>
+                <TouchableHighlight  onPress={ () => this._navigate('Quiz') }>
+                    <Text>
+                        Quiz
+                    </Text>
+                </TouchableHighlight>
+                <TouchableHighlight  onPress={ () => this._navigate('Learn') }>
+                    <Text>
+                        Learn
+                    </Text>
+                </TouchableHighlight>
+                <TouchableHighlight  onPress={ () => this._navigate('About') }>
+                    <Text>
+                        About
+                    </Text>
+                </TouchableHighlight>
+
             </View>
         )
     }

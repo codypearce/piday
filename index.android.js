@@ -15,6 +15,10 @@ import {
 
 import Home from './app/components/Home'
 import Game from './app/components/Game'
+import Timed from './app/components/Timed'
+import Quiz from './app/components/Quiz'
+import Learn from './app/components/Learn'
+import About from './app/components/About'
 
 export default class piday extends Component {
     renderScene(route, navigator) {
@@ -23,6 +27,18 @@ export default class piday extends Component {
         }
         if(route.name == 'Game') {
             return <Game navigator={navigator} />
+        }
+        if(route.name == 'Timed') {
+            return <Timed navigator={navigator} />
+        }
+        if(route.name == 'Quiz') {
+            return <Quiz navigator={navigator} />
+        }
+        if(route.name == 'Learn') {
+            return <Learn navigator={navigator} />
+        }
+        if(route.name == 'About') {
+            return <About navigator={navigator} />
         }
     }
     render() {
