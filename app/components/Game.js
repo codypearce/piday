@@ -24,6 +24,7 @@ export default class Game extends React.Component {
     render() {
         return (
             <View style={{
+                backgroundColor: '#1976D2',
                 flex: 1,
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -31,9 +32,38 @@ export default class Game extends React.Component {
             }}
 
             >
-                <Text>
-                    {this.props.title}
-                </Text>
+                <View
+                    style={{
+
+                        marginTop: -100,
+                        marginBottom: 100
+                    }}>
+                    <Text
+                        style={{
+                            color: 'white',
+                            fontSize: 24
+                        }}>
+                        0 Digits
+                    </Text>
+                </View>
+                <View
+                style={{
+                    marginBottom: 100
+                }}>
+                    <Text
+                    style={{
+                        color: 'white',
+                        fontSize: 24
+                    }}
+                    >
+                        Pi:
+                    </Text>
+                </View>
+                <View>
+                    <Text>
+                        Keypad
+                    </Text>
+                </View>
                 <TouchableHighlight onPress={ () => this._navigate() }>
                     <Text>Home</Text>
                 </TouchableHighlight>
