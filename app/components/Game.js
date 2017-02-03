@@ -90,18 +90,68 @@ export default class Game extends React.Component {
                         fontSize: 24
                     }}
                     >
-                        Pi:{display}
+                        Pi:{this.state.display}
                     </Text>
                 </View>
                 <View>
-                    <Text>
                         {content}
-                    </Text>
                 </View>
                 <TouchableHighlight onPress={ () => this._navigate() }>
                     <Text>Home</Text>
                 </TouchableHighlight>
             </View>
+        )
+    }
+}
+class GameOver extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return(
+            <View>
+                <Text>You got {this.props.correctDigits} digits correct</Text>
+                <Button className="btn" onClick={this.props.resetGame} title="Try again" />
+            </View>
+        )
+    }
+
+}
+class KeyPad extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    mapKeys(arr) {
+        return arr.map(a => <Key key={a.toString()} value={a} enterDigit={this.props.enterDigit} />);
+    }
+    render() {
+        let rowOne = [1, 2, 3],
+            rowTwo = [4, 5, 6],
+            rowThree = [7, 8, 9],
+            rowFour = [0, "."];
+
+        return(
+            <View className="keypad" style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <View className="keyRow" style={{flex: 200}}>{this.mapKeys(rowOne)}</View>
+                <View className="keyRow">{this.mapKeys(rowTwo)}</View>
+                <View className="keyRow">{this.mapKeys(rowThree)}</View>
+                <View className="keyRow">{this.mapKeys(rowFour)}</View>
+
+            </View>
+        )
+    }
+}
+
+class Key extends React.Component {
+    render() {
+        const value = this.props.value;
+        return(
+            <Button className="key" onClick={this.props.enterDigit.bind(this, value)} title={value.toString()} />
         )
     }
 }
