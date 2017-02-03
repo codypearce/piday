@@ -12,6 +12,14 @@ import {
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
+        this.enterDigit = this.enterDigit.bind(this);
+        this.resetGame = this.resetGame.bind(this);
+        this.state = {
+            display: '',
+            digits: 0,
+            pi: Math.PI.toString(),
+            gameOver: false
+        }
     }
     onButtonPress() {
       Alert.alert('Button has been pressed!');
@@ -21,7 +29,9 @@ export default class Game extends React.Component {
         name: 'Home', // Matches route.name
       })
     }
+
     render() {
+
         return (
             <View style={{
                 backgroundColor: '#1976D2',
@@ -43,7 +53,7 @@ export default class Game extends React.Component {
                             color: 'white',
                             fontSize: 24
                         }}>
-                        0 Digits
+                        {this.state.digits} Digits
                     </Text>
                 </View>
                 <View
@@ -56,12 +66,12 @@ export default class Game extends React.Component {
                         fontSize: 24
                     }}
                     >
-                        Pi:
+                        Pi:{display}
                     </Text>
                 </View>
                 <View>
                     <Text>
-                        Keypad
+                        {content}
                     </Text>
                 </View>
                 <TouchableHighlight onPress={ () => this._navigate() }>
