@@ -31,7 +31,13 @@ export default class Game extends React.Component {
     }
 
     render() {
-
+        let content = null;
+        if(this.state.gameOver) {
+            content = <GameOver resetGame={this.resetGame} correctDigits={this.state.digits} />
+        } else {
+            content = <KeyPad enterDigit={this.enterDigit} />
+        }
+        var display = this.state.display;
         return (
             <View style={{
                 backgroundColor: '#1976D2',
