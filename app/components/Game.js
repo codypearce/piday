@@ -29,7 +29,25 @@ export default class Game extends React.Component {
         name: 'Home', // Matches route.name
       })
     }
-
+    enterDigit(value) {
+       if(this.state.pi[this.state.digits] == value) {
+           this.setState({
+               display: this.state.display + value.toString(),
+               digits: this.state.digits + 1
+           });
+       } else {
+           this.setState({
+               gameOver: true
+           });
+       }
+   }
+   resetGame() {
+       this.setState({
+           display: '',
+           digits: 0,
+           gameOver: false
+       })
+   }
     render() {
         let content = null;
         if(this.state.gameOver) {
