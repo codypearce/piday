@@ -60,45 +60,54 @@ export default class Game extends React.Component {
             <View style={{
                 backgroundColor: '#1976D2',
                 flex: 1,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}
+            }}>
+                <View  style={{top: 5, left: 5}}>
+                    <TouchableHighlight onPress={ () => this._navigate() }>
+                        <Text style={{color: 'white'}}>Back</Text>
+                    </TouchableHighlight>
+                </View>
+                <View style={{
+                    backgroundColor: '#1976D2',
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
 
-            >
-                <View
+                >
+
+
+                    <View
+                        style={{
+
+                            marginTop: -100,
+                            marginBottom: 50
+                        }}>
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 24
+                            }}>
+                            {this.state.digits} Digits
+                        </Text>
+                    </View>
+                    <View
                     style={{
-
-                        marginTop: -100,
-                        marginBottom: 100
+                        marginBottom: 50
                     }}>
-                    <Text
+                        <Text
                         style={{
                             color: 'white',
                             fontSize: 24
-                        }}>
-                        {this.state.digits} Digits
-                    </Text>
+                        }}
+                        >
+                            Pi: {this.state.display}
+                        </Text>
+                    </View>
+                    <View>
+                            {content}
+                    </View>
                 </View>
-                <View
-                style={{
-                    marginBottom: 100
-                }}>
-                    <Text
-                    style={{
-                        color: 'white',
-                        fontSize: 24
-                    }}
-                    >
-                        Pi:{this.state.display}
-                    </Text>
-                </View>
-                <View>
-                        {content}
-                </View>
-                <TouchableHighlight onPress={ () => this._navigate() }>
-                    <Text>Home</Text>
-                </TouchableHighlight>
             </View>
         )
     }
@@ -165,13 +174,15 @@ class Key extends React.Component {
             <TouchableHighlight className="key"
 
             onPress={this.props.enterDigit.bind(this, value)}
+            underlayColor="#2084e8"
              >
              <Text style={{
                  color: 'white',
                  paddingTop: 10,
                  paddingBottom: 10,
                  paddingLeft: 20,
-                 paddingRight: 20
+                 paddingRight: 20,
+                 fontSize: 28
              }}>{value.toString()}</Text>
              </TouchableHighlight>
         )
