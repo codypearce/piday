@@ -111,7 +111,7 @@ class GameOver extends React.Component {
         return(
             <View>
                 <Text>You got {this.props.correctDigits} digits correct</Text>
-                <Button className="btn" onClick={this.props.resetGame} title="Try again" />
+                <Button className="btn" onPress={this.props.resetGame} title="Try again" />
             </View>
         )
     }
@@ -163,8 +163,17 @@ class Key extends React.Component {
         const value = this.props.value;
         return(
             <TouchableHighlight className="key"
+
             onPress={this.props.enterDigit.bind(this, value)}
-             ><Text>{value.toString()}</Text></TouchableHighlight>
+             >
+             <Text style={{
+                 color: 'white',
+                 paddingTop: 10,
+                 paddingBottom: 10,
+                 paddingLeft: 20,
+                 paddingRight: 20
+             }}>{value.toString()}</Text>
+             </TouchableHighlight>
         )
     }
 }
