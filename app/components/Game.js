@@ -131,16 +131,27 @@ class KeyPad extends React.Component {
             rowFour = [0, "."];
 
         return(
-            <View className="keypad" style={{
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-                <View className="keyRow" style={{flex: 200}}>{this.mapKeys(rowOne)}</View>
-                <View className="keyRow">{this.mapKeys(rowTwo)}</View>
-                <View className="keyRow">{this.mapKeys(rowThree)}</View>
-                <View className="keyRow">{this.mapKeys(rowFour)}</View>
+            <View className="keypad" >
+                <View className="keyRow" style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>{this.mapKeys(rowOne)}</View>
+                <View className="keyRow" style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>{this.mapKeys(rowTwo)}</View>
+                <View className="keyRow" style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>{this.mapKeys(rowThree)}</View>
+                <View className="keyRow" style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>{this.mapKeys(rowFour)}</View>
 
             </View>
         )
@@ -151,7 +162,9 @@ class Key extends React.Component {
     render() {
         const value = this.props.value;
         return(
-            <Button className="key" onClick={this.props.enterDigit.bind(this, value)} title={value.toString()} />
+            <TouchableHighlight className="key"
+            onPress={this.props.enterDigit.bind(this, value)}
+             ><Text>{value.toString()}</Text></TouchableHighlight>
         )
     }
 }
