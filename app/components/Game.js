@@ -75,8 +75,6 @@ export default class Game extends React.Component {
                 }}
 
                 >
-
-
                     <View
                         style={{
 
@@ -118,9 +116,9 @@ class GameOver extends React.Component {
     }
     render() {
         return(
-            <View>
-                <Text>You got {this.props.correctDigits} digits correct</Text>
-                <Button className="btn" onPress={this.props.resetGame} title="Try again" />
+            <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                <Text style={{color: "white"}}>You got {this.props.correctDigits} digits correct</Text>
+                <TouchableHighlight onPress={this.props.resetGame} ><Text style={{color: "white", marginTop: 30, fontSize: 28}}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
