@@ -13,12 +13,12 @@ import {
   Navigator
 } from 'react-native';
 
-import Home from './app/components/Home'
-import Game from './app/components/Game'
-import Timed from './app/components/Timed'
-import Quiz from './app/components/Quiz'
-import Learn from './app/components/Learn'
-import About from './app/components/About'
+import Home from './app/views/Home'
+import Game from './app/views/Game'
+import Timed from './app/views/Timed'
+import Quiz from './app/views/Quiz'
+import Learn from './app/views/Learn'
+import About from './app/views/About'
 
 export default class piday extends Component {
     renderScene(route, navigator) {
