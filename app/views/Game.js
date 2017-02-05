@@ -26,9 +26,9 @@ export default class Game extends React.Component {
     onButtonPress() {
       Alert.alert('Button has been pressed!');
     };
-    _navigate(){
+    _navigate(route){
       this.props.navigator.push({
-        name: 'Home', // Matches route.name
+        name: route, // Matches route.name
       })
     }
     enterDigit(value) {
@@ -64,7 +64,7 @@ export default class Game extends React.Component {
                 flex: 1,
             }}>
                 <View  style={{top: 5, left: 5}}>
-                    <TouchableHighlight onPress={ () => this._navigate() }>
+                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
                         <Text style={{color: 'white'}}>Back</Text>
                     </TouchableHighlight>
                 </View>

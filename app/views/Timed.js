@@ -44,7 +44,7 @@ export default class Timed extends React.Component {
 
             >
                 <View  style={{top: 5, left: 5}}>
-                    <TouchableHighlight onPress={ () => this._navigate() }>
+                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
                         <Text style={{color: 'white'}}>Back</Text>
                     </TouchableHighlight>
                 </View>
