@@ -67,7 +67,6 @@ export default class Game extends React.Component {
                     </TouchableHighlight>
                 </View>
                 <View style={{
-                    backgroundColor: '#1976D2',
                     flex: 1,
                     flexDirection: 'column',
                     justifyContent: 'center',
