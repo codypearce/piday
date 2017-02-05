@@ -9,6 +9,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import Keypad from '../components/Keypad';
+
 export default class Timed extends React.Component {
     constructor(props) {
         super(props);
@@ -21,6 +23,18 @@ export default class Timed extends React.Component {
         name: route,
       })
     }
+    enterDigit(value) {
+       if(this.state.pi[this.state.digits] == value) {
+           this.setState({
+               display: this.state.display + value.toString(),
+               digits: this.state.digits + 1
+           });
+       } else {
+           this.setState({
+               gameOver: true
+           });
+       }
+   }
     render() {
         return (
             <View style={{
@@ -48,6 +62,7 @@ export default class Timed extends React.Component {
                         >
                         Timed
                     </Text>
+                    <Keypad enterDigit={this.enterDigit} />
                 </View>
 
 
