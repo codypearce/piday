@@ -14,6 +14,14 @@ import Keypad from '../components/Keypad';
 export default class Timed extends React.Component {
     constructor(props) {
         super(props);
+        this.enterDigit = this.enterDigit.bind(this);
+        this.state = {
+            display: '',
+            digits: 0,
+            pi: Math.PI.toString(),
+            time: 1000,
+            gameOver: false
+        }
     }
     onButtonPress() {
       Alert.alert('Button has been pressed!');
@@ -54,14 +62,29 @@ export default class Timed extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <Text
-                        style={{
-                            color: 'white',
-                            fontSize: 24
-                        }}
-                        >
-                        Timed
-                    </Text>
+                    <View style={{
+                        marginTop: -100,
+                        marginBottom: 50
+                    }}>
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 24
+                            }}
+                            >
+                            {this.state.time}
+                        </Text>
+                    </View >
+                    <View style={{marginBottom: 50}} >
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 24
+                            }}
+                            >
+                            PI: {this.state.display}
+                        </Text>
+                    </View>
                     <Keypad enterDigit={this.enterDigit} />
                 </View>
 

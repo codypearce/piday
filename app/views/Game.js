@@ -78,7 +78,6 @@ export default class Game extends React.Component {
                 >
                     <View
                         style={{
-
                             marginTop: -100,
                             marginBottom: 50
                         }}>
