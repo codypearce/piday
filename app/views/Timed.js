@@ -15,11 +15,12 @@ export default class Timed extends React.Component {
     constructor(props) {
         super(props);
         this.enterDigit = this.enterDigit.bind(this);
+        this.milToMinutes = this.milToMinutes.bind(this);
         this.state = {
             display: '',
             digits: 0,
             pi: Math.PI.toString(),
-            time: 1000,
+            time: 60000,
             gameOver: false
         }
     }
@@ -43,6 +44,11 @@ export default class Timed extends React.Component {
            });
        }
    }
+   milToMinutes(time) {
+        let minutes = Math.floor(time / 60000);
+        let seconds = ((time % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
     render() {
         return (
             <View style={{
@@ -72,7 +78,7 @@ export default class Timed extends React.Component {
                                 fontSize: 24
                             }}
                             >
-                            {this.state.time}
+                            {this.milToMinutes(this.state.time)}
                         </Text>
                     </View >
                     <View style={{marginBottom: 50}} >
