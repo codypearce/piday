@@ -44,6 +44,9 @@ export default class Timed extends React.Component {
            });
        }
    }
+   startTime() {
+       this.setState({time: this.state.time - 1});
+   }
    milToMinutes(time) {
         let minutes = Math.floor(time / 60000);
         let seconds = ((time % 60000) / 1000).toFixed(0);
@@ -92,6 +95,11 @@ export default class Timed extends React.Component {
                         </Text>
                     </View>
                     <Keypad enterDigit={this.enterDigit} />
+                    <View style={{marginTop: 20}} >
+                        <TouchableHighlight onPress={ () => this.startTime() }>
+                            <Text style={{color: 'white'}}>Start</Text>
+                        </TouchableHighlight>
+                    </View>
                 </View>
 
 
