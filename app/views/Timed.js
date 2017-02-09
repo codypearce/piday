@@ -15,12 +15,14 @@ export default class Timed extends React.Component {
     constructor(props) {
         super(props);
         this.enterDigit = this.enterDigit.bind(this);
-        this.milToMinutes = this.milToMinutes.bind(this);
+        this.formatTime = this.formatTime.bind(this);
+        this.tick = this.tick.bind(this);
+        this.startTime = this.startTime.bind(this);
         this.state = {
             display: '',
             digits: 0,
             pi: Math.PI.toString(),
-            time: 60000,
+            time: 60,
             gameOver: false
         }
     }
@@ -45,11 +47,23 @@ export default class Timed extends React.Component {
        }
    }
    startTime() {
-       this.setState({time: this.state.time - 1});
+       this.interval = setInterval(this.tick, 1000);
    }
-   milToMinutes(time) {
-        let minutes = Math.floor(time / 60000);
-        let seconds = ((time % 60000) / 1000).toFixed(0);
+   tick() {
+       this.setState({time: this.state.time - 1});
+       if (this.state.time <= 0) {
+           clearInterval(this.interval);
+       }
+   }
+   formatTime(time) {
+        let minutes = Math.floor(time / 60);
+        let seconds = time;
+        if(seconds > 59) {
+            seconds = '0'
+        }
+        if(minutes <= 0){
+            minutes = '0';
+        }
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
     render() {
@@ -81,7 +95,7 @@ export default class Timed extends React.Component {
                                 fontSize: 24
                             }}
                             >
-                            {this.milToMinutes(this.state.time)}
+                            {this.formatTime(this.state.time)}
                         </Text>
                     </View >
                     <View style={{marginBottom: 50}} >
