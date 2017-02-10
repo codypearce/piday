@@ -22,7 +22,7 @@ export default class Timed extends React.Component {
             display: '',
             digits: 0,
             pi: Math.PI.toString(),
-            time: 60,
+            time: 10,
             gameOver: false
         }
     }
@@ -53,6 +53,7 @@ export default class Timed extends React.Component {
        this.setState({time: this.state.time - 1});
        if (this.state.time <= 0) {
            clearInterval(this.interval);
+
        }
    }
    formatTime(time) {
@@ -86,8 +87,8 @@ export default class Timed extends React.Component {
                     alignItems: 'center'
                 }}>
                     <View style={{
-                        marginTop: -100,
-                        marginBottom: 50
+                        marginTop: -50,
+                        marginBottom: 30
                     }}>
                         <Text
                             style={{
@@ -97,8 +98,19 @@ export default class Timed extends React.Component {
                             >
                             {this.formatTime(this.state.time)}
                         </Text>
+
                     </View >
+                    <View style={{marginBottom: 40}} >
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 24,
+                            }}>
+                            {this.state.digits} Digits
+                        </Text>
+                        </View>
                     <View style={{marginBottom: 50}} >
+
                         <Text
                             style={{
                                 color: 'white',
