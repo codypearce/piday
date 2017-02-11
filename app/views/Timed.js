@@ -40,13 +40,12 @@ export default class Timed extends React.Component {
         if(this.state.started == false) {
             return;
         } else if(this.state.numWrong >= 3) {
+            clearInterval(this.interval);
             this.setState({
                 started: false,
                 gameOver: true
             });
-        }
-
-       if(this.state.pi[this.state.digits] == value) {
+        } else if(this.state.pi[this.state.digits] == value) {
            this.setState({
                display: this.state.display + value.toString(),
                digits: this.state.digits + 1
