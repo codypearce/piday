@@ -24,7 +24,8 @@ export default class Timed extends React.Component {
             pi: Math.PI.toString(),
             time: 10,
             gameOver: false,
-            started: false
+            started: false,
+            numWrong: 0
         }
     }
     onButtonPress() {
@@ -38,7 +39,13 @@ export default class Timed extends React.Component {
     enterDigit(value) {
         if(this.state.started == false) {
             return;
+        } else if(this.state.numWrong >= 3) {
+            this.setState({
+                started: false,
+                gameOver: true
+            });
         }
+
        if(this.state.pi[this.state.digits] == value) {
            this.setState({
                display: this.state.display + value.toString(),
@@ -46,8 +53,8 @@ export default class Timed extends React.Component {
            });
        } else {
            this.setState({
-               gameOver: true
-           });
+               numWrong: this.state.numWrong + 1
+           })
        }
    }
    startTime() {
@@ -118,6 +125,13 @@ export default class Timed extends React.Component {
                                 fontSize: 24,
                             }}>
                             {this.state.digits} Digits
+                        </Text>
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 24,
+                            }}>
+                            {this.state.numWrong} Wrong
                         </Text>
                         </View>
                     <View style={{marginBottom: 50}} >
