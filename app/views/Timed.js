@@ -23,7 +23,8 @@ export default class Timed extends React.Component {
             digits: 0,
             pi: Math.PI.toString(),
             time: 10,
-            gameOver: false
+            gameOver: false,
+            started: false
         }
     }
     onButtonPress() {
@@ -35,6 +36,9 @@ export default class Timed extends React.Component {
       })
     }
     enterDigit(value) {
+        if(this.state.started == false) {
+            return;
+        }
        if(this.state.pi[this.state.digits] == value) {
            this.setState({
                display: this.state.display + value.toString(),
@@ -48,6 +52,9 @@ export default class Timed extends React.Component {
    }
    startTime() {
        this.interval = setInterval(this.tick, 1000);
+       this.setState({
+           started: true
+       })
    }
    tick() {
        this.setState({time: this.state.time - 1});
