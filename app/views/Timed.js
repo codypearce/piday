@@ -53,14 +53,18 @@ export default class Timed extends React.Component {
    startTime() {
        this.interval = setInterval(this.tick, 1000);
        this.setState({
-           started: true
+           started: true,
+           gameOver: false
        })
    }
    tick() {
        this.setState({time: this.state.time - 1});
        if (this.state.time <= 0) {
            clearInterval(this.interval);
-
+           this.setState({
+               started: false,
+               gameOver: true
+           });
        }
    }
    formatTime(time) {
