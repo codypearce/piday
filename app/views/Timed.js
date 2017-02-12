@@ -145,14 +145,23 @@ export default class Timed extends React.Component {
                         </Text>
                     </View>
                     <Keypad enterDigit={this.enterDigit} />
-                    <View style={{marginTop: 20}} >
-                        <TouchableHighlight onPress={ () => this.startTime() }>
-                            <Text style={{color: 'white'}}>Start</Text>
-                        </TouchableHighlight>
-                    </View>
+
                 </View>
 
+                <View style={{
+                    marginTop: 20,
+            
+                }} >
+                    <TouchableHighlight style={{height: 40, backgroundColor: 'white', flexDirection: 'row',
+justifyContent: 'center',
+alignItems: 'center'}} onPress={ () => this.startTime() }>
+                        <Text style={{color: 'black'
 
+
+
+                        }}>Start</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
         )
     }
