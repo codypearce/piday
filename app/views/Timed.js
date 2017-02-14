@@ -122,6 +122,7 @@ export default class Timed extends React.Component {
                             style={{
                                 color: 'white',
                                 fontSize: 24,
+                                marginBottom: 20
                             }}>
                             {this.state.digits} Digits
                         </Text>
@@ -150,7 +151,7 @@ export default class Timed extends React.Component {
 
                 <View style={{
                     marginTop: 20,
-            
+
                 }} >
                     <TouchableHighlight style={{height: 40, backgroundColor: 'white', flexDirection: 'row',
 justifyContent: 'center',
