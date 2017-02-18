@@ -55,22 +55,22 @@ export default class Home extends React.Component {
     }
 }
 const styles = StyleSheet.create({
-  container: {
-      backgroundColor: '#1976D2',
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
-  },
-  title: {
-      color: 'white',
-      fontSize: 24,
-      marginTop: -100,
-      marginBottom: 100
-  },
-  centerNav: {
-      color: 'white',
-      fontSize: 18,
-      marginBottom: 5
-  }
+    container: {
+        backgroundColor: '#1976D2',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    title: {
+        color: 'white',
+        fontSize: 24,
+        marginTop: -100,
+        marginBottom: 100
+    },
+    centerNav: {
+        color: 'white',
+        fontSize: 18,
+        marginBottom: 5
+    }
 });

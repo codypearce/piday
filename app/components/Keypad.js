@@ -24,27 +24,10 @@ export default class Keypad extends React.Component {
 
         return(
             <View className="keypad" >
-                <View className="keyRow" style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>{this.mapKeys(rowOne)}</View>
-                <View className="keyRow" style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>{this.mapKeys(rowTwo)}</View>
-                <View className="keyRow" style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>{this.mapKeys(rowThree)}</View>
-                <View className="keyRow" style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>{this.mapKeys(rowFour)}</View>
-
+                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowOne)}</View>
+                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowTwo)}</View>
+                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowThree)}</View>
+                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowFour)}</View>
             </View>
         )
     }
@@ -54,20 +37,25 @@ class Key extends React.Component {
     render() {
         const value = this.props.value;
         return(
-            <TouchableHighlight className="key"
-
-            onPress={this.props.enterDigit.bind(this, value)}
-            underlayColor="#2084e8"
-             >
-             <Text style={{
-                 color: 'white',
-                 paddingTop: 10,
-                 paddingBottom: 10,
-                 paddingLeft: 20,
-                 paddingRight: 20,
-                 fontSize: 28
-             }}>{value.toString()}</Text>
-             </TouchableHighlight>
+            <TouchableHighlight className="key" onPress={this.props.enterDigit.bind(this, value)} underlayColor="#2084e8">
+                <Text style={styles.key}>{value.toString()}</Text>
+            </TouchableHighlight>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    keyRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    key: {
+        color: 'white',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 28
+    }
+});
