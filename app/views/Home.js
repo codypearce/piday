@@ -28,27 +28,27 @@ export default class Home extends React.Component {
                     Pi day
                 </Text>
                 <TouchableHighlight  onPress={ () => this._navigate('Game') }>
-                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
+                    <Text style={styles.centerNav}>
                         Play
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Timed') }>
-                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
+                    <Text style={styles.centerNav}>
                         Timed
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Quiz') }>
-                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
+                    <Text style={styles.centerNav}>
                         Quiz
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('Learn') }>
-                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
+                    <Text style={styles.centerNav}>
                         Learn
                     </Text>
                 </TouchableHighlight>
                 <TouchableHighlight  onPress={ () => this._navigate('About') }>
-                    <Text style={{color: 'white', fontSize: 18, marginBottom: 5}}>
+                    <Text style={styles.centerNav}>
                         About
                     </Text>
                 </TouchableHighlight>
@@ -70,5 +70,10 @@ const styles = StyleSheet.create({
       fontSize: 24,
       marginTop: -100,
       marginBottom: 100
-}
+  },
+  centerNav: {
+      color: 'white',
+      fontSize: 18,
+      marginBottom: 5
+  }
 });
