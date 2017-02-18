@@ -66,22 +66,14 @@ export default class Game extends React.Component {
                     <View
                         style={styles.digits}>
                         <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24
-                            }}>
+                            style={styles.largeWhite}>
                             {this.state.digits} Digits
                         </Text>
                     </View>
                     <View
-                    style={{
-                        marginBottom: 50
-                    }}>
+                    style={styles.pi}>
                         <Text
-                        style={{
-                            color: 'white',
-                            fontSize: 24
-                        }}
+                        style={styles.largeWhite}
                         >
                             Pi: {this.state.display}
                         </Text>
@@ -100,34 +92,55 @@ class GameOver extends React.Component {
     }
     render() {
         return(
-            <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{color: "white"}}>You got {this.props.correctDigits} digits correct</Text>
-                <TouchableHighlight onPress={this.props.resetGame} ><Text style={{color: "white", marginTop: 30, fontSize: 28}}>Try again</Text></TouchableHighlight>
+            <View style={styles.endContainer}>
+                <Text style={styles.white}>You got {this.props.correctDigits} digits correct</Text>
+                <TouchableHighlight onPress={this.props.resetGame} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
 
 }
 const styles = StyleSheet.create({
-  wrapper: {
+    wrapper: {
       backgroundColor: '#1976D2',
       flex: 1,
-  },
-  backBtn: {
+    },
+    backBtn: {
       top: 5,
       left: 5
-  },
-  white: {
+    },
+    white: {
       color: 'white'
-  },
-  container: {
+    },
+
+    container: {
       flex: 1,
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center'
-  },
-  digits: {
+    },
+    digits: {
       marginTop: -100,
       marginBottom: 50
+    },
+    pi: {
+        marginBottom: 50
+    },
+    largeWhite: {
+      color: 'white',
+      fontSize: 24
+  },
+
+
+  endContainer: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+  tryAgain: {
+      color: "white",
+      marginTop: 30,
+      fontSize: 28
   }
+
 });
