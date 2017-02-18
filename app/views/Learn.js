@@ -43,15 +43,30 @@ export default class Learn extends React.Component {
                     <View
                         style={{
                             marginTop: -100,
-                            marginBottom: 50
+                            marginBottom: 50,
+
                         }}>
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24
-                            }}>
-                            Learn
-                        </Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>What is PI?</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>Irrational Numbers</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>PI Algorithms?</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>What is PI Day?</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>PI History</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>PI in the real world</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={{color: 'white', textAlign: 'center'}}>Other constants</Text>
+                        </TouchableHighlight>
                     </View>
 
                 </View>
