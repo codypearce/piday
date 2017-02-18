@@ -23,23 +23,8 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <View style={{
-                backgroundColor: '#1976D2',
-                flex: 1,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}
-
-            >
-                <Text
-                    style={{
-                        color: 'white',
-                        fontSize: 24,
-                        marginTop: -100,
-                        marginBottom: 100
-                    }}
-                >
+            <View style={styles.container}>
+                <Text style={styles.title}>
                     Pi day
                 </Text>
                 <TouchableHighlight  onPress={ () => this._navigate('Game') }>
@@ -72,3 +57,18 @@ export default class Home extends React.Component {
         )
     }
 }
+const styles = StyleSheet.create({
+  container: {
+      backgroundColor: '#1976D2',
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+  title: {
+      color: 'white',
+      fontSize: 24,
+      marginTop: -100,
+      marginBottom: 100
+}
+});
