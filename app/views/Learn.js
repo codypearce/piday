@@ -46,7 +46,7 @@ export default class Learn extends React.Component {
                             marginBottom: 50,
 
                         }}>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                        <TouchableHighlight onPress={ () => this._navigate('Whatispi') }>
                             <Text style={{color: 'white', textAlign: 'center'}}>What is PI?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
