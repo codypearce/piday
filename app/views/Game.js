@@ -23,9 +23,6 @@ export default class Game extends React.Component {
             gameOver: false
         }
     }
-    onButtonPress() {
-      Alert.alert('Button has been pressed!');
-    };
     _navigate(route){
       this.props.navigator.push({
         name: route, // Matches route.name
@@ -59,28 +56,15 @@ export default class Game extends React.Component {
         }
         var display = this.state.display;
         return (
-            <View style={{
-                backgroundColor: '#1976D2',
-                flex: 1,
-            }}>
-                <View  style={{top: 5, left: 5}}>
+            <View style={styles.wrapper}>
+                <View  style={styles.backBtn>
                     <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={{color: 'white'}}>Back</Text>
+                        <Text style={styles.white}>Back</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-
-                >
+                <View style={styles.container}>
                     <View
-                        style={{
-                            marginTop: -100,
-                            marginBottom: 50
-                        }}>
+                        style={styles.digits}>
                         <Text
                             style={{
                                 color: 'white',
@@ -124,3 +108,26 @@ class GameOver extends React.Component {
     }
 
 }
+const styles = StyleSheet.create({
+  wrapper: {
+      backgroundColor: '#1976D2',
+      flex: 1,
+  },
+  backBtn: {
+      top: 5,
+      left: 5
+  },
+  white: {
+      color: 'white'
+  },
+  container: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+  },
+  digits: {
+      marginTop: -100,
+      marginBottom: 50
+  }
+});
