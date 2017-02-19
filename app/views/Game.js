@@ -57,31 +57,32 @@ export default class Game extends React.Component {
         var display = this.state.display;
         return (
             <View style={styles.wrapper}>
-                <View  style={styles.backBtn>
-                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}>Back</Text>
-                    </TouchableHighlight>
-                </View>
-                <View style={styles.container}>
-                    <View
-                        style={styles.digits}>
-                        <Text
-                            style={styles.largeWhite}>
-                            {this.state.digits} Digits
-                        </Text>
+                    <View  style={styles.backBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
+                            <Text style={styles.white}>Back</Text>
+                        </TouchableHighlight>
                     </View>
-                    <View
-                    style={styles.pi}>
-                        <Text
-                        style={styles.largeWhite}
-                        >
-                            Pi: {this.state.display}
-                        </Text>
+
+                    <View style={styles.container}>
+                        <View
+                            style={styles.digits}>
+                            <Text
+                                style={styles.largeWhite}>
+                                {this.state.digits} Digits
+                            </Text>
+                        </View>
+                        <View
+                        style={styles.pi}>
+                            <Text
+                            style={styles.largeWhite}
+                            >
+                                Pi: {this.state.display}
+                            </Text>
+                        </View>
+                        <View>
+                                {content}
+                        </View>
                     </View>
-                    <View>
-                            {content}
-                    </View>
-                </View>
             </View>
         )
     }
