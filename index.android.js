@@ -19,7 +19,7 @@ import Timed from './app/views/Timed'
 import Quiz from './app/views/Quiz'
 import Learn from './app/views/Learn'
 import Whatispi from './app/views/learn/Whatispi'
-import About from './app/views/About'
+import Settings from './app/views/Settings'
 
 export default class piday extends Component {
     renderScene(route, navigator) {
@@ -40,8 +40,8 @@ export default class piday extends Component {
         } else if(route.name == 'Whatispi') {
             return <Whatispi navigator={navigator} />
         }
-        if(route.name == 'About') {
-            return <About navigator={navigator} />
+        if(route.name == 'Settings') {
+            return <Settings navigator={navigator} />
         }
     }
     render() {

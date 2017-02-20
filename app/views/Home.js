@@ -44,9 +44,9 @@ export default class Home extends React.Component {
                         Learn
                     </Text>
                 </TouchableHighlight>
-                <TouchableHighlight  onPress={ () => this._navigate('About') }>
+                <TouchableHighlight  onPress={ () => this._navigate('Settings') }>
                     <Text style={styles.centerNav}>
-                        About
+                        Settings
                     </Text>
                 </TouchableHighlight>
 

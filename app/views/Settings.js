@@ -9,7 +9,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-export default class About extends React.Component {
+export default class Settings extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -50,7 +50,7 @@ export default class About extends React.Component {
                                 color: 'white',
                                 fontSize: 24
                             }}>
-                            About
+                            Settings
                         </Text>
                     </View>
 
