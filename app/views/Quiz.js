@@ -13,10 +13,12 @@ export default class Quiz extends React.Component {
     constructor(props) {
         super(props);
         this.startQuiz = this.startQuiz.bind(this);
+        this.answerQuestion = this.answerQuestion.bind(this);
         this.state = {
             isStarted: false,
-            questionIdx: 1,
-            questionsArr: []
+            questionIdx: 0,
+            questionsArr: [],
+            score: 0
         }
     }
     _navigate(route){
@@ -43,12 +45,21 @@ export default class Quiz extends React.Component {
             isStarted: true
         })
     }
+    answerQuestion(choice, answer) {
+        if(choice == answer) {
+            this.setState({
+                score: this.state.score + 1,
+                questionIdx: this.state.questionIdx + 1
+            })
+        }
+
+    }
     render() {
         let content = null;
         if(this.state.isStarted == false) {
             content = <Button onPress={this.startQuiz} title="Start Quiz" />
         } else if(this.state.isStarted == true) {
-            content = <Question questionIdx={this.state.questionIdx} />
+            content = <Question questionIdx={this.state.questionIdx} questionsArr={this.state.questionsArr} answerQuestion={this.answerQuestion} />
         }
         return (
             <View style={{
@@ -74,7 +85,7 @@ export default class Quiz extends React.Component {
                             marginBottom: 50
                         }}>
                         {content}
-                        <Text>{this.state.questionsArr}</Text>
+                        <Text>{this.state.score}</Text>
                     </View>
 
                 </View>
@@ -110,7 +121,8 @@ const questions = [
 class Question extends React.Component {
     constructor(props) {
         super(props);
-        actualQuestion = questions[this.props.questionIdx]
+        let index = this.props.questionsArr[this.props.questionIdx];
+        let actualQuestion = questions[index];
         this.state = {
             question: actualQuestion.question,
             choice1: actualQuestion.choices[0],
@@ -126,10 +138,18 @@ class Question extends React.Component {
             <View>
                 <Text> {this.state.question}</Text>
                 <View>
-                    <Text> {this.state.choice1}</Text>
-                    <Text> {this.state.choice2}</Text>
-                    <Text> {this.state.choice3}</Text>
-                    <Text> {this.state.choice4}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice1, this.state.answer) }>
+                        <Text style={{color: 'white'}}>{this.state.choice1}</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice2, this.state.answer)}>
+                        <Text style={{color: 'white'}}>{this.state.choice2}</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice3, this.state.answer) }>
+                        <Text style={{color: 'white'}}>{this.state.choice3}</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice4, this.state.answer) }>
+                        <Text style={{color: 'white'}}>{this.state.choice4}</Text>
+                    </TouchableHighlight>
                 </View>
             </View>
         )
