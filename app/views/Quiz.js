@@ -15,22 +15,30 @@ export default class Quiz extends React.Component {
         this.startQuiz = this.startQuiz.bind(this);
         this.state = {
             isStarted: false,
-            questionIdx: null,
+            questionIdx: 1,
+            questionsArr: []
         }
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
-    randomQuestion() {
-        let rand = Math.round(Math.random() * 3);
+    setUpQuestions() {
+        let questionsArr = [];
+        for(let i = 0; i <= 2; i++) {
+            let rand = Math.round(Math.random() * 3);
+            while(questionsArr.indexOf(rand) > -1) {
+                rand = Math.round(Math.random() * 3);
+            }
+            questionsArr.push(rand);
+        }
         this.setState({
-            questionIdx: rand
+            questionsArr: questionsArr
         })
     }
     startQuiz() {
-        this.randomQuestion();
+        this.setUpQuestions();
         this.setState({
             isStarted: true
         })
@@ -66,6 +74,7 @@ export default class Quiz extends React.Component {
                             marginBottom: 50
                         }}>
                         {content}
+                        <Text>{this.state.questionsArr}</Text>
                     </View>
 
                 </View>
