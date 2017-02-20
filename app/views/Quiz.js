@@ -18,7 +18,8 @@ export default class Quiz extends React.Component {
             isStarted: false,
             questionIdx: 0,
             questionsArr: [],
-            score: 0
+            score: 0,
+            currentQuestion: ''
         }
     }
     _navigate(route){
@@ -52,6 +53,7 @@ export default class Quiz extends React.Component {
                 questionIdx: this.state.questionIdx + 1
             })
         }
+        this.forceUpdate()
 
     }
     render() {
@@ -59,7 +61,7 @@ export default class Quiz extends React.Component {
         if(this.state.isStarted == false) {
             content = <Button onPress={this.startQuiz} title="Start Quiz" />
         } else if(this.state.isStarted == true) {
-            content = <Question questionIdx={this.state.questionIdx} questionsArr={this.state.questionsArr} answerQuestion={this.answerQuestion} />
+            content = <Questions questionIdx={this.state.questionIdx} questionsArr={this.state.questionsArr} answerQuestion={this.answerQuestion} />
         }
         return (
             <View style={{
@@ -86,6 +88,7 @@ export default class Quiz extends React.Component {
                         }}>
                         {content}
                         <Text>{this.state.score}</Text>
+                        <Text>{this.state.questionIdx}</Text>
                     </View>
 
                 </View>
@@ -93,14 +96,7 @@ export default class Quiz extends React.Component {
         )
     }
 }
-const questions1 = [
-    ["What day is Pi day", ["3/14", "14/3", "22/7", "Everyday is pi day"], "3/14"],
-    ["When did Pi day start", ["1978", "1565", "1988", "2007"], "1988"],
-    ["When did congress pass a law recognizing Pi Day as a national day?", ["2007", "2009", "1988", "1989"], "2009"],
-    ["What day is Pi Approximation day?", ["3/14", "4/14", "22/7", "15/1"], "22/7"],
-    ["How is Pi defined mathematically", ["Circumference / diamter", "2 r^2", "1 / r^2", "I'ts not"], "Circumference / diamter"]
-]
-const questions = [
+const questionsSrc = [
     {
         question: "What day is Pi day",
         choices:  ["3/14", "14/3", "22/7", "Everyday is pi day"],
@@ -118,11 +114,24 @@ const questions = [
     },
 
 ]
+class Questions extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return(
+            <View>
+                <Question questionIdx={this.props.questionIdx} questionsArr={this.props.questionsArr} answerQuestion={this.props.answerQuestion} />
+            </View>
+        )
+    }
+}
+
 class Question extends React.Component {
     constructor(props) {
         super(props);
         let index = this.props.questionsArr[this.props.questionIdx];
-        let actualQuestion = questions[index];
+        let actualQuestion = questionsSrc[index];
         this.state = {
             question: actualQuestion.question,
             choice1: actualQuestion.choices[0],
