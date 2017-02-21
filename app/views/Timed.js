@@ -28,9 +28,6 @@ export default class Timed extends React.Component {
             numWrong: 0
         }
     }
-    onButtonPress() {
-      Alert.alert('Button has been pressed!');
-    };
     _navigate(route){
       this.props.navigator.push({
         name: route,

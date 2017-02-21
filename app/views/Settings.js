@@ -13,9 +13,6 @@ export default class Settings extends React.Component {
     constructor(props) {
         super(props);
     }
-    onButtonPress() {
-      Alert.alert('Button has been pressed!');
-    };
     _navigate(route){
       this.props.navigator.push({
         name: route,
