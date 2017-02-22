@@ -20,49 +20,34 @@ export default class Learn extends React.Component {
     }
     render() {
         return (
-            <View style={{
-                backgroundColor: '#1976D2',
-                flex: 1,
-            }}>
-                <View  style={{top: 5, left: 5}}>
+            <View style={styles.wrapper}>
+                <View  style={styles.backBtn}>
                     <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={{color: 'white'}}>Back</Text>
+                        <Text style={styles.white}>Back</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-
-                >
-                    <View
-                        style={{
-                            marginTop: -100,
-                            marginBottom: 50,
-
-                        }}>
+                <View style={styles.container}>
+                    <View style={styles.digits}>
                         <TouchableHighlight onPress={ () => this._navigate('Whatispi') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>What is PI?</Text>
+                            <Text style={styles.centerNav}>What is PI?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>Irrational Numbers</Text>
+                            <Text style={styles.centerNav}>Irrational Numbers</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>PI Algorithms?</Text>
+                            <Text style={styles.centerNav}>PI Algorithms?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>What is PI Day?</Text>
+                            <Text style={styles.centerNav}>What is PI Day?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>PI History</Text>
+                            <Text style={styles.centerNav}>PI History</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>PI in the real world</Text>
+                            <Text style={styles.centerNav}>PI in the real world</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={{color: 'white', textAlign: 'center'}}>Other constants</Text>
+                            <Text style={styles.centerNav}>Other constants</Text>
                         </TouchableHighlight>
                     </View>
 
@@ -71,3 +56,32 @@ export default class Learn extends React.Component {
         )
     }
 }
+const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: '#1976D2',
+        flex: 1
+    },
+    backBtn: {
+      top: 5,
+      left: 5
+    },
+    white: {
+      color: 'white'
+    },
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    digits: {
+      marginTop: -100,
+      marginBottom: 50
+    },
+    centerNav: {
+        color: 'white',
+        fontSize: 16,
+        marginBottom: 5,
+        textAlign: 'center'
+    }
+});
