@@ -19,7 +19,8 @@ export default class Quiz extends React.Component {
             questionIdx: 0,
             questionsArr: [],
             score: 0,
-            currentQuestion: ''
+            currentQuestion: '',
+
         }
     }
     _navigate(route){
@@ -37,11 +38,11 @@ export default class Quiz extends React.Component {
             questionsArr.push(rand);
         }
         this.setState({
-            questionsArr: questionsArr
+            questionsArr: questionsArr,
+
         })
     }
     startQuiz() {
-        this.setUpQuestions();
         this.setState({
             isStarted: true
         })
@@ -49,12 +50,17 @@ export default class Quiz extends React.Component {
     answerQuestion(choice, answer) {
         if(choice == answer) {
             this.setState({
-                score: this.state.score + 1,
-                questionIdx: this.state.questionIdx + 1
+                score: this.state.score + 1
             })
+            this.nextQuestion();
         }
-        this.forceUpdate()
+        this.forceUpdate();
 
+    }
+    nextQuestion() {
+        this.setState({
+            questionIdx: this.state.questionIdx + 1
+        })
     }
     render() {
         let content = null;
@@ -87,8 +93,7 @@ export default class Quiz extends React.Component {
                             marginBottom: 50
                         }}>
                         {content}
-                        <Text>{this.state.score}</Text>
-                        <Text>{this.state.questionIdx}</Text>
+
                     </View>
 
                 </View>
@@ -119,6 +124,7 @@ class Questions extends React.Component {
         super(props);
     }
     render() {
+
         return(
             <View>
                 <Question questionIdx={this.props.questionIdx} questionsArr={this.props.questionsArr} answerQuestion={this.props.answerQuestion} />
