@@ -8,7 +8,24 @@ import {
   Navigator,
   TouchableHighlight
 } from 'react-native';
+const questionsSrc = [
+    {
+        question: "What day is Pi day",
+        choices:  ["3/14", "14/3", "22/7", "Everyday is pi day"],
+        answer: '3/14'
+    },
+    {
+        question: "When did Pi day start",
+        choices:  ["1978", "1565", "1988", "2007"],
+        answer: '1988'
+    },
+    {
+        question: "When did congress pass a law recognizing Pi Day as a national day?",
+        choices:  ["2007", "2009", "1988", "1989"],
+        answer: '2009'
+    },
 
+]
 export default class Quiz extends React.Component {
     constructor(props) {
         super(props);
@@ -17,9 +34,11 @@ export default class Quiz extends React.Component {
         this.state = {
             isStarted: false,
             questionIdx: 0,
-            questionsArr: [],
+            questionsArr: [0, 1, 2],
             score: 0,
-            currentQuestion: '',
+            currentQuestion: 0,
+            currentChoices: 0,
+            currentAnswer: 0,
 
         }
     }
@@ -30,6 +49,9 @@ export default class Quiz extends React.Component {
     }
     componentWillMount() {
         this.setUpQuestions();
+        this.setState([
+
+        ])
     }
     setUpQuestions() {
         let questionsArr = [];
@@ -41,8 +63,16 @@ export default class Quiz extends React.Component {
             questionsArr.push(rand);
         }
         this.setState({
-            questionsArr: questionsArr,
-
+            questionsArr: questionsArr
+        })
+        this.updateQuestion();
+    }
+    updateQuestion() {
+        let src = questionsSrc[this.state.questionsArr[this.state.questionIdx]];
+        this.setState({
+            currentQuestion: src.question,
+            currentChoices: [src.choices[0], src.choices[1], src.choices[2], src.choices[3]],
+            currentAnswer: src.answer
         })
     }
     startQuiz() {
@@ -50,12 +80,13 @@ export default class Quiz extends React.Component {
             isStarted: true
         })
     }
-    answerQuestion(choice, answer) {
-        if(choice == answer) {
+    answerQuestion(choice) {
+        if(choice == this.state.currentAnswer) {
             this.setState({
-                score: this.state.score + 1
+                score: this.state.score + 1,
             })
             this.nextQuestion();
+            this.updateQuestion();
         }
         this.forceUpdate();
 
@@ -70,7 +101,7 @@ export default class Quiz extends React.Component {
         if(this.state.isStarted == false) {
             content = <Button onPress={this.startQuiz} title="Start Quiz" />
         } else if(this.state.isStarted == true) {
-            content = <Questions questionIdx={this.state.questionIdx} questionsArr={this.state.questionsArr} answerQuestion={this.answerQuestion} />
+            content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
         }
         return (
             <View style={{
@@ -97,40 +128,10 @@ export default class Quiz extends React.Component {
                         }}>
                         {content}
 
+                        <Text>{this.state.questionIdx}</Text>
                     </View>
 
                 </View>
-            </View>
-        )
-    }
-}
-const questionsSrc = [
-    {
-        question: "What day is Pi day",
-        choices:  ["3/14", "14/3", "22/7", "Everyday is pi day"],
-        answer: '3/14'
-    },
-    {
-        question: "When did Pi day start",
-        choices:  ["1978", "1565", "1988", "2007"],
-        answer: '1988'
-    },
-    {
-        question: "When did congress pass a law recognizing Pi Day as a national day?",
-        choices:  ["2007", "2009", "1988", "1989"],
-        answer: '2009'
-    },
-
-]
-class Questions extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-
-        return(
-            <View>
-                <Question questionIdx={this.props.questionIdx} questionsArr={this.props.questionsArr} answerQuestion={this.props.answerQuestion} />
             </View>
         )
     }
@@ -139,34 +140,25 @@ class Questions extends React.Component {
 class Question extends React.Component {
     constructor(props) {
         super(props);
-        let index = this.props.questionsArr[this.props.questionIdx];
-        let actualQuestion = questionsSrc[index];
-        this.state = {
-            question: actualQuestion.question,
-            choice1: actualQuestion.choices[0],
-            choice2: actualQuestion.choices[1],
-            choice3: actualQuestion.choices[2],
-            choice4: actualQuestion.choices[3],
-            answer: actualQuestion.answer
-        }
     }
     render() {
 
         return(
             <View>
-                <Text> {this.state.question}</Text>
+                <Text> {this.props.question}</Text>
+                <Text> {this.props.choices}</Text>
                 <View>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice1, this.state.answer) }>
-                        <Text style={{color: 'white'}}>{this.state.choice1}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0]) }>
+                        <Text style={{color: 'white'}}>{this.props.choices[0]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice2, this.state.answer)}>
-                        <Text style={{color: 'white'}}>{this.state.choice2}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])}>
+                        <Text style={{color: 'white'}}>{this.props.choices[1]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice3, this.state.answer) }>
-                        <Text style={{color: 'white'}}>{this.state.choice3}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2]) }>
+                        <Text style={{color: 'white'}}>{this.props.choices[2]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.state.choice4, this.state.answer) }>
-                        <Text style={{color: 'white'}}>{this.state.choice4}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3]) }>
+                        <Text style={{color: 'white'}}>{this.props.choices[3]}</Text>
                     </TouchableHighlight>
                 </View>
             </View>
