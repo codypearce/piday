@@ -28,6 +28,9 @@ export default class Quiz extends React.Component {
             name: route,
         })
     }
+    componentWillMount() {
+        this.setUpQuestions();
+    }
     setUpQuestions() {
         let questionsArr = [];
         for(let i = 0; i <= 2; i++) {
