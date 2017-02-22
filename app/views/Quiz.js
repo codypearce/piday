@@ -98,28 +98,14 @@ export default class Quiz extends React.Component {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
         }
         return (
-            <View style={{
-                backgroundColor: '#1976D2',
-                flex: 1,
-            }}>
-                <View  style={{top: 5, left: 5}}>
+            <View style={styles.wrapper}>
+                <View  style={styles.backBtn}>
                     <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={{color: 'white'}}>Back</Text>
+                        <Text style={styles.white}>Back</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-
-                >
-                    <View
-                        style={{
-                            marginTop: -100,
-                            marginBottom: 50
-                        }}>
+                <View style={styles.container}>
+                    <View style={styles.digits}>
                         {content}
                     </View>
 
@@ -140,19 +126,42 @@ class Question extends React.Component {
                 <Text> {this.props.question}</Text>
                 <View>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0]) }>
-                        <Text style={{color: 'white'}}>{this.props.choices[0]}</Text>
+                        <Text style={styles.white}>{this.props.choices[0]}</Text>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])}>
-                        <Text style={{color: 'white'}}>{this.props.choices[1]}</Text>
+                        <Text style={styles.white}>{this.props.choices[1]}</Text>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2]) }>
-                        <Text style={{color: 'white'}}>{this.props.choices[2]}</Text>
+                        <Text style={styles.white}>{this.props.choices[2]}</Text>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3]) }>
-                        <Text style={{color: 'white'}}>{this.props.choices[3]}</Text>
+                        <Text style={styles.white}>{this.props.choices[3]}</Text>
                     </TouchableHighlight>
                 </View>
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: '#1976D2',
+        flex: 1
+    },
+    backBtn: {
+      top: 5,
+      left: 5
+    },
+    white: {
+      color: 'white'
+    },
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    digits: {
+      marginTop: -100,
+      marginBottom: 50
+    }
+});
