@@ -39,7 +39,6 @@ export default class Quiz extends React.Component {
             currentQuestion: 0,
             currentChoices: 0,
             currentAnswer: 0,
-
         }
     }
     _navigate(route){
@@ -49,9 +48,6 @@ export default class Quiz extends React.Component {
     }
     componentWillMount() {
         this.setUpQuestions();
-        this.setState([
-
-        ])
     }
     setUpQuestions() {
         let questionsArr = [];
@@ -88,8 +84,6 @@ export default class Quiz extends React.Component {
             this.nextQuestion();
             this.updateQuestion();
         }
-        this.forceUpdate();
-
     }
     nextQuestion() {
         this.setState({
@@ -127,8 +121,6 @@ export default class Quiz extends React.Component {
                             marginBottom: 50
                         }}>
                         {content}
-
-                        <Text>{this.state.questionIdx}</Text>
                     </View>
 
                 </View>
@@ -146,7 +138,6 @@ class Question extends React.Component {
         return(
             <View>
                 <Text> {this.props.question}</Text>
-                <Text> {this.props.choices}</Text>
                 <View>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0]) }>
                         <Text style={{color: 'white'}}>{this.props.choices[0]}</Text>
