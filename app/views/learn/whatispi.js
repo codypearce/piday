@@ -20,30 +20,15 @@ export default class Whatispi extends React.Component {
     }
     render() {
         return (
-            <View style={{
-                backgroundColor: '#1976D2',
-                flex: 1,
-            }}>
-                <View  style={{top: 5, left: 5}}>
+            <View style={styles.wrapper}>
+                <View  style={styles.backBtn}>
                     <TouchableHighlight onPress={ () => this._navigate('Back') }>
-                        <Text style={{color: 'white'}}>Back</Text>
+                        <Text style={styles.backBtn}>Back</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-
-                >
-                    <View
-                        style={{
-                            marginTop: -100,
-                            marginBottom: 50,
-
-                        }}>
-                            <Text style={{color: 'white', textAlign: 'center'}}>What is PI?</Text>
+                <View style={styles.container}>
+                    <View style={styles.digits}>
+                            <Text style={styles.centerText}>What is PI?</Text>
                     </View>
 
                 </View>
@@ -51,3 +36,30 @@ export default class Whatispi extends React.Component {
         )
     }
 }
+const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: '#1976D2',
+        flex: 1
+    },
+    backBtn: {
+      top: 5,
+      left: 5
+    },
+    white: {
+      color: 'white'
+    },
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    digits: {
+      marginTop: -100,
+      marginBottom: 50
+    },
+    centerText: {
+        color: 'white',
+        textAlign: 'center'
+    }
+});

@@ -91,7 +91,7 @@ export default class Timed extends React.Component {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.time}>
-                        <Text style={style.title}>
+                        <Text style={styles.title}>
                             {this.formatTime(this.state.time)}
                         </Text>
 
