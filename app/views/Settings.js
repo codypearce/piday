@@ -23,7 +23,7 @@ export default class Settings extends React.Component {
             <View style={styles.wrapper}>
                 <View  style={styles.backBtn}>
                     <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}}>Back</Text>
+                        <Text style={styles.white}>Back</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={styles.container}>

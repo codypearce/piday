@@ -83,62 +83,30 @@ export default class Timed extends React.Component {
     }
     render() {
         return (
-            <View style={{
-                flex: 1,
-                backgroundColor: '#1976D2',
-            }}
-
-            >
-                <View  style={{top: 5, left: 5}}>
+            <View style={styles.wrapper}>
+                <View  style={styles.backBtn}>
                     <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={{color: 'white'}}>Back</Text>
+                        <Text style={styles.white}>Back</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <View style={{
-                        marginTop: -50,
-                        marginBottom: 30
-                    }}>
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24
-                            }}
-                            >
+                <View style={styles.container}>
+                    <View style={styles.time}>
+                        <Text style={style.title}>
                             {this.formatTime(this.state.time)}
                         </Text>
 
                     </View >
                     <View style={{marginBottom: 40}} >
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24,
-                                marginBottom: 20
-                            }}>
+                        <Text style={styles.digits}>
                             {this.state.digits} Digits
                         </Text>
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24,
-                            }}>
+                        <Text style={styles.title}>
                             {this.state.numWrong} Wrong
                         </Text>
                         </View>
                     <View style={{marginBottom: 50}} >
 
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontSize: 24
-                            }}
-                            >
+                        <Text style={styles.title}>
                             PI: {this.state.display}
                         </Text>
                     </View>
@@ -146,21 +114,54 @@ export default class Timed extends React.Component {
 
                 </View>
 
-                <View style={{
-                    marginTop: 20,
-
-                }} >
-                    <TouchableHighlight style={{height: 40, backgroundColor: 'white', flexDirection: 'row',
-justifyContent: 'center',
-alignItems: 'center'}} onPress={ () => this.startTime() }>
-                        <Text style={{color: 'black'
-
-
-
-                        }}>Start</Text>
+                <View style={{marginTop: 20}}>
+                    <TouchableHighlight style={styles.startBtn} onPress={ () => this.startTime() }>
+                        <Text style={styles.black}>Start</Text>
                     </TouchableHighlight>
                 </View>
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: '#1976D2',
+        flex: 1
+    },
+    backBtn: {
+        top: 5,
+        left: 5
+    },
+    white: {
+        color: 'white'
+    },
+    black: {
+        color: 'black'
+    },
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    time: {
+        marginTop: -50,
+        marginBottom: 30
+    },
+    digits: {
+        color: 'white',
+        fontSize: 24,
+        marginBottom: 20
+    },
+    title: {
+        color:'white',
+        fontSize: 24
+    },
+    startBtn: {
+        height: 40,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
