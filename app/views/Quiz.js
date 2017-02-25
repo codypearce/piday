@@ -108,7 +108,7 @@ export default class Quiz extends React.Component {
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
         } else {
-            content = <Endquiz />
+            content = <Endquiz score={this.state.score} />
         }
         return (
             <View style={styles.wrapper}>
@@ -149,6 +149,24 @@ class Question extends React.Component {
                     </TouchableHighlight>
                     <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3]) }>
                         <Text style={styles.white}>{this.props.choices[3]}</Text>
+                    </TouchableHighlight>
+                </View>
+            </View>
+        )
+    }
+}
+class EndQuiz extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+
+        return(
+            <View>
+                <Text> You got {this.props.score} out of ten correct! Good job!</Text>
+                <View>
+                    <TouchableHighlight onPress={ }>
+                        <Text style={styles.white}>Try again</Text>
                     </TouchableHighlight>
                 </View>
             </View>
