@@ -83,8 +83,8 @@ export default class Quiz extends React.Component {
                 score: this.state.score + 1,
             })
         }
-        if(this.state.questionIdx >= 3) {
-            this.endGame();
+        if(this.state.questionIdx >= 2) {
+            this.endQuiz();
         } else {
             this.nextQuestion();
             this.updateQuestion();
@@ -96,10 +96,23 @@ export default class Quiz extends React.Component {
             questionIdx: this.state.questionIdx + 1
         })
     }
-    endGame() {
+    endQuiz() {
         this.setState({
             endQuiz: true
         })
+    }
+    reset() {
+        this.setState({
+            isStarted: false,
+            endQuiz: false,
+            questionIdx: 0,
+            questionsArr: [0, 1, 2],
+            score: 0,
+            currentQuestion: 0,
+            currentChoices: 0,
+            currentAnswer: 0
+        })
+        this.startQuiz();
     }
     render() {
         let content = null;
@@ -108,7 +121,7 @@ export default class Quiz extends React.Component {
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
         } else {
-            content = <Endquiz score={this.state.score} />
+            content = <Endquiz score={this.state.score} reset={this.reset}/>
         }
         return (
             <View style={styles.wrapper}>
@@ -119,6 +132,8 @@ export default class Quiz extends React.Component {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.digits}>
+                        <Text>{this.state.questionIdx}</Text>
+                        <Text>{this.state.questionsArr}</Text>
                         {content}
                     </View>
 
@@ -155,7 +170,7 @@ class Question extends React.Component {
         )
     }
 }
-class EndQuiz extends React.Component {
+class Endquiz extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -163,9 +178,9 @@ class EndQuiz extends React.Component {
 
         return(
             <View>
-                <Text> You got {this.props.score} out of ten correct! Good job!</Text>
+                <Text> You got {this.props.score} out of 10 correct! Good job!</Text>
                 <View>
-                    <TouchableHighlight onPress={ }>
+                    <TouchableHighlight onPress={this.props.reset}>
                         <Text style={styles.white}>Try again</Text>
                     </TouchableHighlight>
                 </View>
