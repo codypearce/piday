@@ -96,7 +96,11 @@ export default class Quiz extends React.Component {
             questionIdx: this.state.questionIdx + 1
         })
     }
-
+    endGame() {
+        this.setState({
+            endQuiz: true
+        })
+    }
     render() {
         let content = null;
         if(this.state.isStarted == false) {
