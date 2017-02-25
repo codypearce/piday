@@ -39,7 +39,7 @@ export default class Quiz extends React.Component {
             score: 0,
             currentQuestion: 0,
             currentChoices: 0,
-            currentAnswer: 0,
+            currentAnswer: 0
         }
     }
     _navigate(route){
@@ -53,9 +53,9 @@ export default class Quiz extends React.Component {
     setUpQuestions() {
         let questionsArr = [];
         for(let i = 0; i <= 2; i++) {
-            let rand = Math.round(Math.random() * 3);
+            let rand = Math.round(Math.random() * 2);
             while(questionsArr.indexOf(rand) > -1) {
-                rand = Math.round(Math.random() * 3);
+                rand = Math.round(Math.random() * 2);
             }
             questionsArr.push(rand);
         }
