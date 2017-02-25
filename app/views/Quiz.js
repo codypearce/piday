@@ -33,6 +33,7 @@ export default class Quiz extends React.Component {
         this.answerQuestion = this.answerQuestion.bind(this);
         this.state = {
             isStarted: false,
+            endQuiz: false,
             questionIdx: 0,
             questionsArr: [0, 1, 2],
             score: 0,
@@ -81,21 +82,29 @@ export default class Quiz extends React.Component {
             this.setState({
                 score: this.state.score + 1,
             })
+        }
+        if(this.state.questionIdx >= 3) {
+            this.endGame();
+        } else {
             this.nextQuestion();
             this.updateQuestion();
         }
+
     }
     nextQuestion() {
         this.setState({
             questionIdx: this.state.questionIdx + 1
         })
     }
+
     render() {
         let content = null;
         if(this.state.isStarted == false) {
             content = <Button onPress={this.startQuiz} title="Start Quiz" />
-        } else if(this.state.isStarted == true) {
+        } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
+        } else {
+            content = <Endquiz />
         }
         return (
             <View style={styles.wrapper}>

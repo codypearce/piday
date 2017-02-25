@@ -30,7 +30,6 @@ export default class Whatispi extends React.Component {
                     <View style={styles.digits}>
                             <Text style={styles.centerText}>What is PI?</Text>
                     </View>
-
                 </View>
             </View>
         )
