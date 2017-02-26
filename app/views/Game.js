@@ -6,7 +6,8 @@ import {
   Button,
   Alert,
   Navigator,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
@@ -48,6 +49,14 @@ export default class Game extends React.Component {
            gameOver: false
        })
    }
+   formatDisplay(digits) {
+       if(digits.length > 15) {
+           let arr = digits.split('');
+           let slice = arr.slice(digits.length - 15, digits.length);
+           return slice.join('');
+       }
+       return digits;
+   }
     render() {
         let content = null;
         if(this.state.gameOver) {
@@ -67,17 +76,13 @@ export default class Game extends React.Component {
                     <View style={styles.container}>
                         <View
                             style={styles.digits}>
-                            <Text
-                                style={styles.largeWhite}>
+                            <Text style={styles.largeWhite}>
                                 {this.state.digits} Digits
                             </Text>
                         </View>
-                        <View
-                        style={styles.pi}>
-                            <Text
-                            style={styles.largeWhite}
-                            >
-                                Pi: {this.state.display}
+                        <View style={styles.pi}>
+                            <Text style={styles.piDisplay}>
+                                Pi: {this.formatDisplay(this.state.display)}
                             </Text>
                         </View>
                         <View>
@@ -105,45 +110,48 @@ class GameOver extends React.Component {
 }
 const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: '#1976D2',
-      flex: 1,
+        backgroundColor: '#1976D2',
+        flex: 1
     },
     backBtn: {
-      top: 5,
-      left: 5
+        top: 5,
+        left: 5
     },
     white: {
-      color: 'white'
+        color: 'white'
     },
-
     container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     digits: {
-      marginTop: -100,
-      marginBottom: 50
+        marginTop: -100,
+        marginBottom: 50
     },
     pi: {
         marginBottom: 50
     },
     largeWhite: {
-      color: 'white',
-      fontSize: 24
-  },
+        color: 'white',
+        fontSize: 24
+    },
+    piDisplay: {
+        color: 'white',
+        fontSize: 24,
+        overflow: 'scroll',
 
-
-  endContainer: {
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
-  },
-  tryAgain: {
-      color: "white",
-      marginTop: 30,
-      fontSize: 28
-  }
+    },
+    endContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    tryAgain: {
+        color: "white",
+        marginTop: 30,
+        fontSize: 28
+    }
 
 });

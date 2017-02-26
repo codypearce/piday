@@ -22,7 +22,7 @@ export default class Timed extends React.Component {
         this.state = {
             display: '',
             digits: 0,
-            pi: piVal.piString,,
+            pi: piVal.piString,
             time: 10,
             gameOver: false,
             started: false,
