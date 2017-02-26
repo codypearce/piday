@@ -19,6 +19,7 @@ export default class Timed extends React.Component {
         this.formatTime = this.formatTime.bind(this);
         this.tick = this.tick.bind(this);
         this.startTime = this.startTime.bind(this);
+        this.reset = this.reset.bind(this);
         this.state = {
             display: '',
             digits: 0,
@@ -66,7 +67,6 @@ export default class Timed extends React.Component {
        if (this.state.time <= 0) {
            clearInterval(this.interval);
            this.setState({
-               started: false,
                gameOver: true
            });
        }
@@ -90,11 +90,24 @@ export default class Timed extends React.Component {
         }
         return digits;
     }
+    reset() {
+        clearInterval(this.interval);
+        this.setState({
+            display: '',
+            digits: 0,
+            time: 10,
+            gameOver: false,
+            started: false,
+            numWrong: 0
+        });
+    }
     render() {
         if(this.state.started == false) {
             content = <StartButton startTime={this.startTime} />
-        } else if(this.state.started == true) {
+        } else if(this.state.started == true && this.state.gameOver == false ) {
             content = <TimedGame formatTime={this.formatTime} formatDisplay={this.formatDisplay} time={this.state.time}  digits={this.state.digits} numWrong={this.state.numWrong} enterDigit={this.enterDigit} display={this.state.display} />
+        } else if(this.state.gameOver == true) {
+            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         }
         return (
             <View style={styles.wrapper}>
@@ -164,6 +177,26 @@ class TimedGame extends React.Component {
         )
     }
 }
+class Endgame extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render(props) {
+        return(
+            <View style={styles.container}>
+                <Text style={styles.digits}>
+                    You got {this.props.digits} digits in 10 seconds
+                </Text>
+                <Text style={styles.title}>
+                    with {this.props.numWrong} mistakes
+                </Text>
+                <TouchableHighlight onPress={this.props.reset} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
+            </View>
+        )
+    }
+}
+
+
 const styles = StyleSheet.create({
     wrapper: {
         backgroundColor: '#1976D2',
@@ -211,5 +244,10 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingRight: 20,
         paddingLeft: 20
+    },
+    tryAgain: {
+        color: "white",
+        marginTop: 30,
+        fontSize: 28
     }
 });
