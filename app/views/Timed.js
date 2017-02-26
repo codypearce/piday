@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
+import piVal from '../components/PI';
 
 export default class Timed extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ export default class Timed extends React.Component {
         this.state = {
             display: '',
             digits: 0,
-            pi: Math.PI.toString(),
+            pi: piVal.piString,,
             time: 10,
             gameOver: false,
             started: false,
