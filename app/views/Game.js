@@ -22,7 +22,8 @@ export default class Game extends React.Component {
             display: '',
             digits: 0,
             pi: piVal.piString,
-            gameOver: false
+            gameOver: false,
+            showThree: true
         }
     }
     _navigate(route){
@@ -59,10 +60,16 @@ export default class Game extends React.Component {
    }
     render() {
         let content = null;
+        let showThree = null;
         if(this.state.gameOver) {
             content = <GameOver resetGame={this.resetGame} correctDigits={this.state.digits} />
         } else {
             content = <Keypad enterDigit={this.enterDigit} />
+        }
+        if(this.state.digits < 15) {
+            showThree = '3.';
+        } else {
+            showThree = '';
         }
         var display = this.state.display;
         return (
@@ -82,7 +89,7 @@ export default class Game extends React.Component {
                         </View>
                         <View style={styles.pi}>
                             <Text style={styles.piDisplay}>
-                                Pi: {this.formatDisplay(this.state.display)}
+                                {showThree}{this.formatDisplay(this.state.display)}
                             </Text>
                         </View>
                         <View>
