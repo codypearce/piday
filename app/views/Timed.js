@@ -91,11 +91,10 @@ export default class Timed extends React.Component {
         return digits;
     }
     render() {
-        let showThree = null;
-        if(this.state.digits < 15) {
-            showThree = '3.';
-        } else {
-            showThree = '';
+        if(this.state.started == false) {
+            content = <StartButton startTime={this.startTime} />
+        } else if(this.state.started == true) {
+            content = <TimedGame formatTime={this.formatTime} formatDisplay={this.formatDisplay} time={this.state.time}  digits={this.state.digits} numWrong={this.state.numWrong} enterDigit={this.enterDigit} display={this.state.display} />
         }
         return (
             <View style={styles.wrapper}>
@@ -105,35 +104,63 @@ export default class Timed extends React.Component {
                     </TouchableHighlight>
                 </View>
                 <View style={styles.container}>
-                    <View style={styles.time}>
-                        <Text style={styles.title}>
-                            {this.formatTime(this.state.time)}
-                        </Text>
-
-                    </View >
-                    <View style={{marginBottom: 40}} >
-                        <Text style={styles.digits}>
-                            {this.state.digits} Digits
-                        </Text>
-                        <Text style={styles.title}>
-                            {this.state.numWrong} Wrong
-                        </Text>
-                        </View>
-                        <View style={styles.pi}>
-                            <Text style={styles.title}>
-                                {showThree}{this.formatDisplay(this.state.display)}
-                            </Text>
-                        </View>
-                    <Keypad enterDigit={this.enterDigit} />
+                    {content}
 
                 </View>
 
-                <View style={{marginTop: 20}}>
-                    <TouchableHighlight style={styles.startBtn} onPress={ () => this.startTime() }>
-                        <Text style={styles.black}>Start</Text>
-                    </TouchableHighlight>
-                </View>
             </View>
+        )
+    }
+}
+class StartButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return(
+            <View style={{marginTop: 20}}>
+                <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startTime() }>
+                    <Text style={styles.black}>Start</Text>
+                </TouchableHighlight>
+            </View>
+        )
+    }
+}
+class TimedGame extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render(props) {
+        let showThree = null;
+        if(this.props.digits < 15) {
+            showThree = '3.';
+        } else {
+            showThree = '';
+        }
+        return(
+            <View style={styles.container}>
+                <View style={styles.time}>
+                    <Text style={styles.title}>
+                        {this.props.formatTime(this.props.time)}
+                    </Text>
+
+                </View >
+                <View style={{marginBottom: 40}} >
+                    <Text style={styles.digits}>
+                        {this.props.digits} Digits
+                    </Text>
+                    <Text style={styles.title}>
+                        {this.props.numWrong} Wrong
+                    </Text>
+                    </View>
+                    <View style={styles.pi}>
+                        <Text style={styles.title}>
+                            {showThree}{this.props.formatDisplay(this.props.display)}
+                        </Text>
+                    </View>
+                <Keypad enterDigit={this.props.enterDigit} />
+            </View>
+
         )
     }
 }
@@ -179,6 +206,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'stretch',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingRight: 20,
+        paddingLeft: 20
     }
 });
