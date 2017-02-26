@@ -82,7 +82,21 @@ export default class Timed extends React.Component {
         }
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
+    formatDisplay(digits) {
+        if(digits.length > 15) {
+            let arr = digits.split('');
+            let slice = arr.slice(digits.length - 15, digits.length);
+            return slice.join('');
+        }
+        return digits;
+    }
     render() {
+        let showThree = null;
+        if(this.state.digits < 15) {
+            showThree = '3.';
+        } else {
+            showThree = '';
+        }
         return (
             <View style={styles.wrapper}>
                 <View  style={styles.backBtn}>
@@ -105,12 +119,11 @@ export default class Timed extends React.Component {
                             {this.state.numWrong} Wrong
                         </Text>
                         </View>
-                    <View style={{marginBottom: 50}} >
-
-                        <Text style={styles.title}>
-                            PI: {this.state.display}
-                        </Text>
-                    </View>
+                        <View style={styles.pi}>
+                            <Text style={styles.title}>
+                                {showThree}{this.formatDisplay(this.state.display)}
+                            </Text>
+                        </View>
                     <Keypad enterDigit={this.enterDigit} />
 
                 </View>
@@ -153,6 +166,9 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 24,
         marginBottom: 20
+    },
+    pi: {
+        marginBottom: 50
     },
     title: {
         color:'white',

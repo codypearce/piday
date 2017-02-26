@@ -146,9 +146,7 @@ const styles = StyleSheet.create({
     },
     piDisplay: {
         color: 'white',
-        fontSize: 24,
-        overflow: 'scroll',
-
+        fontSize: 24
     },
     endContainer: {
         flexDirection: 'column',
