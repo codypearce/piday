@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
+import piVal from '../components/PI';
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ export default class Game extends React.Component {
         this.state = {
             display: '',
             digits: 0,
-            pi: Math.PI.toString(),
+            pi: piVal.piString,
             gameOver: false
         }
     }
@@ -82,6 +83,7 @@ export default class Game extends React.Component {
                         <View>
                                 {content}
                         </View>
+
                     </View>
             </View>
         )
