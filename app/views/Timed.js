@@ -38,10 +38,10 @@ export default class Timed extends React.Component {
     enterDigit(value) {
         if(this.state.started == false) {
             return;
-        } else if(this.state.numWrong >= 3) {
+        } else if(this.state.numWrong == 2 && this.state.pi[this.state.digits] !== value) {
             clearInterval(this.interval);
             this.setState({
-                started: false,
+                numWrong: this.state.numWrong + 1,
                 gameOver: true
             });
         } else if(this.state.pi[this.state.digits] == value) {
@@ -50,9 +50,9 @@ export default class Timed extends React.Component {
                digits: this.state.digits + 1
            });
        } else {
-           this.setState({
+            this.setState({
                numWrong: this.state.numWrong + 1
-           })
+            })
        }
    }
    startTime() {
@@ -106,6 +106,8 @@ export default class Timed extends React.Component {
             content = <StartButton startTime={this.startTime} />
         } else if(this.state.started == true && this.state.gameOver == false ) {
             content = <TimedGame formatTime={this.formatTime} formatDisplay={this.formatDisplay} time={this.state.time}  digits={this.state.digits} numWrong={this.state.numWrong} enterDigit={this.enterDigit} display={this.state.display} />
+        } else if(this.state.gameOver == true && this.state.numWrong > 2) {
+            content = <ThreeWrong  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         } else if(this.state.gameOver == true) {
             content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         }
@@ -195,6 +197,25 @@ class Endgame extends React.Component {
         )
     }
 }
+class ThreeWrong extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render(props) {
+        return(
+            <View style={styles.container}>
+                <Text style={styles.title}>
+                    Oh no! You got three wrong!
+                </Text>
+                <Text style={styles.digits}>
+                    Better luck next time!
+                </Text>
+                <TouchableHighlight onPress={this.props.reset} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
+            </View>
+        )
+    }
+}
+
 
 
 const styles = StyleSheet.create({
