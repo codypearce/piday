@@ -39,9 +39,9 @@ export default class Quiz extends React.Component {
     setUpQuestions() {
         let questionsArr = [];
         for(let i = 0; i < 10 ; i++) {
-            let rand = Math.round(Math.random() * 10);
+            let rand = Math.round(Math.random() * 18); // should be 1 less number of questions in questionsSrc
             while(questionsArr.indexOf(rand) > -1) {
-                rand = Math.round(Math.random() * 10);
+                rand = Math.round(Math.random() * 18);
             }
             questionsArr.push(rand);
         }
