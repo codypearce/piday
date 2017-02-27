@@ -118,7 +118,7 @@ export default class Quiz extends React.Component {
     render() {
         let content = null;
         if(this.state.isStarted == false) {
-            content = <Button onPress={this.startQuiz} title="Start Quiz" />
+            content = <StartButton startQuiz={this.startQuiz} />
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
         } else {
@@ -139,6 +139,21 @@ export default class Quiz extends React.Component {
                     </View>
 
                 </View>
+            </View>
+        )
+    }
+}
+class StartButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return(
+            <View style={{marginBottom: 50}}>
+                <Text style={styles.message}>Multiple Choice ten question quiz, see how many you can get!</Text>
+                <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startQuiz() }>
+                    <Text style={styles.black}>Start</Text>
+                </TouchableHighlight>
             </View>
         )
     }
@@ -201,6 +216,9 @@ const styles = StyleSheet.create({
     white: {
       color: 'white'
     },
+    black: {
+        color: 'black'
+    },
     container: {
       flex: 1,
       flexDirection: 'column',
@@ -210,5 +228,23 @@ const styles = StyleSheet.create({
     digits: {
       marginTop: -100,
       marginBottom: 50
-    }
+  },
+  startBtn: {
+      height: 40,
+      backgroundColor: 'white',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingRight: 20,
+      paddingLeft: 20
+  },
+  message: {
+      color:'white',
+      fontSize: 16,
+      marginBottom: 30,
+      textAlign: 'center',
+      width: 250
+  }
 });
