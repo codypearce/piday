@@ -176,13 +176,22 @@ class Endquiz extends React.Component {
         super(props);
     }
     render() {
-
+        let message = null;
+        if(this.props.score > 8) {
+            message = `You got ${this.props.score} out 10! Amazing! You really know PI!`;
+        } else if(this.props.score > 5) {
+            message = `You got ${this.props.score} out 10! Good job!`;
+        } else if(this.props.score > 1) {
+            message = `You got ${this.props.score} out 10! Better luck next time!`;
+        } else {
+            message = `You got ${this.props.score} out 10! Check out the learn section!`;
+        }
         return(
             <View>
-                <Text> You got {this.props.score} out of 10 correct! Good job!</Text>
+                <Text style={styles.message}>{message}</Text>
                 <View>
-                    <TouchableHighlight onPress={this.props.reset}>
-                        <Text style={styles.white}>Try again</Text>
+                    <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.reset() }>
+                        <Text style={styles.black}>Try again</Text>
                     </TouchableHighlight>
                 </View>
             </View>
