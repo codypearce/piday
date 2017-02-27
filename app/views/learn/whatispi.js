@@ -28,7 +28,7 @@ export default class Whatispi extends React.Component {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.digits}>
-                            <Text style={styles.centerText}>What is PI?</Text>
+                            <Text style={styles.centerText}>What is pi?</Text>
                     </View>
                 </View>
             </View>

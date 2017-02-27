@@ -127,9 +127,7 @@ export default class Timed extends React.Component {
                 </View>
                 <View style={styles.container}>
                     {content}
-
                 </View>
-
             </View>
         )
     }

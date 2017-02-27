@@ -29,22 +29,22 @@ export default class Learn extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.digits}>
                         <TouchableHighlight onPress={ () => this._navigate('Whatispi') }>
-                            <Text style={styles.centerNav}>What is PI?</Text>
+                            <Text style={styles.centerNav}>What is pi?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
                             <Text style={styles.centerNav}>Irrational Numbers</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>PI Algorithms?</Text>
+                            <Text style={styles.centerNav}>pi Algorithms?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>What is PI Day?</Text>
+                            <Text style={styles.centerNav}>What is piDay?</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>PI History</Text>
+                            <Text style={styles.centerNav}>pi History</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>PI in the real world</Text>
+                            <Text style={styles.centerNav}>piin the real world</Text>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={ () => this._navigate('Home') }>
                             <Text style={styles.centerNav}>Other constants</Text>
