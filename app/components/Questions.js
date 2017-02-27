@@ -12,7 +12,7 @@ const questionsSrc = [
    {
        question: "The birthday of which famous scientist falls on Pi Day?",
        choices:  ["Leonhard Euler", "Albert Einstein", "Isaac Newton", "Archimedes"],
-       answer: 'Albert Einstein '
+       answer: 'Albert Einstein'
    },
    {
        question: "Where were the first known Pi Day celebrations held?",

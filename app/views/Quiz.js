@@ -181,7 +181,9 @@ class Endquiz extends React.Component {
     }
     render() {
         let message = null;
-        if(this.props.score > 8) {
+        if(this.props.score == 10) {
+            message = `You got ${this.props.score} out 10! Amazing! You're a PI expert!`;
+        } else if(this.props.score > 8) {
             message = `You got ${this.props.score} out 10! Amazing! You really know PI!`;
         } else if(this.props.score > 5) {
             message = `You got ${this.props.score} out 10! Good job!`;
