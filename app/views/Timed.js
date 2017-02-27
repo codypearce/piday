@@ -133,7 +133,8 @@ class StartButton extends React.Component {
     }
     render() {
         return(
-            <View style={{marginTop: 20}}>
+            <View style={{marginBottom: 50}}>
+                <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
                 <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startTime() }>
                     <Text style={styles.black}>Start</Text>
                 </TouchableHighlight>
@@ -270,5 +271,12 @@ const styles = StyleSheet.create({
         color: "white",
         marginTop: 30,
         fontSize: 28
+    },
+    message: {
+        color:'white',
+        fontSize: 16,
+        marginBottom: 30,
+        textAlign: 'center',
+        width: 250
     }
 });
