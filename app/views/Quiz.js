@@ -48,10 +48,11 @@ export default class Quiz extends React.Component {
         this.setState({
             questionsArr: questionsArr
         })
-        this.updateQuestion();
     }
-    updateQuestion() {
-        let src = questionsSrc[this.state.questionsArr[this.state.questionIdx]];
+    updateQuestion(newIdx) {
+        // why pass in value? because react isn't waiting until this.state.questionIdx is updated before calling update question even though it's in the callback
+        // What this means is that the first question has to be answered twice before it updates the question to the new question so passing in the value fixes this
+        let src = questionsSrc[this.state.questionsArr[newIdx]];
         this.setState({
             currentQuestion: src.question,
             currentChoices: [src.choices[0], src.choices[1], src.choices[2], src.choices[3]],
@@ -59,6 +60,7 @@ export default class Quiz extends React.Component {
         })
     }
     startQuiz() {
+        this.updateQuestion(0); // should start at index 0, have to pass in value so yea
         this.setState({
             isStarted: true
         })
@@ -73,14 +75,16 @@ export default class Quiz extends React.Component {
             this.endQuiz();
         } else {
             this.nextQuestion();
-            this.updateQuestion();
         }
 
     }
     nextQuestion() {
+        let newIdx = this.state.questionIdx + 1;
         this.setState({
-            questionIdx: this.state.questionIdx + 1
-        })
+            questionIdx: newIdx
+        },
+            this.updateQuestion(newIdx) // see comment on updateQuestion question
+        );
     }
     endQuiz() {
         this.setState({
@@ -118,9 +122,9 @@ export default class Quiz extends React.Component {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.digits}>
+                        {content}
                         <Text>{this.state.questionIdx}</Text>
                         <Text>{this.state.questionsArr}</Text>
-                        {content}
                     </View>
 
                 </View>
