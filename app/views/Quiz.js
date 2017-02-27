@@ -31,6 +31,7 @@ export default class Quiz extends React.Component {
         super(props);
         this.startQuiz = this.startQuiz.bind(this);
         this.answerQuestion = this.answerQuestion.bind(this);
+        this.reset = this.reset.bind(this);
         this.state = {
             isStarted: false,
             endQuiz: false,
@@ -112,7 +113,7 @@ export default class Quiz extends React.Component {
             currentChoices: 0,
             currentAnswer: 0
         })
-        this.startQuiz();
+        this.setUpQuestions();
     }
     render() {
         let content = null;
