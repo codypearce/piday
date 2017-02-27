@@ -6,7 +6,8 @@ import {
   Button,
   Alert,
   Navigator,
-  TouchableHighlight
+  TouchableHighlight,
+  Picker
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
@@ -19,6 +20,7 @@ export default class Timed extends React.Component {
         this.formatTime = this.formatTime.bind(this);
         this.tick = this.tick.bind(this);
         this.startTime = this.startTime.bind(this);
+        this.chooseTime = this.chooseTime.bind(this);
         this.reset = this.reset.bind(this);
         this.state = {
             display: '',
@@ -62,6 +64,11 @@ export default class Timed extends React.Component {
            gameOver: false
        })
    }
+   chooseTime(value) {
+       this.setState({
+           time: value
+       })
+   }
    tick() {
        this.setState({time: this.state.time - 1});
        if (this.state.time <= 0) {
@@ -73,7 +80,7 @@ export default class Timed extends React.Component {
    }
    formatTime(time) {
         let minutes = Math.floor(time / 60);
-        let seconds = time;
+        let seconds = time % 60;
         if(seconds > 59) {
             seconds = '0'
         }
@@ -103,7 +110,7 @@ export default class Timed extends React.Component {
     }
     render() {
         if(this.state.started == false) {
-            content = <StartButton startTime={this.startTime} />
+            content = <StartScreen startTime={this.startTime} chooseTime={this.chooseTime} time={this.state.time} />
         } else if(this.state.started == true && this.state.gameOver == false ) {
             content = <TimedGame formatTime={this.formatTime} formatDisplay={this.formatDisplay} time={this.state.time}  digits={this.state.digits} numWrong={this.state.numWrong} enterDigit={this.enterDigit} display={this.state.display} />
         } else if(this.state.gameOver == true && this.state.numWrong > 2) {
@@ -127,7 +134,7 @@ export default class Timed extends React.Component {
         )
     }
 }
-class StartButton extends React.Component {
+class StartScreen extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -135,6 +142,17 @@ class StartButton extends React.Component {
         return(
             <View style={{marginBottom: 50}}>
                 <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
+                <Picker
+                    style={styles.white}
+                    selectedValue={this.props.time}
+                    onValueChange={(value) => this.props.chooseTime(value)}>
+                    <Picker.Item label="10 Seconds" value="10" />
+                    <Picker.Item label="20 Seconds" value="20" />
+                    <Picker.Item label="30 Seconds" value="30" />
+                    <Picker.Item label="1 Minute" value="60" />
+                    <Picker.Item label="3 Minutes" value="180" />
+                    <Picker.Item label="5 Minutes" value="300" />
+                </Picker>
                 <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startTime() }>
                     <Text style={styles.black}>Start</Text>
                 </TouchableHighlight>
