@@ -49,7 +49,11 @@ export default class Home extends React.Component {
                         Settings
                     </Text>
                 </TouchableHighlight>
-
+                <TouchableHighlight  onPress={ () => this._navigate('Records') }>
+                    <Text style={styles.centerNav}>
+                        Records
+                    </Text>
+                </TouchableHighlight>
             </View>
         )
     }

@@ -20,6 +20,7 @@ import Quiz from './app/views/Quiz'
 import Learn from './app/views/Learn'
 import Whatispi from './app/views/learn/Whatispi'
 import Settings from './app/views/Settings'
+import Records from './app/views/Records'
 
 export default class piday extends Component {
     renderScene(route, navigator) {
@@ -42,6 +43,9 @@ export default class piday extends Component {
         }
         if(route.name == 'Settings') {
             return <Settings navigator={navigator} />
+        }
+        if(route.name == 'Records') {
+            return <Records navigator={navigator} />
         }
     }
     render() {
