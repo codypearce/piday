@@ -4,10 +4,10 @@ import {
   Text,
   View,
   Button,
-  Alert,
   Navigator,
   TouchableHighlight,
-  Picker
+  Picker,
+  AsyncStorage
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
@@ -105,6 +105,7 @@ export default class Timed extends React.Component {
             display: '',
             digits: 0,
             time: 10,
+            initialTime: 10,
             gameOver: false,
             started: false,
             numWrong: 0
@@ -118,7 +119,7 @@ export default class Timed extends React.Component {
         } else if(this.state.gameOver == true && this.state.numWrong > 2) {
             content = <ThreeWrong  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         } else if(this.state.gameOver == true) {
-            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.initialTime} />
+            content = <Endgame  correctDigits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.initialTime} />
         }
         return (
             <View style={styles.wrapper}>
@@ -201,13 +202,59 @@ class TimedGame extends React.Component {
 class Endgame extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            message: null,
+            record: 0
+        }
+
     }
-    render(props) {
+    componentWillMount() {
+        this.getValue();
+    }
+    async getValue() {
+        try {
+            const value = await AsyncStorage.getItem(`@MySuperStore:timedBest${this.props.time}`);
+            if(value) {
+                this.setState({
+                    record: value
+                });
+            }
+        } catch (error) {
+            this.setState({
+                record: 0
+            });
+        }
+        this.setValue();
+
+    }
+    async setValue() {
+        try {
+            if(this.props.correctDigits > this.state.record) {
+                this.setState({
+                    message: `You beat your record! Congrats! You're new record is ${this.props.correctDigits}`
+                })
+                await AsyncStorage.setItem(`@MySuperStore:timedBest${this.props.time}`, String(this.props.correctDigits));
+
+            } else if(this.props.correctDigits == this.state.record) {
+                this.setState({
+                    message: `You tied your record! Congrats! Your record is ${this.state.record}`
+                })
+            } else {
+                this.setState({
+                    message: `Your record is ${this.state.record}`
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    render() {
         return(
             <View style={styles.container}>
                 <Text style={styles.digits}>
-                    You got {this.props.digits} digits in {this.props.time} seconds
+                    You got {this.props.correctDigits} digits in {this.props.time} seconds
                 </Text>
+                <Text style={styles.white}>{this.state.message}</Text>
                 <Text style={styles.title}>
                     with {this.props.numWrong} mistakes
                 </Text>
