@@ -7,7 +7,8 @@ import {
   Alert,
   Navigator,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
+  AsyncStorage
 } from 'react-native';
 
 import Keypad from '../components/Keypad';
@@ -32,16 +33,17 @@ export default class Game extends React.Component {
       })
     }
     enterDigit(value) {
-       if(this.state.pi[this.state.digits] == value) {
-           this.setState({
-               display: this.state.display + value.toString(),
-               digits: this.state.digits + 1
-           });
-       } else {
-           this.setState({
-               gameOver: true
-           });
-       }
+        if(this.state.pi[this.state.digits] == value) {
+            this.setState({
+                display: this.state.display + value.toString(),
+                digits: this.state.digits + 1
+            });
+        } else {
+            this.setState({
+                gameOver: true
+            });
+        }
+
    }
    resetGame() {
        this.setState({
@@ -104,11 +106,61 @@ export default class Game extends React.Component {
 class GameOver extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            message: null,
+            record: 0
+        }
+
+    }
+    componentWillMount() {
+        this.getValue();
+    }
+    async getValue() {
+        try {
+            const value = await AsyncStorage.getItem('@MySuperStore:bestMemorize');
+            if(value) {
+                this.setState({
+                    record: value
+                });
+            }
+        } catch (error) {
+            this.setState({
+                record: 0
+            });
+        }
+        this.setValue();
+
+    }
+
+    async setValue() {
+        try {
+            if(this.props.correctDigits > this.state.record) {
+                this.setState({
+                    message: `You beat your record! Congrats! You're new record is ${this.props.correctDigits}`
+                })
+                await AsyncStorage.setItem('@MySuperStore:bestMemorize', String(this.props.correctDigits));
+
+            } else if(this.props.correctDigits == this.state.record) {
+                this.setState({
+                    message: `You tied your record! Congrats! Your record is ${this.state.record}`
+                })
+            } else {
+                this.setState({
+                    message: `Your record is ${this.state.record}`
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
     render() {
+
+
         return(
             <View style={styles.endContainer}>
                 <Text style={styles.white}>You got {this.props.correctDigits} digits correct</Text>
+                <Text style={styles.white}>{this.state.message}</Text>
                 <TouchableHighlight onPress={this.props.resetGame} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
             </View>
         )
