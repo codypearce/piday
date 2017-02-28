@@ -139,7 +139,7 @@ class GameOver extends React.Component {
                 this.setState({
                     message: `You beat your record! Congrats! You're new record is ${this.props.correctDigits}`
                 })
-                await AsyncStorage.setItem('@MySuperStore:bestMemorize', String(this.props.correctDigits));
+                await AsyncStorage.setItem('@MySuperStore:bestMemorize', this.props.correctDigits);
 
             } else if(this.props.correctDigits == this.state.record) {
                 this.setState({

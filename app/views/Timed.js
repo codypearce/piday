@@ -116,7 +116,7 @@ export default class Timed extends React.Component {
         } else if(this.state.gameOver == true && this.state.numWrong > 2) {
             content = <ThreeWrong  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         } else if(this.state.gameOver == true) {
-            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
+            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.time} />
         }
         return (
             <View style={styles.wrapper}>
@@ -204,7 +204,7 @@ class Endgame extends React.Component {
         return(
             <View style={styles.container}>
                 <Text style={styles.digits}>
-                    You got {this.props.digits} digits in 10 seconds
+                    You got {this.props.digits} digits in {this.state.time} seconds
                 </Text>
                 <Text style={styles.title}>
                     with {this.props.numWrong} mistakes
