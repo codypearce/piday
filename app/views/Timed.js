@@ -27,6 +27,7 @@ export default class Timed extends React.Component {
             digits: 0,
             pi: piVal.piString,
             time: 10,
+            initialTime: 10, // For endgame
             gameOver: false,
             started: false,
             numWrong: 0
@@ -66,7 +67,8 @@ export default class Timed extends React.Component {
    }
    chooseTime(value) {
        this.setState({
-           time: value
+           time: value,
+           initialTime: value
        })
    }
    tick() {
@@ -116,7 +118,7 @@ export default class Timed extends React.Component {
         } else if(this.state.gameOver == true && this.state.numWrong > 2) {
             content = <ThreeWrong  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} />
         } else if(this.state.gameOver == true) {
-            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.time} />
+            content = <Endgame  digits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.initialTime} />
         }
         return (
             <View style={styles.wrapper}>
@@ -204,7 +206,7 @@ class Endgame extends React.Component {
         return(
             <View style={styles.container}>
                 <Text style={styles.digits}>
-                    You got {this.props.digits} digits in {this.state.time} seconds
+                    You got {this.props.digits} digits in {this.props.time} seconds
                 </Text>
                 <Text style={styles.title}>
                     with {this.props.numWrong} mistakes
