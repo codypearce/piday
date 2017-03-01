@@ -33,9 +33,9 @@ export default class Timed extends React.Component {
         }
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     enterDigit(value) {
         if(this.state.started == false) {
@@ -54,7 +54,7 @@ export default class Timed extends React.Component {
        } else {
             this.setState({
                numWrong: this.state.numWrong + 1
-            })
+           });
        }
    }
    startTime() {
@@ -62,13 +62,13 @@ export default class Timed extends React.Component {
        this.setState({
            started: true,
            gameOver: false
-       })
+       });
    }
    chooseTime(value) {
        this.setState({
            time: value,
            initialTime: value
-       })
+       });
    }
    tick() {
        this.setState({time: this.state.time - 1});

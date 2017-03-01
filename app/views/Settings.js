@@ -12,9 +12,9 @@ export default class Settings extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return (
@@ -42,24 +42,24 @@ const styles = StyleSheet.create({
         flex: 1
     },
     backBtn: {
-      top: 5,
-      left: 5
+        top: 5,
+        left: 5
     },
     white: {
-      color: 'white'
+        color: 'white'
     },
     container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     digits: {
-      marginTop: -100,
-      marginBottom: 50
-  },
-  title: {
-      color:'white',
-      fontSize: 24
-  }
+        marginTop: -100,
+        marginBottom: 50
+    },
+    title: {
+        color:'white',
+        fontSize: 24
+    }
 });
