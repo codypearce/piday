@@ -3,8 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  Alert,
   Navigator,
   TouchableHighlight
 } from 'react-native';
