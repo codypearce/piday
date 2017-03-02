@@ -121,8 +121,6 @@ export default class Quiz extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.digits}>
                         {content}
-                        <Text>{this.state.questionIdx}</Text>
-                        <Text>{this.state.questionsArr}</Text>
                     </View>
 
                 </View>
