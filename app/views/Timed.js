@@ -9,6 +9,8 @@ import {
   AsyncStorage
 } from 'react-native';
 
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
 import Keypad from '../components/Keypad';
 import piVal from '../components/PI';
 
@@ -121,16 +123,15 @@ export default class Timed extends React.Component {
             content = <Endgame  correctDigits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.initialTime} />
         }
         return (
-            <View style={styles.wrapper}>
-                <View  style={styles.backBtn}>
-                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}>Back</Text>
-                    </TouchableHighlight>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.top}>
+                    <Text style={styles.title}>Timed</Text>
                 </View>
-                <View style={styles.container}>
+                <View style={styles.content}>
                     {content}
                 </View>
-            </View>
+            </BackgroundImage>
         )
     }
 }
@@ -140,10 +141,15 @@ class StartScreen extends React.Component {
     }
     render() {
         return(
-            <View style={{marginBottom: 50}}>
+            <View style={styles.startscreen}>
                 <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
+
+                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startTime() }>
+                    <Text style={styles.centerNav}>Start</Text>
+                </TouchableHighlight>
+                <Text style={styles.pickerMessage}> Select Time </Text>
                 <Picker
-                    style={styles.white}
+                    style={styles.picker}
                     selectedValue={this.props.time}
                     onValueChange={(value) => this.props.chooseTime(value)}>
                     <Picker.Item label="10 Seconds" value="10" />
@@ -153,13 +159,11 @@ class StartScreen extends React.Component {
                     <Picker.Item label="3 Minutes" value="180" />
                     <Picker.Item label="5 Minutes" value="300" />
                 </Picker>
-                <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startTime() }>
-                    <Text style={styles.black}>Start</Text>
-                </TouchableHighlight>
             </View>
         )
     }
 }
+
 class TimedGame extends React.Component {
     constructor(props) {
         super(props);
@@ -284,22 +288,77 @@ class ThreeWrong extends React.Component {
 
 
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+    content: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 300,
+        top: 50
     },
-    backBtn: {
-        top: 5,
-        left: 5
+    top: {
+        bottom: 50,
     },
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
+    },
+    startscreen: {
+        bottom: 50
+    },
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    container: {
+        backgroundColor: '#810000',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    centerNav: {
+        fontSize: 22,
+        marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
+    },
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginTop: 25,
+        alignSelf: 'center'
+    },
+    pickerMessage: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginTop: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    picker: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        height: 30,
+        marginTop: 20,
+        alignSelf: 'center',
+        color: '#810000',
+    },
+
     white: {
         color: 'white'
     },
-    black: {
-        color: 'black'
-    },
     container: {
-        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
@@ -316,31 +375,10 @@ const styles = StyleSheet.create({
     pi: {
         marginBottom: 50
     },
-    title: {
-        color:'white',
-        fontSize: 24
-    },
-    startBtn: {
-        height: 40,
-        backgroundColor: 'white',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingRight: 20,
-        paddingLeft: 20
-    },
     tryAgain: {
         color: "white",
         marginTop: 30,
         fontSize: 28
     },
-    message: {
-        color:'white',
-        fontSize: 16,
-        marginBottom: 30,
-        textAlign: 'center',
-        width: 250
-    }
+
 });
