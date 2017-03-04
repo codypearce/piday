@@ -8,7 +8,8 @@ import {
   Image
 } from 'react-native';
 
-import BackgroundImage from '../components/BackgroundImage'
+import BackgroundImage from '../components/BackgroundImage';
+import SettingsGear from '../components/SettingsGear';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -22,9 +23,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <BackgroundImage>
-                <TouchableHighlight style={styles.settings} onPress={ () => this._navigate('Settings') }>
-                    <Image source={require('../images/settings.png')}/>
-                </TouchableHighlight>
+                <SettingsGear navigate={() => this._navigate('Settings') } />
 
                 <View style={styles.top}>
                     <Text style={styles.title}>PI DAY</Text>
@@ -87,13 +86,6 @@ const styles = StyleSheet.create({
         fontSize: 58,
         fontWeight: "700",
         fontFamily: 'Roboto'
-    },
-    settings: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        opacity: 0.5,
-        transform: [{scale: .7}]
     },
     roundedBtn: {
         width: 200,
