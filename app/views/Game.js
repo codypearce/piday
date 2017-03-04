@@ -153,9 +153,9 @@ class GameOver extends React.Component {
     render() {
         return(
             <View style={styles.endContainer}>
-                <Text style={styles.white}>You got {this.props.correctDigits} digits correct</Text>
-                <Text style={styles.white}>{this.state.message}</Text>
-                <TouchableHighlight onPress={this.props.resetGame} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
+                <Text style={styles.numDigits}>{this.state.message}</Text>
+
+                <TouchableHighlight onPress={this.props.resetGame}  style={styles.roundedBtn} ><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
@@ -181,7 +181,8 @@ const styles = StyleSheet.create({
     },
     numDigits: {
         color: '#d7933f',
-        fontSize: 24
+        fontSize: 24,
+        textAlign: 'center'
     },
 
     content: {
@@ -198,10 +199,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         bottom: 50
     },
-    tryAgain: {
-        color: "white",
-        marginTop: 30,
-        fontSize: 28
+
+    centerNav: {
+        fontSize: 22,
+        marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
+    },
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginTop: 20
+
     }
 
 });
