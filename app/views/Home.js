@@ -8,6 +8,7 @@ import {
   Image
 } from 'react-native';
 
+
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -19,76 +20,84 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <View style={styles.wrapper}>
-                <View style={styles.top}>
+            <Image
+                style={styles.backgroundImg}
+                source={require('../images/bg.png')}>
+                <TouchableHighlight style={styles.settings} onPress={ () => this._navigate('Settings') }>
                     <Image
-                        style={styles.settings}
+
                         source={require('../images/settings.png')}
                     />
+                </TouchableHighlight>
+
+                <View style={styles.top}>
                     <Text style={styles.title}>PI DAY</Text>
                 </View>
+
+
                 <View style={styles.container}>
-                    <TouchableHighlight  onPress={ () => this._navigate('Game') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Game') }>
                         <Text style={styles.centerNav}>
                             Play
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  onPress={ () => this._navigate('Timed') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Timed') }>
                         <Text style={styles.centerNav}>
                             Timed
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  onPress={ () => this._navigate('Quiz') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Quiz') }>
                         <Text style={styles.centerNav}>
                             Quiz
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  onPress={ () => this._navigate('Learn') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Learn') }>
                         <Text style={styles.centerNav}>
                             Learn
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  onPress={ () => this._navigate('Settings') }>
-                        <Text style={styles.centerNav}>
-                            Settings
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight  onPress={ () => this._navigate('Records') }>
-                        <Text style={styles.centerNav}>
-                            Records
-                        </Text>
-                    </TouchableHighlight>
+
                 </View>
-            </View>
+            </Image>
         )
     }
 }
-const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1,
-    },
-    container: {
 
+
+const styles = StyleSheet.create({
+    backgroundImg: {
+        flex: 1,
+        width: undefined,
+        height: undefined,
+        backgroundColor:'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+
+    container: {
+        backgroundColor: '#810000',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 30
     },
-
     centerNav: {
-        color: 'white',
-        fontSize: 18,
-        marginBottom: 5
+        fontSize: 22,
+        marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
     },
     top: {
-        backgroundColor: '#d7933f',
-        height: 200,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
+        bottom: 75
     },
+
     title: {
-        color: '#810000',
+        color:'#810000',
         fontSize: 58,
         fontWeight: "700",
         fontFamily: 'Roboto'
@@ -99,5 +108,12 @@ const styles = StyleSheet.create({
         right: 0,
         opacity: 0.5,
         transform: [{scale: .7}]
+    },
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginBottom: 15
+
     }
 });

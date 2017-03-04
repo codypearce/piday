@@ -58,5 +58,4 @@ export default class piday extends Component {
     }
 }
 
-
 AppRegistry.registerComponent('piday', () => piday);
