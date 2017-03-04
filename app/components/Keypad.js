@@ -21,11 +21,11 @@ export default class Keypad extends React.Component {
             rowFour = [0, "."];
 
         return(
-            <View className="keypad" >
-                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowOne)}</View>
-                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowTwo)}</View>
-                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowThree)}</View>
-                <View className="keyRow" style={styles.keyRow}>{this.mapKeys(rowFour)}</View>
+            <View style={styles.keypad}>
+                <View style={styles.keyRow}>{this.mapKeys(rowOne)}</View>
+                <View style={styles.keyRow}>{this.mapKeys(rowTwo)}</View>
+                <View style={styles.keyRow}>{this.mapKeys(rowThree)}</View>
+                <View style={styles.keyRow}>{this.mapKeys(rowFour)}</View>
             </View>
         )
     }
@@ -43,17 +43,18 @@ class Key extends React.Component {
 }
 
 const styles = StyleSheet.create({
+
     keyRow: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     key: {
-        color: 'white',
+        color: '#d7933f',
         paddingTop: 10,
         paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-        fontSize: 28
+        paddingLeft: 30,
+        paddingRight: 30,
+        fontSize: 34
     }
 });

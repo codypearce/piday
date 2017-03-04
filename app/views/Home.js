@@ -60,6 +60,16 @@ export default class Home extends React.Component {
 
 
 const styles = StyleSheet.create({
+    top: {
+        bottom: 75
+    },
+
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
+    },
     container: {
         backgroundColor: '#810000',
         flexDirection: 'column',
@@ -77,16 +87,7 @@ const styles = StyleSheet.create({
         paddingTop: 7,
         paddingBottom: 7
     },
-    top: {
-        bottom: 75
-    },
 
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
     roundedBtn: {
         width: 200,
         backgroundColor: '#d7933f',

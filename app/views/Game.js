@@ -54,9 +54,9 @@ export default class Game extends React.Component {
        })
    }
    formatDisplay(digits) {
-       if(digits.length > 15) {
+       if(digits.length > 10) {
            let arr = digits.split('');
-           let slice = arr.slice(digits.length - 15, digits.length);
+           let slice = arr.slice(digits.length - 10, digits.length);
            return slice.join('');
        }
        return digits;
@@ -69,7 +69,7 @@ export default class Game extends React.Component {
         } else {
             content = <Keypad enterDigit={this.enterDigit} />
         }
-        if(this.state.digits < 15) {
+        if(this.state.digits < 10) {
             showThree = '3.';
         } else {
             showThree = '';
@@ -78,22 +78,22 @@ export default class Game extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.top}>
+                    <Text style={styles.title}>
+                        {showThree}{this.formatDisplay(this.state.display)}
+                    </Text>
+                </View>
+
                 <View style={styles.container}>
-                    <View
-                        style={styles.digits}>
-                        <Text style={styles.largeWhite}>
+                    <View style={styles.digits}>
+                        <Text style={styles.numDigits}>
                             {this.state.digits} Digits
                         </Text>
                     </View>
-                    <View style={styles.pi}>
-                        <Text style={styles.piDisplay}>
-                            {showThree}{this.formatDisplay(this.state.display)}
-                        </Text>
-                    </View>
-                    <View>
-                            {content}
-                    </View>
 
+                </View>
+                <View style={styles.content}>
+                    {content}
                 </View>
             </BackgroundImage>
         )
@@ -151,8 +151,6 @@ class GameOver extends React.Component {
         }
     }
     render() {
-
-
         return(
             <View style={styles.endContainer}>
                 <Text style={styles.white}>You got {this.props.correctDigits} digits correct</Text>
@@ -164,42 +162,41 @@ class GameOver extends React.Component {
 
 }
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+    top: {
+        bottom: 50,
     },
-    backBtn: {
-        top: 5,
-        left: 5
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
     },
-    white: {
-        color: 'white'
-    },
+
     container: {
-        flex: 1,
+        backgroundColor: '#810000',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        top: 40
     },
-    digits: {
-        marginTop: -100,
-        marginBottom: 50
-    },
-    pi: {
-        marginBottom: 50
-    },
-    largeWhite: {
-        color: 'white',
+    numDigits: {
+        color: '#d7933f',
         fontSize: 24
     },
-    piDisplay: {
-        color: 'white',
-        fontSize: 24
+
+    content: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 300,
+        top: 50
     },
+
     endContainer: {
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        bottom: 50
     },
     tryAgain: {
         color: "white",
