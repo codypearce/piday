@@ -6,9 +6,12 @@ import {
   Navigator,
   TouchableHighlight,
   ScrollView,
-  AsyncStorage
+  AsyncStorage,
+  Image
 } from 'react-native';
 
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
 import Keypad from '../components/Keypad';
 import piVal from '../components/PI';
 
@@ -73,31 +76,26 @@ export default class Game extends React.Component {
         }
         var display = this.state.display;
         return (
-            <View style={styles.wrapper}>
-                    <View  style={styles.backBtn}>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.white}>Back</Text>
-                        </TouchableHighlight>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.container}>
+                    <View
+                        style={styles.digits}>
+                        <Text style={styles.largeWhite}>
+                            {this.state.digits} Digits
+                        </Text>
+                    </View>
+                    <View style={styles.pi}>
+                        <Text style={styles.piDisplay}>
+                            {showThree}{this.formatDisplay(this.state.display)}
+                        </Text>
+                    </View>
+                    <View>
+                            {content}
                     </View>
 
-                    <View style={styles.container}>
-                        <View
-                            style={styles.digits}>
-                            <Text style={styles.largeWhite}>
-                                {this.state.digits} Digits
-                            </Text>
-                        </View>
-                        <View style={styles.pi}>
-                            <Text style={styles.piDisplay}>
-                                {showThree}{this.formatDisplay(this.state.display)}
-                            </Text>
-                        </View>
-                        <View>
-                                {content}
-                        </View>
-
-                    </View>
-            </View>
+                </View>
+            </BackgroundImage>
         )
     }
 }

@@ -23,10 +23,7 @@ export default class Home extends React.Component {
         return (
             <BackgroundImage>
                 <TouchableHighlight style={styles.settings} onPress={ () => this._navigate('Settings') }>
-                    <Image
-
-                        source={require('../images/settings.png')}
-                    />
+                    <Image source={require('../images/settings.png')}/>
                 </TouchableHighlight>
 
                 <View style={styles.top}>
@@ -64,16 +61,6 @@ export default class Home extends React.Component {
 
 
 const styles = StyleSheet.create({
-    backgroundImg: {
-        flex: 1,
-        width: undefined,
-        height: undefined,
-        backgroundColor:'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-
     container: {
         backgroundColor: '#810000',
         flexDirection: 'column',
