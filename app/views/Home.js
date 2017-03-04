@@ -8,6 +8,7 @@ import {
   Image
 } from 'react-native';
 
+import BackgroundImage from '../components/BackgroundImage'
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -20,9 +21,7 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <Image
-                style={styles.backgroundImg}
-                source={require('../images/bg.png')}>
+            <BackgroundImage>
                 <TouchableHighlight style={styles.settings} onPress={ () => this._navigate('Settings') }>
                     <Image
 
@@ -58,7 +57,7 @@ export default class Home extends React.Component {
                     </TouchableHighlight>
 
                 </View>
-            </Image>
+            </BackgroundImage>
         )
     }
 }
