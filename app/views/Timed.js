@@ -279,13 +279,13 @@ class ThreeWrong extends React.Component {
     render(props) {
         return(
             <View style={styles.container}>
-                <Text style={styles.title}>
+                <Text style={styles.numDigits}>
                     Oh no! You got three wrong!
                 </Text>
-                <Text style={styles.digits}>
+                <Text style={styles.numDigits}>
                     Better luck next time!
                 </Text>
-                <TouchableHighlight onPress={this.props.reset} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn}><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
@@ -377,13 +377,6 @@ const styles = StyleSheet.create({
         color: '#d7933f',
         fontSize: 24,
         textAlign: 'center'
-    },
-
-
-    tryAgain: {
-        color: "white",
-        marginTop: 30,
-        fontSize: 28
     },
 
 });
