@@ -257,14 +257,17 @@ class Endgame extends React.Component {
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.digits}>
-                    You got {this.props.correctDigits} digits in {this.props.time} seconds
-                </Text>
-                <Text style={styles.white}>{this.state.message}</Text>
-                <Text style={styles.title}>
-                    with {this.props.numWrong} mistakes
-                </Text>
-                <TouchableHighlight onPress={this.props.reset} ><Text style={styles.tryAgain}>Try again</Text></TouchableHighlight>
+                <View style={styles.digits}>
+                    <Text style={styles.numDigits}>
+                        You got {this.props.correctDigits} digits in {this.props.time} seconds
+                    </Text>
+                    <Text style={styles.numDigits}>
+                        with {this.props.numWrong} mistakes
+                    </Text>
+                </View>
+                <Text style={styles.numDigits}>{this.state.message}</Text>
+
+                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn}><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
