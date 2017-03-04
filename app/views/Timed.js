@@ -93,9 +93,9 @@ export default class Timed extends React.Component {
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
     formatDisplay(digits) {
-        if(digits.length > 15) {
+        if(digits.length > 10) {
             let arr = digits.split('');
-            let slice = arr.slice(digits.length - 15, digits.length);
+            let slice = arr.slice(digits.length - 10, digits.length);
             return slice.join('');
         }
         return digits;
@@ -122,11 +122,30 @@ export default class Timed extends React.Component {
         } else if(this.state.gameOver == true) {
             content = <Endgame  correctDigits={this.state.digits} numWrong={this.state.numWrong} reset={this.reset} time={this.state.initialTime} />
         }
+
+        var showThree = null;
+        let top = null;
+        let subTop = null;
+
+        if(this.state.digits < 10) {
+            showThree = '3.';
+        } else {
+            showThree = '';
+        }
+        if(this.state.started == false) {
+            top = <Text style={styles.title}>Timed</Text>
+
+        } else if(this.state.started == true) {
+            top = <Text style={styles.title}>{showThree}{this.formatDisplay(this.state.display)}</Text>
+            subTop= <Text style={styles.subTitle}>{this.formatTime(this.state.time)}</Text>
+        }
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.subTitleContainer}>{subTop}</View>
                 <View style={styles.top}>
-                    <Text style={styles.title}>Timed</Text>
+
+                    {top}
                 </View>
                 <View style={styles.content}>
                     {content}
@@ -141,7 +160,7 @@ class StartScreen extends React.Component {
     }
     render() {
         return(
-            <View style={styles.startscreen}>
+            <View style={styles.container}>
                 <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
 
                 <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startTime() }>
@@ -169,33 +188,17 @@ class TimedGame extends React.Component {
         super(props);
     }
     render(props) {
-        let showThree = null;
-        if(this.props.digits < 15) {
-            showThree = '3.';
-        } else {
-            showThree = '';
-        }
+
         return(
             <View style={styles.container}>
-                <View style={styles.time}>
-                    <Text style={styles.title}>
-                        {this.props.formatTime(this.props.time)}
-                    </Text>
-
-                </View >
-                <View style={{marginBottom: 40}} >
-                    <Text style={styles.digits}>
+                <View style={styles.digits}>
+                    <Text style={styles.numDigits}>
                         {this.props.digits} Digits
                     </Text>
-                    <Text style={styles.title}>
+                    <Text style={styles.numDigits}>
                         {this.props.numWrong} Wrong
                     </Text>
-                    </View>
-                    <View style={styles.pi}>
-                        <Text style={styles.title}>
-                            {showThree}{this.props.formatDisplay(this.props.display)}
-                        </Text>
-                    </View>
+                </View>
                 <Keypad enterDigit={this.props.enterDigit} />
             </View>
 
@@ -304,8 +307,17 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-    startscreen: {
-        bottom: 50
+    subTitleContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    subTitle: {
+        color:'#810000',
+        fontSize: 32,
+        fontWeight: "700",
+        fontFamily: 'Roboto',
+        bottom: 75,
     },
     message: {
         color: '#d7933f',
@@ -314,12 +326,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: 250,
         lineHeight: 20
-    },
-    container: {
-        backgroundColor: '#810000',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     centerNav: {
         fontSize: 22,
@@ -355,26 +361,22 @@ const styles = StyleSheet.create({
         color: '#810000',
     },
 
-    white: {
-        color: 'white'
-    },
     container: {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
-    },
-    time: {
-        marginTop: -50,
-        marginBottom: 30
+        alignItems: 'center',
+        bottom: 50
     },
     digits: {
-        color: 'white',
-        fontSize: 24,
         marginBottom: 20
     },
-    pi: {
-        marginBottom: 50
+    numDigits: {
+        color: '#d7933f',
+        fontSize: 24,
+        textAlign: 'center'
     },
+
+
     tryAgain: {
         color: "white",
         marginTop: 30,
