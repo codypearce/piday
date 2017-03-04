@@ -7,6 +7,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
 import questionsSrc from '../components/Questions';
 
 export default class Quiz extends React.Component {
@@ -104,27 +107,27 @@ export default class Quiz extends React.Component {
     }
     render() {
         let content = null;
+        let subTop = null;
+        let top = null;
+
         if(this.state.isStarted == false) {
             content = <StartButton startQuiz={this.startQuiz} />
+            top = <Text style={styles.title}>Quiz</Text>
+
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
+            top = <Text style={styles.title}>Question</Text>
         } else {
             content = <Endquiz score={this.state.score} reset={this.reset}/>
+            top = <Text style={styles.title}>Score</Text>
         }
         return (
-            <View style={styles.wrapper}>
-                <View  style={styles.backBtn}>
-                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}>Back</Text>
-                    </TouchableHighlight>
-                </View>
-                <View style={styles.container}>
-                    <View style={styles.digits}>
-                        {content}
-                    </View>
-
-                </View>
-            </View>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.subTitleContainer}>{subTop}</View>
+                <View style={styles.top}>{top}</View>
+                <View style={styles.content}>{content}</View>
+            </BackgroundImage>
         )
     }
 }
@@ -134,10 +137,10 @@ class StartButton extends React.Component {
     }
     render() {
         return(
-            <View style={{marginBottom: 50}}>
-                <Text style={styles.message}>Multiple Choice ten question quiz, see how many you can get!</Text>
-                <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.startQuiz() }>
-                    <Text style={styles.black}>Start</Text>
+            <View style={styles.container}>
+                <Text style={styles.message}>Multiple Choice 10 question quiz about pi! Study the learn section to get a better score.</Text>
+                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startQuiz() }>
+                    <Text style={styles.centerNav}>Start</Text>
                 </TouchableHighlight>
             </View>
         )
@@ -201,46 +204,90 @@ class Endquiz extends React.Component {
     }
 }
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+
+    content: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 300,
+        top: 50
     },
-    backBtn: {
-      top: 5,
-      left: 5
+    top: {
+        bottom: 50,
     },
-    white: {
-      color: 'white'
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
     },
-    black: {
-        color: 'black'
+    subTitleContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+    subTitle: {
+        color:'#810000',
+        fontSize: 32,
+        fontWeight: "700",
+        fontFamily: 'Roboto',
+        bottom: 75,
+    },
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    centerNav: {
+        fontSize: 22,
+        marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
+    },
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginTop: 25,
+        alignSelf: 'center'
+    },
+    pickerMessage: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginTop: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    picker: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        height: 30,
+        marginTop: 20,
+        alignSelf: 'center',
+        color: '#810000',
+    },
+
     container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 50
     },
     digits: {
-      marginTop: -100,
-      marginBottom: 50
-  },
-  startBtn: {
-      height: 40,
-      backgroundColor: 'white',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'stretch',
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingRight: 20,
-      paddingLeft: 20
-  },
-  message: {
-      color:'white',
-      fontSize: 16,
-      marginBottom: 30,
-      textAlign: 'center',
-      width: 250
-  }
+        marginBottom: 20
+    },
+    numDigits: {
+        color: '#d7933f',
+        fontSize: 24,
+        textAlign: 'center'
+    },
+
 });
