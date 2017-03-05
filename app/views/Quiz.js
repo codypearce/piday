@@ -107,7 +107,6 @@ export default class Quiz extends React.Component {
     }
     render() {
         let content = null;
-        let subTop = null;
         let top = null;
 
         if(this.state.isStarted == false) {
@@ -116,15 +115,14 @@ export default class Quiz extends React.Component {
 
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
-            top = <Text style={styles.title}>Question</Text>
+            top = <Text style={styles.question}>{this.state.currentQuestion}</Text>
         } else {
             content = <Endquiz score={this.state.score} reset={this.reset}/>
-            top = <Text style={styles.title}>Score</Text>
+            top = <Text style={styles.title}>{this.state.score}0%</Text>
         }
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.subTitleContainer}>{subTop}</View>
                 <View style={styles.top}>{top}</View>
                 <View style={styles.content}>{content}</View>
             </BackgroundImage>
@@ -154,20 +152,21 @@ class Question extends React.Component {
     render() {
 
         return(
-            <View>
-                <Text> {this.props.question}</Text>
-                <View>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0]) }>
-                        <Text style={styles.white}>{this.props.choices[0]}</Text>
+            <View style={styles.containerChoices}>
+                <View style={styles.choiceRow}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0])} style={styles.choice}>
+                        <Text style={styles.choiceText}>{this.props.choices[0]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])}>
-                        <Text style={styles.white}>{this.props.choices[1]}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])} style={styles.choice}>
+                        <Text style={styles.choiceText}>{this.props.choices[1]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2]) }>
-                        <Text style={styles.white}>{this.props.choices[2]}</Text>
+                </View>
+                <View style={styles.choiceRow}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2])} style={styles.choice}>
+                        <Text style={styles.choiceText}>{this.props.choices[2]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3]) }>
-                        <Text style={styles.white}>{this.props.choices[3]}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3])} style={styles.choice}>
+                        <Text style={styles.choiceText}>{this.props.choices[3]}</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -192,11 +191,11 @@ class Endquiz extends React.Component {
             message = `You got ${this.props.score} out 10! Check out the learn section!`;
         }
         return(
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.message}>{message}</Text>
                 <View>
-                    <TouchableHighlight style={styles.startBtn} onPress={ () => this.props.reset() }>
-                        <Text style={styles.black}>Try again</Text>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.reset() }>
+                        <Text style={styles.centerNav}>Try again</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -221,17 +220,14 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-    subTitleContainer: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    subTitle: {
+    question: {
         color:'#810000',
-        fontSize: 32,
+        fontSize: 18,
         fontWeight: "700",
         fontFamily: 'Roboto',
-        bottom: 75,
+        width: 275,
+        height: 150,
+        textAlign: 'center',
     },
     message: {
         color: '#d7933f',
@@ -258,36 +254,43 @@ const styles = StyleSheet.create({
         marginTop: 25,
         alignSelf: 'center'
     },
-    pickerMessage: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginTop: 30,
-        textAlign: 'center',
-        width: 250,
-        lineHeight: 20
-    },
-    picker: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        height: 30,
-        marginTop: 20,
-        alignSelf: 'center',
-        color: '#810000',
-    },
-
     container: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         bottom: 50
     },
-    digits: {
-        marginBottom: 20
+    containerChoices: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 30
     },
-    numDigits: {
-        color: '#d7933f',
-        fontSize: 24,
-        textAlign: 'center'
+    choiceRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
+    choice: {
+        width:175,
+        height: 125,
+        borderRadius: 25,
+        backgroundColor: '#d7933f',
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 5
+
+    },
+    choiceText: {
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        alignSelf: 'center',
+        fontSize: 16,
+        fontWeight: '500',
+        color:'#810000',
+        padding: 5
+    }
 
 });
