@@ -237,7 +237,7 @@ class Endgame extends React.Component {
         try {
             if(this.props.correctDigits > this.state.record) {
                 this.setState({
-                    message: `You beat your record! Congrats! You're new record is ${this.props.correctDigits}`
+                    message: `You beat your record! Congrats! Your new record is ${this.props.correctDigits}`
                 })
                 await AsyncStorage.setItem(`@MySuperStore:timedBest${this.props.time}`, String(this.props.correctDigits));
 
@@ -376,7 +376,8 @@ const styles = StyleSheet.create({
     numDigits: {
         color: '#d7933f',
         fontSize: 24,
-        textAlign: 'center'
+        textAlign: 'center',
+        width: 250
     },
 
 });
