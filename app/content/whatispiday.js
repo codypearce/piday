@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     link: {
-        color: '#a87230'
+        color: '#916127'
     },
 });

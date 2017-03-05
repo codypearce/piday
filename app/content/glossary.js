@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    link: {
-        color: '#a87230'
+    bold: {
+        fontWeight: 'bold'
     },
 });
