@@ -8,6 +8,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+
+import OpenLink from '../components/OpenLink';
+
 const styles = StyleSheet.create({
     message: {
         color: '#d7933f',
@@ -36,6 +39,12 @@ const content = <View style={styles.container}>
                     </Text>
                     <Text  style={styles.message}>Today, the most popular algorithm for the calculation of pi is the Chudnovsky algorithm, published by brothers David and Gregory Chudnovsky in 1989. It is based on a variation of a formula discovered by Indian mathematician Srinivasa Ramanujan in the early 1900s. This algorithm is extremely efficient, and was used for all world record calculations of pi since 2010. Each record holder used a computer program called y-cruncher, developed by Alexander Yee in 2009. This program uses the Chudnovsky algorithm to compute pi, and Ramanujan’s formula to verify that the calculated digits are correct, breaking up the computation over several different computers to increase efficiency. Although the current world record stands at 22 trillion digits, it is actually possible to compute any particular digit of pi without calculating the others, using a digit extraction formula. The BBP formula, published by David H. Bailey, Peter Borwein, and Simon Plouffe in 1995, was the first such formula for pi. It can use hexadecimal (base-16) calculations to determine any digit of pi, although the further the digit is from the decimal point, the more calculation time is required.
                     </Text>
+                    <View>
+                        <Text style={styles.message}>References and Further Reading:</Text>
+                        <OpenLink url={"http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/pi-quest.pdf"} title={"Overview of Pi Computation"} />
+                        <OpenLink url={"http://pi2e.ch/"} title={"World Record Computation of Pi"} />
+                        <OpenLink url={"http://www.numberworld.org/y-cruncher"} title={"y-cruncher Software"} />
+                    </View>
                 </View>
 
 module.exports = {

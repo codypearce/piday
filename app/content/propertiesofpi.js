@@ -8,6 +8,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import OpenLink from '../components/OpenLink';
+
 const styles = StyleSheet.create({
     message: {
         color: '#d7933f',
@@ -35,6 +37,14 @@ const content = <View style={styles.container}>
                     </Text>
                     <Text  style={styles.message}>There is still much to be learned about the mathematical properties of pi. For example, it is still not known whether various combinations of transcendental numbers, such as π+ e, π* e, or e^π^2, are themselves transcendental. Another area of research is in determining whether pi is a normal number, that is, whether the digits are uniformly distributed. A normal number must have no string of digits, such as the string “2953” or the string “9999”, occur more frequently than any other string of the same length. If a number is absolutely normal, then this property must hold whether the number is expressed in decimal (base-10), as is the convention in everyday mathematics, in binary (base-2), as is the convention in computer programming, or in any other base. After examining the digits of pi that are currently known, mathematicians believe that pi is normal, but it has not been proven.
                     </Text>
+                    <View>
+                    <Text style={styles.message}>References and Further Reading:</Text>
+                        <OpenLink url={"http://mathworld.wolfram.com/IrrationalNumber.html"} title={"Irrational Number"} />
+                        <OpenLink url={"http://mathworld.wolfram.com/TranscendentalNumber.html"} title={"Transcendental Number"} />
+                        <OpenLink url={"http://mathworld.wolfram.com/NormalNumber.html"} title={"Normal Number"} />
+                        <OpenLink url={"https://www.nde-ed.org/EducationResources/Math/Math-e.htm"} title={"Euler’s Number"} />
+                        <OpenLink url={"http://www.cut-the-knot.org/do_you_know/GoldenRatio.shtml"} title={"The Golden Ratio"} />
+                    </View>
                 </View>
 
 module.exports = {

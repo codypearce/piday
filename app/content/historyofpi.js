@@ -8,6 +8,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import OpenLink from '../components/OpenLink';
+
+
 const styles = StyleSheet.create({
     message: {
         color: '#d7933f',
@@ -36,6 +39,13 @@ const content = <View style={styles.container}>
                     </Text>
                     <Text  style={styles.message}>'By the mid-1900s, emerging computer technology provided another leap forward for the calculation of digits of pi. In 1949, a team of mathematicians used the recently developed Electronic Numerical Integrator and Calculator (ENIAC) to calculate 2,037 digits of pi in just 70 hours, forever outpacing human mathematicians. Progress soon exploded, and, as of 2016, the record for known digits of pi is held by Peter Trueb, whose computer system calculated about 22 trillion digits in 105 days. Since the advent of the modern computer, mathematicians have focused their attention on proofs concerning the nature of pi, for example, whether it is a normal number, as well as developing newer and faster methods for calculating digits of pi using a computer.'
                     </Text>
+                    <View>
+                        <Text style={styles.message}>References and Further Reading:</Text>
+                        <OpenLink url={"https://www.exploratorium.edu/pi/history_of_pi/"} title={"History of Pi: Exploratorium"} />
+                        <OpenLink url={"http://www.ualr.edu/lasmoller/pi.html"} title={"History of Pi: University of Arkansas"} />
+                        <OpenLink url={"https://www.math.rutgers.edu/~cherlin/History/Papers2000/wilson.html"} title={"History of Pi: Rutgers"} />
+                        <OpenLink url={"http://link.springer.com/referenceworkentry/10.1007%2F978-1-4020-4425-0_9282"} title={"Pi in Indian Mathematics"} />
+                    </View>
 
                 </View>
 

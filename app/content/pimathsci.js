@@ -8,6 +8,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import OpenLink from '../components/OpenLink';
+
 const styles = StyleSheet.create({
     message: {
         color: '#d7933f',
@@ -38,6 +40,15 @@ const content = <View style={styles.container}>
                     </Text>
                     <Text  style={styles.message}>Even when no geometry is readily apparent, pi can be involved in scientific formulas if they describe periodic phenomena, that is, phenomena that occur with a set frequency. Examples include the swinging of a pendulum, the electromagnetic waves that describe how light travels, and the underlying equations in quantum mechanics. All periodic functions can be described in terms of sines and cosines, which are themselves periodic if plotted on a graph. Therefore, periodic phenomena are related to trigonometry, and thus to pi, although the relationship is not immediately obvious.
                     </Text>
+                    <View>
+                        <Text style={styles.message}>References and Further Reading:</Text>
+                        <OpenLink url={"http://mathworld.wolfram.com/Degree.htm"} title={"Angular Degree"} />
+                        <OpenLink url={"http://www.livescience.com/34132-what-makes-pi-special.html"} title={"Overview of Pi in Math and Science"} />
+                        <OpenLink url={"http://mragheb.com/NPRE%20498MC%20Monte%20Carlo%20Simulations%20in%20Engineering/The%20Buffon's%20Needle%20Problem.pdf"} title={"Buffon’s Needle"} />
+                        <OpenLink url={"http://science.sciencemag.org/content/271/5256/1710"} title={"River Meandering"} />
+                        <OpenLink url={"http://www.livescience.com/51399-eulers-identity.html"} title={"Euler’s Identity"} />
+                        <OpenLink url={"http://physics.stackexchange.com/questions/74254/why-is-there-a-factor-of-4-pi-in-certain-force-equations"} title={"Pi in Electromagnetism"} />
+                    </View>
                 </View>
 
 module.exports = {
