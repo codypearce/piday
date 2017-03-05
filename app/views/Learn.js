@@ -4,8 +4,12 @@ import {
   Text,
   View,
   Navigator,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
+
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
 
 export default class Learn extends React.Component {
     constructor(props) {
@@ -18,68 +22,132 @@ export default class Learn extends React.Component {
     }
     render() {
         return (
-            <View style={styles.wrapper}>
-                <View  style={styles.backBtn}>
-                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}>Back</Text>
-                    </TouchableHighlight>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.top}>
+                    <Text style={styles.title}>
+                        Learn
+                    </Text>
                 </View>
-                <View style={styles.container}>
-                    <View style={styles.digits}>
-                        <TouchableHighlight onPress={ () => this._navigate('Whatispi') }>
-                            <Text style={styles.centerNav}>What is pi?</Text>
+                <View style={styles.content}>
+                    <ScrollView>
+                        <TouchableHighlight onPress={ () => this._navigate('Whatispi') } style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>What is pi?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>Irrational Numbers</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>What is Pi Day?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>pi Algorithms?</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>The Properties of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>What is piDay?</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>The History of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>pi History</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>Computing Digits of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>piin the real world</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>Pi in Math & Science</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.centerNav}>Other constants</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>Pi in Popular Culture</Text>
                         </TouchableHighlight>
-                    </View>
+                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>Glossary</Text>
+                        </TouchableHighlight>
+                    </ScrollView>
+                </View>
 
-                </View>
-            </View>
+            </BackgroundImage>
+
+
         )
     }
 }
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+    content: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 300,
+        top: 50
     },
-    backBtn: {
-      top: 5,
-      left: 5
+    top: {
+        bottom: 50,
     },
-    white: {
-      color: 'white'
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
     },
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
+    subTitleContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    digits: {
-      marginTop: -100,
-      marginBottom: 50
+    subTitle: {
+        color:'#810000',
+        fontSize: 32,
+        fontWeight: "700",
+        fontFamily: 'Roboto',
+        bottom: 75,
     },
-    centerNav: {
-        color: 'white',
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    learnBtnText: {
         fontSize: 16,
         marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
+    },
+    learnBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        alignSelf: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#810000',
+    },
+    pickerMessage: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginTop: 30,
+        textAlign: 'center',
+        width: 250,
+        lineHeight: 20
+    },
+    picker: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        height: 30,
+        marginTop: 20,
+        alignSelf: 'center',
+        color: '#810000',
+    },
+
+    container: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 50
+    },
+    digits: {
+        marginBottom: 20
+    },
+    numDigits: {
+        color: '#d7933f',
+        fontSize: 24,
         textAlign: 'center'
-    }
+    },
+
 });
