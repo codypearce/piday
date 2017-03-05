@@ -7,6 +7,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
+
 export default class Settings extends React.Component {
     constructor(props) {
         super(props);
@@ -18,48 +21,74 @@ export default class Settings extends React.Component {
     }
     render() {
         return (
-            <View style={styles.wrapper}>
-                <View  style={styles.backBtn}>
-                    <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.white}>Back</Text>
-                    </TouchableHighlight>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Home') } />
+                <View style={styles.top}>
+                    <Text style={styles.title}>More</Text>
                 </View>
+
+
                 <View style={styles.container}>
-                    <View
-                        style={styles.digits}>
-                        <Text style={styles.title}>
-                            Settings
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
+                        <Text style={styles.centerNav}>
+                            Turn off ads
                         </Text>
-                    </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') }>
+                        <Text style={styles.centerNav}>
+                            Donate
+                        </Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') }>
+                        <Text style={styles.centerNav}>
+                            Records
+                        </Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') }>
+                        <Text style={styles.centerNav}>
+                            About
+                        </Text>
+                    </TouchableHighlight>
+
                 </View>
-            </View>
+            </BackgroundImage>
         )
     }
 }
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+    top: {
+        bottom: 75
     },
-    backBtn: {
-        top: 5,
-        left: 5
-    },
-    white: {
-        color: 'white'
+
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
     },
     container: {
-        flex: 1,
+        backgroundColor: '#810000',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        top: 50
     },
-    digits: {
-        marginTop: -100,
-        marginBottom: 50
+    centerNav: {
+        fontSize: 22,
+        marginBottom: 5,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+        paddingTop: 7,
+        paddingBottom: 7
     },
-    title: {
-        color:'white',
-        fontSize: 24
+
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginBottom: 15
+
     }
 });
