@@ -20,6 +20,8 @@ import Timed from './app/views/Timed'
 import Quiz from './app/views/Quiz'
 import Learn from './app/views/Learn'
 import Settings from './app/views/Settings'
+import Donate from './app/views/Donate'
+import About from './app/views/About'
 import Records from './app/views/Records'
 import LearnPage from './app/views/LearnPage'
 
@@ -89,6 +91,13 @@ export default class piday extends Component {
         if(route.name == 'Records') {
             return <Records navigator={navigator} />
         }
+        if(route.name == 'Donate') {
+            return <Donate navigator={navigator} />
+        }
+        if(route.name == 'About') {
+            return <About navigator={navigator} />
+        }
+
     }
     render() {
         return (
