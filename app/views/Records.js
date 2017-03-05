@@ -60,7 +60,7 @@ export default class Records extends React.Component {
     render() {
         return (
             <BackgroundImage>
-                <BackBtn navigate={() => this._navigate('Setting') } />
+                <BackBtn navigate={() => this._navigate('Settings') } />
                 <View style={styles.top}>
                     <Text style={styles.title}>Records</Text>
                 </View>

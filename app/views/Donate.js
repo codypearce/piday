@@ -22,7 +22,7 @@ export default class Donate extends React.Component {
     render() {
         return (
             <BackgroundImage>
-                <BackBtn navigate={() => this._navigate('Home') } />
+                <BackBtn navigate={() => this._navigate('Settings') } />
                 <View style={styles.top}>
                     <Text style={styles.title}>More</Text>
                 </View>

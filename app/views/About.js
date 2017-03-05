@@ -22,7 +22,7 @@ export default class About extends React.Component {
     render() {
         return (
             <BackgroundImage>
-                <BackBtn navigate={() => this._navigate('Setting') } />
+                <BackBtn navigate={() => this._navigate('Settings') } />
                 <View style={styles.top}>
                     <Text style={styles.title}>About</Text>
                 </View>
