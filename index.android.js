@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import Home from './app/views/Home'
+import Memorize from './app/views/Memorize'
 import Game from './app/views/Game'
 import Timed from './app/views/Timed'
 import Quiz from './app/views/Quiz'
@@ -39,6 +40,9 @@ export default class piday extends Component {
     renderScene(route, navigator) {
         if(route.name == 'Home') {
             return <Home navigator={navigator} />
+        }
+        if(route.name == 'Memorize') {
+            return <Memorize navigator={navigator} />
         }
         if(route.name == 'Game') {
             return <Game navigator={navigator} />

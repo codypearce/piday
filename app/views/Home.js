@@ -31,6 +31,11 @@ export default class Home extends React.Component {
 
 
                 <View style={styles.container}>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Memorize') }>
+                        <Text style={styles.centerNav}>
+                            Memorize
+                        </Text>
+                    </TouchableHighlight>
                     <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Game') }>
                         <Text style={styles.centerNav}>
                             Play
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30
+        top: 50
     },
     centerNav: {
         fontSize: 22,
