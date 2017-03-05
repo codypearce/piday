@@ -8,6 +8,8 @@ import {
   AsyncStorage
 } from 'react-native';
 
+import BackgroundImage from '../components/BackgroundImage';
+import BackBtn from '../components/BackBtn';
 
 export default class Records extends React.Component {
     constructor(props) {
@@ -41,13 +43,13 @@ export default class Records extends React.Component {
             const timedBest300 = await AsyncStorage.getItem('@MySuperStore:timedBest300');
             if(memorize) {
                 this.setState({
-                    memorize: memorize,
-                    timedBest10: timedBest10,
-                    timedBest20: timedBest20,
-                    timedBest30: timedBest30,
-                    timedBest60: timedBest60,
-                    timedBest180: timedBest180,
-                    timedBest300: timedBest300,
+                    memorize: memorize || 0,
+                    timedBest10: timedBest10 || 0,
+                    timedBest20: timedBest20 || 0,
+                    timedBest30: timedBest30 || 0,
+                    timedBest60: timedBest60 || 0,
+                    timedBest180: timedBest180 || 0,
+                    timedBest300: timedBest300 || 0,
                 });
             }
         } catch (error) {
@@ -56,79 +58,49 @@ export default class Records extends React.Component {
     }
 
     render() {
-
         return (
-            <View style={styles.wrapper}>
-                    <View  style={styles.backBtn}>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }>
-                            <Text style={styles.white}>Back</Text>
-                        </TouchableHighlight>
-                    </View>
+            <BackgroundImage>
+                <BackBtn navigate={() => this._navigate('Setting') } />
+                <View style={styles.top}>
+                    <Text style={styles.title}>Records</Text>
+                </View>
 
-                    <View style={styles.container}>
-                        <View style={styles.digits}>
-                            <Text style={styles.largeWhite}>
-                                 Your Records
-                            </Text>
-                        </View>
-                        <View>
-                        <Text>Memorize pi record: {this.state.memorize}</Text>
-                        <Text>Timed 10 seconds record: {this.state.timedBest10}</Text>
-                        <Text>Timed 20 seconds record: {this.state.timedBest20}</Text>
-                        <Text>Timed 30 seconds record: {this.state.timedBest30}</Text>
-                        <Text>Timed 60 seconds record: {this.state.timedBest60}</Text>
-                        <Text>Timed 180 seconds record: {this.state.timedBest180}</Text>
-                        <Text>Timed 300 seconds record: {this.state.timedBest300}</Text>
-                        </View>
+                <View style={styles.content}>
+                    <Text style={styles.message}>Memorize pi record: {this.state.memorize}</Text>
+                    <Text style={styles.message}>Timed 10 seconds record: {this.state.timedBest10}</Text>
+                    <Text style={styles.message}>Timed 20 seconds record: {this.state.timedBest20}</Text>
+                    <Text style={styles.message}>Timed 30 seconds record: {this.state.timedBest30}</Text>
+                    <Text style={styles.message}>Timed 60 seconds record: {this.state.timedBest60}</Text>
+                    <Text style={styles.message}>Timed 180 seconds record: {this.state.timedBest180}</Text>
+                    <Text style={styles.message}>Timed 300 seconds record: {this.state.timedBest300}</Text>
 
-                    </View>
-            </View>
+                </View>
+            </BackgroundImage>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#1976D2',
-        flex: 1
+    top: {
+        bottom: 100,
     },
-    backBtn: {
-        top: 5,
-        left: 5
+    title: {
+        color:'#810000',
+        fontSize: 58,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
     },
-    white: {
-        color: 'white'
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 10,
+        width: 300,
+        lineHeight: 20
     },
-    container: {
-        flex: 1,
+    content: {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
-    digits: {
-        marginTop: -100,
-        marginBottom: 50
-    },
-    pi: {
-        marginBottom: 50
-    },
-    largeWhite: {
-        color: 'white',
-        fontSize: 24
-    },
-    piDisplay: {
-        color: 'white',
-        fontSize: 24
-    },
-    endContainer: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    tryAgain: {
-        color: "white",
-        marginTop: 30,
-        fontSize: 28
-    }
 
 });
