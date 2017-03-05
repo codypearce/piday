@@ -31,28 +31,28 @@ export default class Learn extends React.Component {
                 </View>
                 <View style={styles.content}>
                     <ScrollView>
-                        <TouchableHighlight onPress={ () => this._navigate('Whatispi') } style={styles.learnBtn}>
-                            <Text style={styles.learnBtnText}>What is pi?</Text>
+                        <TouchableHighlight onPress={ () => this._navigate('whatispi') } style={styles.learnBtn}>
+                            <Text style={styles.learnBtnText}>What is Pi?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('whatispiday') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>What is Pi Day?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('propertiesofpi') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>The Properties of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('historyofpi') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>The History of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('computingdigits') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>Computing Digits of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('pimathsci') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>Pi in Math & Science</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('pipop') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>Pi in Popular Culture</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('Home') }  style={styles.learnBtn}>
+                        <TouchableHighlight onPress={ () => this._navigate('glossary') }  style={styles.learnBtn}>
                             <Text style={styles.learnBtnText}>Glossary</Text>
                         </TouchableHighlight>
                     </ScrollView>
@@ -81,18 +81,6 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-    subTitleContainer: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    subTitle: {
-        color:'#810000',
-        fontSize: 32,
-        fontWeight: "700",
-        fontFamily: 'Roboto',
-        bottom: 75,
-    },
     message: {
         color: '#d7933f',
         fontSize: 16,
@@ -118,22 +106,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#810000',
     },
-    pickerMessage: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginTop: 30,
-        textAlign: 'center',
-        width: 250,
-        lineHeight: 20
-    },
-    picker: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        height: 30,
-        marginTop: 20,
-        alignSelf: 'center',
-        color: '#810000',
-    },
 
     container: {
         flexDirection: 'column',
@@ -141,13 +113,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         bottom: 50
     },
-    digits: {
-        marginBottom: 20
-    },
-    numDigits: {
-        color: '#d7933f',
-        fontSize: 24,
-        textAlign: 'center'
-    },
+
 
 });
