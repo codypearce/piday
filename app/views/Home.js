@@ -66,7 +66,7 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
     top: {
-        bottom: 75
+        bottom: 50
     },
 
     title: {
