@@ -10,7 +10,7 @@ import {
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
-export default class Settings extends React.Component {
+export default class About extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -22,33 +22,20 @@ export default class Settings extends React.Component {
     render() {
         return (
             <BackgroundImage>
-                <BackBtn navigate={() => this._navigate('Home') } />
+                <BackBtn navigate={() => this._navigate('Setting') } />
                 <View style={styles.top}>
-                    <Text style={styles.title}>More</Text>
+                    <Text style={styles.title}>About</Text>
                 </View>
 
 
-                <View style={styles.container}>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
-                        <Text style={styles.centerNav}>
-                            Turn off ads
+                <View style={styles.content}>
+
+                        <Text style={styles.message}>
+                            Piday is an app about the mathematical constant pi and about the day celebrating the beloved number. You can try to memorize as many digits as you can, or try a timed challenge, or take the quiz, or learn more about pi and its history.
                         </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') }>
-                        <Text style={styles.centerNav}>
-                            Donate
+                        <Text style={styles.message}>
+                            Bug reports and questions can be sent to pidayapp@gmail.com.
                         </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') }>
-                        <Text style={styles.centerNav}>
-                            Records
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') }>
-                        <Text style={styles.centerNav}>
-                            About
-                        </Text>
-                    </TouchableHighlight>
 
                 </View>
             </BackgroundImage>
@@ -57,38 +44,25 @@ export default class Settings extends React.Component {
 }
 const styles = StyleSheet.create({
     top: {
-        bottom: 75
+        bottom: 100,
     },
-
     title: {
         color:'#810000',
         fontSize: 58,
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-    container: {
-        backgroundColor: '#810000',
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 30,
+        width: 300,
+        lineHeight: 20
+    },
+    content: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        top: 50
-    },
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
     },
 
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginBottom: 15
-
-    }
 });

@@ -10,7 +10,7 @@ import {
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
-export default class Settings extends React.Component {
+export default class Donate extends React.Component {
     constructor(props) {
         super(props);
     }
