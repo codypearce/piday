@@ -31,28 +31,28 @@ export default class Learn extends React.Component {
                 </View>
                 <View style={styles.content}>
                     <ScrollView>
-                        <TouchableHighlight onPress={ () => this._navigate('whatispi') } style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Whatispi') } style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>What is Pi?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('whatispiday') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Whatispiday') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>What is Pi Day?</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('propertiesofpi') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Propertiesofpi') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>The Properties of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('historyofpi') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Historyofpi') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>The History of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('computingdigits') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Computingdigits') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>Computing Digits of Pi</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('pimathsci') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Pimathsci') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>Pi in Math & Science</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('pipop') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Pipop') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>Pi in Popular Culture</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={ () => this._navigate('glossary') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight onPress={ () => this._navigate('Glossary') }  style={styles.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.learnBtnText}>Glossary</Text>
                         </TouchableHighlight>
                     </ScrollView>

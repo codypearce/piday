@@ -26,18 +26,6 @@ import Records from './app/views/Records'
 import LearnPage from './app/views/LearnPage'
 
 
-//content
-import Whatispi from './app/content/whatispi';
-import whatispiday from './app/content/whatispiday';
-import propertiesofpi from './app/content/propertiesofpi';
-import historyofpi from './app/content/historyofpi';
-import computingdigits from './app/content/computingdigits';
-import pimathsci from './app/content/pimathsci';
-import pipop from './app/content/pipop';
-import glossary from './app/content/glossary';
-
-
-
 export default class piday extends Component {
     renderScene(route, navigator) {
         if(route.name == 'Home') {
@@ -60,29 +48,29 @@ export default class piday extends Component {
         }
 
         // Learn Page Sections
-        if(route.name == 'whatispi') {
-            return <LearnPage navigator={navigator} title={Whatispi.title} content={Whatispi.content} />
+        if(route.name == 'Whatispi') {
+            return <LearnPage navigator={navigator} title={'What is Pi?'} />
         }
-        if(route.name == 'whatispiday') {
-            return <LearnPage navigator={navigator} title={whatispiday.title} content={whatispiday.content} />
+        if(route.name == 'Whatispiday') {
+            return <LearnPage navigator={navigator} title={'What is Pi day?'} />
         }
-        if(route.name == 'propertiesofpi') {
-            return <LearnPage navigator={navigator} title={propertiesofpi.title} content={propertiesofpi.content} />
+        if(route.name == 'Propertiesofpi') {
+            return <LearnPage navigator={navigator} title={'The Properties of Pi'} />
         }
-        if(route.name == 'historyofpi') {
-            return <LearnPage navigator={navigator} title={historyofpi.title} content={historyofpi.content} />
+        if(route.name == 'Historyofpi') {
+            return <LearnPage navigator={navigator} title={'The History of Pi'}  />
         }
-        if(route.name == 'computingdigits') {
-            return <LearnPage navigator={navigator} title={computingdigits.title} content={computingdigits.content} />
+        if(route.name == 'Computingdigits') {
+            return <LearnPage navigator={navigator} title={'Computing Digits of Pi'} />
         }
-        if(route.name == 'pimathsci') {
-            return <LearnPage navigator={navigator} title={pimathsci.title} content={pimathsci.content} />
+        if(route.name == 'Pimathsci') {
+            return <LearnPage navigator={navigator} title={'Pi in Math & Science'} />
         }
-        if(route.name == 'pipop') {
-            return <LearnPage navigator={navigator} title={pipop.title} content={pipop.content} />
+        if(route.name == 'Pipop') {
+            return <LearnPage navigator={navigator} title={'Pi in Popular Culture'}  />
         }
-        if(route.name == 'glossary') {
-            return <LearnPage navigator={navigator} title={glossary.title} content={glossary.content} />
+        if(route.name == 'Glossary') {
+            return <LearnPage navigator={navigator} title={'Glossary'} />
         }
 
         if(route.name == 'Settings') {
