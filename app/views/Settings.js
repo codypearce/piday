@@ -29,22 +29,22 @@ export default class Settings extends React.Component {
 
 
                 <View style={styles.container}>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Turn off ads
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Donate
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Records
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             About
                         </Text>

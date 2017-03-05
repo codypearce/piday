@@ -155,7 +155,7 @@ class GameOver extends React.Component {
             <View style={styles.endContainer}>
                 <Text style={styles.numDigits}>{this.state.message}</Text>
 
-                <TouchableHighlight onPress={this.props.resetGame}  style={styles.roundedBtn} ><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.resetGame}  style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)" ><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }

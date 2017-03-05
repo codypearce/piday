@@ -137,7 +137,7 @@ class StartButton extends React.Component {
         return(
             <View style={styles.container}>
                 <Text style={styles.message}>Multiple Choice 10 question quiz about pi! Study the learn section to get a better score.</Text>
-                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startQuiz() }>
+                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startQuiz() } underlayColor="rgba(215, 147, 63,.3)">
                     <Text style={styles.centerNav}>Start</Text>
                 </TouchableHighlight>
             </View>
@@ -154,18 +154,18 @@ class Question extends React.Component {
         return(
             <View style={styles.containerChoices}>
                 <View style={styles.choiceRow}>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0])} style={styles.choice}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.choiceText}>{this.props.choices[0]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])} style={styles.choice}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.choiceText}>{this.props.choices[1]}</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={styles.choiceRow}>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2])} style={styles.choice}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.choiceText}>{this.props.choices[2]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3])} style={styles.choice}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.choiceText}>{this.props.choices[3]}</Text>
                     </TouchableHighlight>
                 </View>
@@ -194,7 +194,7 @@ class Endquiz extends React.Component {
             <View style={styles.container}>
                 <Text style={styles.message}>{message}</Text>
                 <View>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.reset() }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.reset() } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>Try again</Text>
                     </TouchableHighlight>
                 </View>

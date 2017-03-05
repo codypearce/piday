@@ -163,7 +163,7 @@ class StartScreen extends React.Component {
             <View style={styles.container}>
                 <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
 
-                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startTime() }>
+                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startTime() } underlayColor="rgba(215, 147, 63,.3)">
                     <Text style={styles.centerNav}>Start</Text>
                 </TouchableHighlight>
                 <Text style={styles.pickerMessage}> Select Time </Text>
@@ -267,7 +267,7 @@ class Endgame extends React.Component {
                 </View>
                 <Text style={styles.numDigits}>{this.state.message}</Text>
 
-                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn}><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
@@ -285,7 +285,7 @@ class ThreeWrong extends React.Component {
                 <Text style={styles.numDigits}>
                     Better luck next time!
                 </Text>
-                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn}><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
             </View>
         )
     }

@@ -35,7 +35,7 @@ class Key extends React.Component {
     render() {
         const value = this.props.value;
         return(
-            <TouchableHighlight className="key" onPress={this.props.enterDigit.bind(this, value)} underlayColor="#2084e8">
+            <TouchableHighlight className="key" onPress={this.props.enterDigit.bind(this, value)} underlayColor="rgba(215, 147, 63,.3)">
                 <Text style={styles.key}>{value.toString()}</Text>
             </TouchableHighlight>
         )

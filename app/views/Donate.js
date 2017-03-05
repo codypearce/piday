@@ -32,12 +32,12 @@ export default class Donate extends React.Component {
                     <Text style={styles.message}>
                         If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!
                     </Text>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Bitcoin
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Paypal
                         </Text>

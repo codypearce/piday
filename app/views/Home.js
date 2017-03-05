@@ -31,27 +31,27 @@ export default class Home extends React.Component {
 
 
                 <View style={styles.container}>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Memorize') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Memorize') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Memorize
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Game') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Game') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Play
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Timed') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Timed') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Timed
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Quiz') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Quiz') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Quiz
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Learn') }>
+                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Learn') } underlayColor="rgba(215, 147, 63,.3)">
                         <Text style={styles.centerNav}>
                             Learn
                         </Text>

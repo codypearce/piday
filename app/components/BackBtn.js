@@ -12,7 +12,7 @@ export default class BackBtn extends React.Component {
     render() {
         return(
             <View  style={styles.backBtn}>
-                <TouchableHighlight onPress={ this.props.navigate }>
+                <TouchableHighlight onPress={ this.props.navigate } underlayColor="rgba(215, 147, 63,.3)">
                     <Text style={styles.white}>Back</Text>
                 </TouchableHighlight>
             </View>
