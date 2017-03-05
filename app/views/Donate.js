@@ -24,29 +24,22 @@ export default class Donate extends React.Component {
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Settings') } />
                 <View style={styles.top}>
-                    <Text style={styles.title}>More</Text>
+                    <Text style={styles.title}>Donate</Text>
                 </View>
 
 
                 <View style={styles.container}>
+                    <Text style={styles.message}>
+                        If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!
+                    </Text>
                     <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
                         <Text style={styles.centerNav}>
-                            Turn off ads
+                            Bitcoin
                         </Text>
                     </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') }>
+                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') }>
                         <Text style={styles.centerNav}>
-                            Donate
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') }>
-                        <Text style={styles.centerNav}>
-                            Records
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') }>
-                        <Text style={styles.centerNav}>
-                            About
+                            Paypal
                         </Text>
                     </TouchableHighlight>
 
@@ -57,7 +50,7 @@ export default class Donate extends React.Component {
 }
 const styles = StyleSheet.create({
     top: {
-        bottom: 75
+        bottom: 100
     },
 
     title: {
@@ -66,12 +59,19 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
+    message: {
+        color: '#d7933f',
+        fontSize: 16,
+        marginBottom: 30,
+        width: 300,
+        lineHeight: 20,
+        textAlign:'center'
+    },
     container: {
         backgroundColor: '#810000',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        top: 50
     },
     centerNav: {
         fontSize: 22,
