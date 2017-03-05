@@ -5,6 +5,7 @@ import {
   Text,
   View,
   Navigator,
+  Image,
   TouchableHighlight
 } from 'react-native';
 
@@ -30,8 +31,20 @@ export default class Computingdigits extends React.Component {
                 </Text>
                 <Text  style={styles.message}>The first formula that could be turned into an algorithm to calculate pi was the work of Francois Viete, who expressed the number 2/π as an infinitely long product in 1593. This formula holds the distinction of being the first to represent a number as an infinite product, and this breakthrough paved the way for entirely new branches of mathematics. Unfortunately, the <Text style={styles.link}  onPress={ () => this._navigate('Glossary') }>nested square roots</Text> and the need to multiply pieces of the product together made this a very slow calculation, even for a computer to perform. To calculate the first 60 digits of pi would require a computer to find approximately 100 pieces of the product, the last of which would involve a nested square root calculation that is 100 layers deep.
                 </Text>
+
+
+                <Image style={styles.image} source={require('../images/viete.png')}/>
+                <Text style={styles.caption}>“Viete’s formula, involving an infinite product and nested square roots”</Text>
+
                 <Text  style={styles.message}>More efficient algorithms, such as those based on Machin-like formulas, involve sums instead of products. Machin-like formulas are variations of an expression for pi involving the trigonometric function arctangent (or inverse tangent) found by John Machin in 1706. While the expression itself doesn’t appear to contain an infinite sum, the arctangent function cannot be computed exactly, and must itself be represented as a particular infinite sum called a Taylor series. Machin-like formulas make relatively efficient algorithms, and were used to calculate pi well into the era of electronic computers.
                 </Text>
+
+                <Image style={styles.image} source={require('../images/machin.png')}/>
+                <Text style={styles.caption}>“Machin’s original expression for pi”</Text>
+
+                <Image style={styles.image} source={require('../images/arctan.png')}/>
+                <Text style={styles.caption}>“The Taylor series for the arctangent function involves an infinite sum”</Text>
+
                 <Text  style={styles.message}>Today, the most popular algorithm for the calculation of pi is the Chudnovsky algorithm, published by brothers David and Gregory Chudnovsky in 1989. It is based on a variation of a formula discovered by Indian mathematician Srinivasa Ramanujan in the early 1900s. This algorithm is extremely efficient, and was used for all world record calculations of pi since 2010. Each record holder used a computer program called y-cruncher, developed by Alexander Yee in 2009. This program uses the Chudnovsky algorithm to compute pi, and Ramanujan’s formula to verify that the calculated digits are correct, breaking up the computation over several different computers to increase efficiency. Although the current world record stands at 22 trillion digits, it is actually possible to compute any particular digit of pi without calculating the others, using a digit extraction formula. The BBP formula, published by David H. Bailey, Peter Borwein, and Simon Plouffe in 1995, was the first such formula for pi. It can use hexadecimal (base-16) calculations to determine any digit of pi, although the further the digit is from the decimal point, the more calculation time is required.
                 </Text>
                 <View>
@@ -52,7 +65,19 @@ const styles = StyleSheet.create({
         width: 300,
         lineHeight: 25
     },
-
+    caption: {
+        color: 'white',
+        fontSize: 14,
+        width: 300,
+        marginBottom: 25
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'contain',
+        width: 300,
+        height: 150,
+        margin: 0
+    },
     container: {
         flexDirection: 'column',
         justifyContent: 'center',
