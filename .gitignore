@@ -1,3 +1,7 @@
+android/gradle.properties
+android/gradle.properties
+android/gradle.properties
+
 # OSX
 #
 .DS_Store
@@ -51,6 +55,3 @@ android/app/libs
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
-
-android/gradle.properties
-android/gradle.properties
