@@ -27,5 +27,6 @@ const styles = StyleSheet.create({
       left: 5,
       position: 'absolute',
       opacity: 0.5,
+      transform: [{scale: .7}]
     },
 });
