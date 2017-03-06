@@ -9,6 +9,7 @@ import {
 
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
+import OpenLink from '../components/OpenLink';
 
 export default class Donate extends React.Component {
     constructor(props) {
@@ -32,17 +33,10 @@ export default class Donate extends React.Component {
                     <Text style={styles.message}>
                         If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!
                     </Text>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            Bitcoin
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            Paypal
-                        </Text>
-                    </TouchableHighlight>
-
+                    <View >
+                        <Text style={styles.message}>You can donate by visiting our website at </Text>
+                        <OpenLink url={"https://pidayapp.com"} title={"https://pidayapp.com"} />
+                    </View>
                 </View>
             </BackgroundImage>
         )
