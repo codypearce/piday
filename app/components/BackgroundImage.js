@@ -8,6 +8,8 @@ import {
   Image
 } from 'react-native';
 
+import AdmobComponent from './Admobcomponent';
+
 export default class BackgroundImage extends React.Component {
     render() {
         return(
@@ -15,6 +17,7 @@ export default class BackgroundImage extends React.Component {
             style={styles.backgroundImg}
             source={require('../images/bg.png')}>
                 {this.props.children}
+                <AdmobComponent />
             </Image>
         )
     }
