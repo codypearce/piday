@@ -10,8 +10,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  BackAndroid
 } from 'react-native';
+
 
 import Home from './app/views/Home'
 import Memorize from './app/views/Memorize'
@@ -27,7 +29,17 @@ import LearnPage from './app/views/LearnPage'
 
 
 export default class piday extends Component {
+    componentWillUnmount(){
+        BackAndroid.removeEventListener('hardwareBackPress');
+    }
     renderScene(route, navigator) {
+        BackAndroid.addEventListener('hardwareBackPress', () => {
+            if (navigator && navigator.getCurrentRoutes().length > 1) {
+                   navigator.pop();
+                   return true;
+               }
+               return false;
+        });
         if(route.name == 'Home') {
             return <Home navigator={navigator} />
         }

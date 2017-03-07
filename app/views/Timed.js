@@ -41,6 +41,9 @@ export default class Timed extends React.Component {
             name: route,
         })
     }
+    componentWillUnmount() {
+        this.reset();
+    }
     enterDigit(value) {
         if(this.state.started == false) {
             return;
