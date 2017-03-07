@@ -15,6 +15,11 @@ module.exports = StyleSheet.create({
         alignItems: 'center',
         flex: 2
     },
+    contentSpaceBetween: {
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        flex: 2
+    },
     title: {
         color:'#810000',
         fontSize: 58,

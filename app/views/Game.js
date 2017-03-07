@@ -152,56 +152,11 @@ class GameOver extends React.Component {
     }
     render() {
         return(
-            <View style={styles.content}>
-                <Text style={styles.numDigits}>{this.state.message}</Text>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.numDigits}>{this.state.message}</Text>
 
-                <TouchableHighlight onPress={this.props.resetGame}  style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)" ><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.resetGame}  style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)" ><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
-
 }
-const styles = StyleSheet.create({
-    wrapper: {
-        paddingTop: 25,
-        paddingBottom: 15
-    },
-    top: {
-        flex: 1
-    },
-    content: {
-        flex: 2
-    },
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
-    numDigits: {
-        color: '#d7933f',
-        fontSize: 24,
-        textAlign: 'center'
-    },
-
-
-
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginTop: 20
-
-    }
-
-});
