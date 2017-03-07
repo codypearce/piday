@@ -78,22 +78,20 @@ export default class Game extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.top}>
-                    <Text style={styles.title}>
-                        {showThree}{this.formatDisplay(this.state.display)}
-                    </Text>
-                </View>
-
-                <View style={styles.container}>
-                    <View style={styles.digits}>
-                        <Text style={styles.numDigits}>
-                            {this.state.digits} Digits
+                <View style={styles.wrapper}>
+                    <View style={styles.top}>
+                        <Text style={styles.title}>
+                            {showThree}{this.formatDisplay(this.state.display)}
                         </Text>
                     </View>
 
-                </View>
-                <View style={styles.content}>
-                    {content}
+
+                    <View style={styles.content}>
+                        <Text style={styles.numDigits}>
+                            {this.state.digits} Digits
+                        </Text>
+                        {content}
+                    </View>
                 </View>
             </BackgroundImage>
         )
@@ -152,7 +150,7 @@ class GameOver extends React.Component {
     }
     render() {
         return(
-            <View style={styles.endContainer}>
+            <View style={styles.content}>
                 <Text style={styles.numDigits}>{this.state.message}</Text>
 
                 <TouchableHighlight onPress={this.props.resetGame}  style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)" ><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
@@ -162,8 +160,15 @@ class GameOver extends React.Component {
 
 }
 const styles = StyleSheet.create({
+    wrapper: {
+        paddingTop: 25,
+        paddingBottom: 15
+    },
     top: {
-        bottom: 50,
+        flex: 1
+    },
+    content: {
+        flex: 2
     },
     title: {
         color:'#810000',
@@ -171,34 +176,13 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-
-    container: {
-        backgroundColor: '#810000',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        top: 40
-    },
     numDigits: {
         color: '#d7933f',
         fontSize: 24,
         textAlign: 'center'
     },
 
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 300,
-        top: 50
-    },
 
-    endContainer: {
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        bottom: 50
-    },
 
     centerNav: {
         fontSize: 22,

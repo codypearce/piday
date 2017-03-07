@@ -8,6 +8,8 @@ import {
   ScrollView
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 import piVal from '../components/PI';
@@ -25,54 +27,19 @@ export default class Memorize extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-
-                <View style={styles.top}>
-                    <Text style={styles.title}>
-                        10k Digits of Pi
-                    </Text>
-                </View>
-                <View style={styles.content}>
-                    <ScrollView>
-                        <Text style={styles.message}>{piVal.piSpaced}</Text>
-                    </ScrollView>
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.titleSmall}>
+                            10k Digits of Pi
+                        </Text>
+                    </View>
+                    <View style={style.content}>
+                        <ScrollView>
+                            <Text style={style.message}>{piVal.piSpaced}</Text>
+                        </ScrollView>
+                    </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-const styles = StyleSheet.create({
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 350,
-        top: 50
-    },
-    top: {
-        bottom: 50,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 42,
-        fontWeight: "700",
-        fontFamily: 'Roboto',
-        textAlign: 'center'
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 18,
-        marginBottom: 30,
-        width: 300,
-        lineHeight: 20,
-        textAlign: 'center'
-    },
-
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 50
-    },
-
-
-});
