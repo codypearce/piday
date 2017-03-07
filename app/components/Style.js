@@ -61,6 +61,12 @@ module.exports = StyleSheet.create({
         lineHeight: 20,
         textAlign: 'center'
     },
+    messageLeft: {
+        color: '#d7933f',
+        fontSize: 18,
+        lineHeight: 20,
+        textAlign: 'left'
+    },
     numDigits: {
         color: '#d7933f',
         fontSize: 24,

@@ -7,6 +7,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 import OpenLink from '../components/OpenLink';
@@ -24,65 +26,23 @@ export default class Donate extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Settings') } />
-                <View style={styles.top}>
-                    <Text style={styles.title}>Donate</Text>
-                </View>
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.title}>Donate</Text>
+                    </View>
 
 
-                <View style={styles.container}>
-                    <Text style={styles.message}>
-                        If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!
-                    </Text>
-                    <View >
-                        <Text style={styles.message}>You can donate by visiting our website at </Text>
-                        <OpenLink url={"https://pidayapp.com"} title={"https://pidayapp.com"} />
+                    <View style={style.contentSpaceBetween}>
+                        <Text style={style.message}>
+                            If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!
+                        </Text>
+                        <View >
+                            <Text style={style.messageLeft}>You can donate by visiting our website at </Text>
+                            <OpenLink style={style.message} url={"https://pidayapp.com"} title={"https://pidayapp.com"} />
+                        </View>
                     </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-const styles = StyleSheet.create({
-    top: {
-        bottom: 100
-    },
-
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 30,
-        width: 300,
-        lineHeight: 20,
-        textAlign:'center'
-    },
-    container: {
-        backgroundColor: '#810000',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginBottom: 15
-
-    }
-});

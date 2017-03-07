@@ -7,6 +7,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
@@ -23,72 +25,34 @@ export default class Settings extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.top}>
-                    <Text style={styles.title}>More</Text>
-                </View>
-
-
-                <View style={styles.container}>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            Turn off ads
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight  style={styles.roundedBtn} onPress={ () => this._navigate('Donate') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            Donate
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('Records') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            Records
-                        </Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this._navigate('About') } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>
-                            About
-                        </Text>
-                    </TouchableHighlight>
-
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.title}>More</Text>
+                    </View>
+                    <View style={style.content}>
+                        <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Home') } underlayColor="rgba(215, 147, 63,.3)">
+                            <Text style={style.roundedBtnText}>
+                                Turn off ads
+                            </Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Donate') } underlayColor="rgba(215, 147, 63,.3)">
+                            <Text style={style.roundedBtnText}>
+                                Donate
+                            </Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('Records') } underlayColor="rgba(215, 147, 63,.3)">
+                            <Text style={style.roundedBtnText}>
+                                Records
+                            </Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('About') } underlayColor="rgba(215, 147, 63,.3)">
+                            <Text style={style.roundedBtnText}>
+                                About
+                            </Text>
+                        </TouchableHighlight>
+                    </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-const styles = StyleSheet.create({
-    top: {
-        bottom: 75
-    },
-
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
-    container: {
-        backgroundColor: '#810000',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        top: 50
-    },
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginBottom: 15
-
-    }
-});

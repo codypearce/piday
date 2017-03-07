@@ -7,6 +7,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
@@ -23,46 +25,20 @@ export default class About extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Settings') } />
-                <View style={styles.top}>
-                    <Text style={styles.title}>About</Text>
-                </View>
-
-
-                <View style={styles.content}>
-
-                        <Text style={styles.message}>
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.title}>About</Text>
+                    </View>
+                    <View style={style.contentSpaceBetween}>
+                        <Text style={style.messageLeft}>
                             Piday is an app about the mathematical constant pi and about the day celebrating the beloved number. You can try to memorize as many digits as you can, or try a timed challenge, or take the quiz, or learn more about pi and its history.
                         </Text>
-                        <Text style={styles.message}>
+                        <Text style={style.messageLeft}>
                             Bug reports and questions can be sent to pidayapp@gmail.com.
                         </Text>
-
+                    </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-const styles = StyleSheet.create({
-    top: {
-        bottom: 100,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 30,
-        width: 300,
-        lineHeight: 20
-    },
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-});

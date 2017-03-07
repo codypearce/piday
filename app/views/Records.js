@@ -8,6 +8,8 @@ import {
   AsyncStorage
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
@@ -61,46 +63,23 @@ export default class Records extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Settings') } />
-                <View style={styles.top}>
-                    <Text style={styles.title}>Records</Text>
-                </View>
+                <View style={style.wrapper}>
+                <View style={style.top}>
+                        <Text style={style.title}>Records</Text>
+                    </View>
 
-                <View style={styles.content}>
-                    <Text style={styles.message}>Memorize pi record: {this.state.memorize}</Text>
-                    <Text style={styles.message}>Timed 10 seconds record: {this.state.timedBest10}</Text>
-                    <Text style={styles.message}>Timed 20 seconds record: {this.state.timedBest20}</Text>
-                    <Text style={styles.message}>Timed 30 seconds record: {this.state.timedBest30}</Text>
-                    <Text style={styles.message}>Timed 60 seconds record: {this.state.timedBest60}</Text>
-                    <Text style={styles.message}>Timed 180 seconds record: {this.state.timedBest180}</Text>
-                    <Text style={styles.message}>Timed 300 seconds record: {this.state.timedBest300}</Text>
+                    <View style={style.content}>
+                        <Text style={style.messageLeft}>Memorize pi record: {this.state.memorize}</Text>
+                        <Text style={style.messageLeft}>Timed 10 seconds record: {this.state.timedBest10}</Text>
+                        <Text style={style.messageLeft}>Timed 20 seconds record: {this.state.timedBest20}</Text>
+                        <Text style={style.messageLeft}>Timed 30 seconds record: {this.state.timedBest30}</Text>
+                        <Text style={style.messageLeft}>Timed 60 seconds record: {this.state.timedBest60}</Text>
+                        <Text style={style.messageLeft}>Timed 180 seconds record: {this.state.timedBest180}</Text>
+                        <Text style={style.messageLeft}>Timed 300 seconds record: {this.state.timedBest300}</Text>
 
+                    </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    top: {
-        bottom: 100,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 10,
-        width: 300,
-        lineHeight: 20
-    },
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-});
