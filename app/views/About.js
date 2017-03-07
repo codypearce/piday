@@ -34,7 +34,7 @@ export default class About extends React.Component {
                             Piday is an app about the mathematical constant pi and about the day celebrating the beloved number. You can try to memorize as many digits as you can, or try a timed challenge, or take the quiz, or learn more about pi and its history.
                         </Text>
                         <Text style={style.messageLeft}>
-                            Bug reports and questions can be sent to pidayapp@gmail.com.
+                            Bug reports and questions can be sent to algorithmology@gmail.com.
                         </Text>
                     </View>
                 </View>
