@@ -8,6 +8,8 @@ import {
   ScrollView
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 
@@ -65,53 +67,19 @@ export default class LearnPage extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Learn') } />
-
-                <View style={styles.top}>
-                    <Text style={styles.title}>
-                        {this.props.title}
-                    </Text>
-                </View>
-                <View style={styles.content}>
-                    <ScrollView>
-                        {page}
-                    </ScrollView>
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.titleSmallest}>
+                            {this.props.title}
+                        </Text>
+                    </View>
+                    <View style={style.content}>
+                        <ScrollView>
+                            {page}
+                        </ScrollView>
+                    </View>
                 </View>
             </BackgroundImage>
         )
     }
 }
-const styles = StyleSheet.create({
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 350,
-        top: 50
-    },
-    top: {
-        bottom: 50,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 48,
-        fontWeight: "700",
-        fontFamily: 'Roboto',
-        textAlign: 'center'
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 30,
-        width: 300,
-        lineHeight: 20
-    },
-
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 50
-    },
-
-
-});

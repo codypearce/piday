@@ -34,7 +34,12 @@ module.exports = StyleSheet.create({
         fontWeight: "700",
         fontFamily: 'Roboto'
     },
-
+    titleSmallest: {
+        color:'#810000',
+        fontSize: 30,
+        fontWeight: "700",
+        fontFamily: 'Roboto'
+    },
     roundedBtnText: {
         fontSize: 22,
         fontFamily: 'Roboto',
