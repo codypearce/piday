@@ -9,6 +9,8 @@ import {
   AsyncStorage
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 import Keypad from '../components/Keypad';
@@ -133,22 +135,24 @@ export default class Timed extends React.Component {
             showThree = '';
         }
         if(this.state.started == false) {
-            top = <Text style={styles.title}>Timed</Text>
+            top = <Text style={style.title}>Timed</Text>
 
         } else if(this.state.started == true) {
-            top = <Text style={styles.title}>{showThree}{this.formatDisplay(this.state.display)}</Text>
+            top = <Text style={style.title}>{showThree}{this.formatDisplay(this.state.display)}</Text>
             subTop= <Text style={styles.subTitle}>{this.formatTime(this.state.time)}</Text>
         }
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.subTitleContainer}>{subTop}</View>
-                <View style={styles.top}>
+                <View style={style.wrapper}>
 
-                    {top}
-                </View>
-                <View style={styles.content}>
-                    {content}
+                    <View style={style.top}>
+                        <View>{subTop}</View>
+                        {top}
+                    </View>
+                    <View style={style.content}>
+                        {content}
+                    </View>
                 </View>
             </BackgroundImage>
         )
@@ -160,24 +164,26 @@ class StartScreen extends React.Component {
     }
     render() {
         return(
-            <View style={styles.container}>
-                <Text style={styles.message}>See how many digits you can get in 10 seconds. Make 3 mistakes and you lose!</Text>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.message}>See how many digits you can get in {this.props.time} seconds. Make 3 mistakes and you lose!</Text>
 
-                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startTime() } underlayColor="rgba(215, 147, 63,.3)">
-                    <Text style={styles.centerNav}>Start</Text>
+                <TouchableHighlight style={style.roundedBtn} onPress={ () => this.props.startTime() } underlayColor="rgba(215, 147, 63,.3)">
+                    <Text style={style.roundedBtnText}>Start</Text>
                 </TouchableHighlight>
-                <Text style={styles.pickerMessage}> Select Time </Text>
-                <Picker
-                    style={styles.picker}
-                    selectedValue={this.props.time}
-                    onValueChange={(value) => this.props.chooseTime(value)}>
-                    <Picker.Item label="10 Seconds" value="10" />
-                    <Picker.Item label="20 Seconds" value="20" />
-                    <Picker.Item label="30 Seconds" value="30" />
-                    <Picker.Item label="1 Minute" value="60" />
-                    <Picker.Item label="3 Minutes" value="180" />
-                    <Picker.Item label="5 Minutes" value="300" />
-                </Picker>
+                <View tyle={style.content}>
+                    <Text style={style.message}> Select Time </Text>
+                    <Picker
+                        style={style.picker}
+                        selectedValue={this.props.time}
+                        onValueChange={(value) => this.props.chooseTime(value)}>
+                        <Picker.Item label="10 Seconds" value="10" />
+                        <Picker.Item label="20 Seconds" value="20" />
+                        <Picker.Item label="30 Seconds" value="30" />
+                        <Picker.Item label="1 Minute" value="60" />
+                        <Picker.Item label="3 Minutes" value="180" />
+                        <Picker.Item label="5 Minutes" value="300" />
+                    </Picker>
+                </View>
             </View>
         )
     }
@@ -294,22 +300,7 @@ class ThreeWrong extends React.Component {
 
 
 const styles = StyleSheet.create({
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 300,
-        top: 50
-    },
-    top: {
-        bottom: 50,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
+
     subTitleContainer: {
         flexDirection: 'column',
         justifyContent: 'center',
@@ -322,62 +313,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         bottom: 75,
     },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 30,
-        textAlign: 'center',
-        width: 250,
-        lineHeight: 20
-    },
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginTop: 25,
-        alignSelf: 'center'
-    },
-    pickerMessage: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginTop: 30,
-        textAlign: 'center',
-        width: 250,
-        lineHeight: 20
-    },
     picker: {
         width: 200,
         backgroundColor: '#d7933f',
         height: 30,
-        marginTop: 20,
         alignSelf: 'center',
         color: '#810000',
     },
 
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 50
-    },
-    digits: {
-        marginBottom: 20
-    },
-    numDigits: {
-        color: '#d7933f',
-        fontSize: 24,
-        textAlign: 'center',
-        width: 250
-    },
 
 });

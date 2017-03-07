@@ -59,4 +59,11 @@ module.exports = StyleSheet.create({
         fontSize: 24,
         textAlign: 'center'
     },
+    picker: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        height: 30,
+        alignSelf: 'center',
+        color: '#810000',
+    },
 })
