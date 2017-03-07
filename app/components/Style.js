@@ -18,7 +18,7 @@ module.exports = StyleSheet.create({
     contentSpaceBetween: {
         alignItems: 'center',
         justifyContent: 'space-around',
-        flex: 2
+        flex: 2,
     },
     title: {
         color:'#810000',
@@ -59,11 +59,5 @@ module.exports = StyleSheet.create({
         fontSize: 24,
         textAlign: 'center'
     },
-    picker: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        height: 30,
-        alignSelf: 'center',
-        color: '#810000',
-    },
+
 })

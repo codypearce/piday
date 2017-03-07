@@ -30,7 +30,7 @@ export default class AdmobComponent extends React.Component {
 const styles = StyleSheet.create({
     ad: {
         position: 'absolute',
-        bottom: 1,
+        bottom: 0,
         alignSelf: 'stretch'
     },
 });

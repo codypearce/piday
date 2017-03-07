@@ -138,7 +138,7 @@ export default class Timed extends React.Component {
             top = <Text style={style.title}>Timed</Text>
 
         } else if(this.state.started == true) {
-            top = <Text style={style.title}>{showThree}{this.formatDisplay(this.state.display)}</Text>
+            top = <Text style={style.titleSmall}>{showThree}{this.formatDisplay(this.state.display)}</Text>
             subTop= <Text style={styles.subTitle}>{this.formatTime(this.state.time)}</Text>
         }
         return (
@@ -147,7 +147,7 @@ export default class Timed extends React.Component {
                 <View style={style.wrapper}>
 
                     <View style={style.top}>
-                        <View>{subTop}</View>
+                        {subTop}
                         {top}
                     </View>
                     <View style={style.content}>
@@ -173,7 +173,7 @@ class StartScreen extends React.Component {
                 <View tyle={style.content}>
                     <Text style={style.message}> Select Time </Text>
                     <Picker
-                        style={style.picker}
+                        style={styles.picker}
                         selectedValue={this.props.time}
                         onValueChange={(value) => this.props.chooseTime(value)}>
                         <Picker.Item label="10 Seconds" value="10" />
@@ -196,15 +196,13 @@ class TimedGame extends React.Component {
     render(props) {
 
         return(
-            <View style={styles.container}>
-                <View style={styles.digits}>
-                    <Text style={styles.numDigits}>
-                        {this.props.digits} Digits
-                    </Text>
-                    <Text style={styles.numDigits}>
-                        {this.props.numWrong} Wrong
-                    </Text>
-                </View>
+            <View style={style.content}>
+            <Text style={style.message}>
+                {this.props.digits} Digits
+            </Text>
+            <Text style={style.message}>
+                {this.props.numWrong} Wrong
+            </Text>
                 <Keypad enterDigit={this.props.enterDigit} />
             </View>
 
@@ -311,7 +309,6 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "700",
         fontFamily: 'Roboto',
-        bottom: 75,
     },
     picker: {
         width: 200,
