@@ -10,6 +10,8 @@ import {
   Image
 } from 'react-native';
 
+import style from '../components/Style';
+
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 import Keypad from '../components/Keypad';
@@ -54,9 +56,9 @@ export default class Game extends React.Component {
        })
    }
    formatDisplay(digits) {
-       if(digits.length > 10) {
+       if(digits.length > 9) {
            let arr = digits.split('');
-           let slice = arr.slice(digits.length - 10, digits.length);
+           let slice = arr.slice(digits.length - 9, digits.length);
            return slice.join('');
        }
        return digits;
@@ -69,7 +71,7 @@ export default class Game extends React.Component {
         } else {
             content = <Keypad enterDigit={this.enterDigit} />
         }
-        if(this.state.digits < 10) {
+        if(this.state.digits < 9) {
             showThree = '3.';
         } else {
             showThree = '';
@@ -78,16 +80,16 @@ export default class Game extends React.Component {
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.wrapper}>
-                    <View style={styles.top}>
-                        <Text style={styles.title}>
+                <View style={style.wrapper}>
+                    <View style={style.top}>
+                        <Text style={style.title}>
                             {showThree}{this.formatDisplay(this.state.display)}
                         </Text>
                     </View>
 
 
-                    <View style={styles.content}>
-                        <Text style={styles.numDigits}>
+                    <View style={style.content}>
+                        <Text style={style.numDigits}>
                             {this.state.digits} Digits
                         </Text>
                         {content}
