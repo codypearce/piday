@@ -12,7 +12,7 @@ const questionsSrc = [
    {
        question: "The birthday of which famous scientist falls on Pi Day?",
        choices:  ["Leonhard Euler", "Albert Einstein", "Isaac Newton", "Archimedes"],
-       answer: 'Albert Einstein '
+       answer: 'Albert Einstein'
    },
    {
        question: "Where were the first known Pi Day celebrations held?",
@@ -122,7 +122,7 @@ const questionsSrc = [
    {
        question: "Which computer program has been used for all world record calculations of pi since 2010?",
        choices:  ["PiFast", "ENIAC", "Python", "y-cruncher"],
-       answer: 'y-cruncher '
+       answer: 'y-cruncher'
    },
    {
        question: "What is a digit extraction formula?",
