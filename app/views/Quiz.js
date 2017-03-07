@@ -7,6 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import style from '../components/Style';
 
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
@@ -111,20 +112,22 @@ export default class Quiz extends React.Component {
 
         if(this.state.isStarted == false) {
             content = <StartButton startQuiz={this.startQuiz} />
-            top = <Text style={styles.title}>Quiz</Text>
+            top = <Text style={style.title}>Quiz</Text>
 
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
             content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
-            top = <Text style={styles.question}>{this.state.currentQuestion}</Text>
+            top = <Text style={quiz.question}>{this.state.currentQuestion}</Text>
         } else {
             content = <Endquiz score={this.state.score} reset={this.reset}/>
-            top = <Text style={styles.title}>{this.state.score}0%</Text>
+            top = <Text style={style.title}>{this.state.score}0%</Text>
         }
         return (
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Home') } />
-                <View style={styles.top}>{top}</View>
-                <View style={styles.content}>{content}</View>
+                <View style={style.wrapper}>
+                    <View style={style.top}>{top}</View>
+                    {content}
+                </View>
             </BackgroundImage>
         )
     }
@@ -135,10 +138,10 @@ class StartButton extends React.Component {
     }
     render() {
         return(
-            <View style={styles.container}>
-                <Text style={styles.message}>Multiple Choice 10 question quiz about pi! Study the learn section to get a better score.</Text>
-                <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.startQuiz() } underlayColor="rgba(215, 147, 63,.3)">
-                    <Text style={styles.centerNav}>Start</Text>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.message}>Multiple Choice 10 question quiz about pi! Study the learn section to get a better score.</Text>
+                <TouchableHighlight style={style.roundedBtn} onPress={ () => this.props.startQuiz() } underlayColor="rgba(215, 147, 63,.3)">
+                    <Text style={style.roundedBtnText}>Start</Text>
                 </TouchableHighlight>
             </View>
         )
@@ -152,21 +155,21 @@ class Question extends React.Component {
     render() {
 
         return(
-            <View style={styles.containerChoices}>
-                <View style={styles.choiceRow}>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.choiceText}>{this.props.choices[0]}</Text>
+            <View style={style.content}>
+                <View style={quiz.choiceRow}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[0])} style={quiz.choice} underlayColor="rgba(215, 147, 63,.3)">
+                        <Text style={quiz.choiceText}>{this.props.choices[0]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.choiceText}>{this.props.choices[1]}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[1])} style={quiz.choice} underlayColor="rgba(215, 147, 63,.3)">
+                        <Text style={quiz.choiceText}>{this.props.choices[1]}</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={styles.choiceRow}>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.choiceText}>{this.props.choices[2]}</Text>
+                <View style={quiz.choiceRow}>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[2])} style={quiz.choice} underlayColor="rgba(215, 147, 63,.3)">
+                        <Text style={quiz.choiceText}>{this.props.choices[2]}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3])} style={styles.choice} underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.choiceText}>{this.props.choices[3]}</Text>
+                    <TouchableHighlight onPress={this.props.answerQuestion.bind(this, this.props.choices[3])} style={quiz.choice} underlayColor="rgba(215, 147, 63,.3)">
+                        <Text style={quiz.choiceText}>{this.props.choices[3]}</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -191,80 +194,25 @@ class Endquiz extends React.Component {
             message = `You got ${this.props.score} out 10! Check out the learn section!`;
         }
         return(
-            <View style={styles.container}>
-                <Text style={styles.message}>{message}</Text>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.numDigits}>{message}</Text>
                 <View>
-                    <TouchableHighlight style={styles.roundedBtn} onPress={ () => this.props.reset() } underlayColor="rgba(215, 147, 63,.3)">
-                        <Text style={styles.centerNav}>Try again</Text>
+                    <TouchableHighlight style={style.roundedBtn} onPress={ () => this.props.reset() } underlayColor="rgba(215, 147, 63,.3)">
+                        <Text style={style.roundedBtnText}>Try again</Text>
                     </TouchableHighlight>
                 </View>
             </View>
         )
     }
 }
-const styles = StyleSheet.create({
-
-    content: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 300,
-        top: 50
-    },
-    top: {
-        bottom: 50,
-    },
-    title: {
-        color:'#810000',
-        fontSize: 58,
-        fontWeight: "700",
-        fontFamily: 'Roboto'
-    },
+const quiz = StyleSheet.create({
     question: {
         color:'#810000',
         fontSize: 18,
         fontWeight: "700",
         fontFamily: 'Roboto',
         width: 275,
-        height: 150,
         textAlign: 'center',
-    },
-    message: {
-        color: '#d7933f',
-        fontSize: 16,
-        marginBottom: 30,
-        textAlign: 'center',
-        width: 250,
-        lineHeight: 20
-    },
-    centerNav: {
-        fontSize: 22,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginTop: 25,
-        alignSelf: 'center'
-    },
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 50
-    },
-    containerChoices: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 30
     },
     choiceRow: {
         flexDirection: 'row',
@@ -272,11 +220,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     choice: {
-        width:175,
+        width:155,
         height: 125,
         borderRadius: 25,
         backgroundColor: '#d7933f',
-        alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',

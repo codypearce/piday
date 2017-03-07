@@ -4,8 +4,10 @@ import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
     wrapper: {
-        paddingTop: 35,
-        paddingBottom: 50
+        paddingTop: 40,
+        paddingBottom: 50,
+        paddingRight: 5,
+        paddingLeft: 5
     },
     top: {
         alignItems: 'center',
@@ -45,8 +47,8 @@ module.exports = StyleSheet.create({
         backgroundColor: '#d7933f',
         borderRadius: 50,
         marginBottom: 13,
-        paddingTop: 7,
-        paddingBottom: 7
+        paddingTop: 8,
+        paddingBottom: 8
     },
     message: {
         color: '#d7933f',
