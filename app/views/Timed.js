@@ -139,7 +139,7 @@ export default class Timed extends React.Component {
 
         } else if(this.state.started == true) {
             top = <Text style={style.titleSmall}>{showThree}{this.formatDisplay(this.state.display)}</Text>
-            subTop= <Text style={styles.subTitle}>{this.formatTime(this.state.time)}</Text>
+            subTop= <Text style={timed.subTitle}>{this.formatTime(this.state.time)}</Text>
         }
         return (
             <BackgroundImage>
@@ -173,7 +173,7 @@ class StartScreen extends React.Component {
                 <View tyle={style.content}>
                     <Text style={style.message}> Select Time </Text>
                     <Picker
-                        style={styles.picker}
+                        style={timed.picker}
                         selectedValue={this.props.time}
                         onValueChange={(value) => this.props.chooseTime(value)}>
                         <Picker.Item label="10 Seconds" value="10" />
@@ -260,18 +260,16 @@ class Endgame extends React.Component {
     }
     render() {
         return(
-            <View style={styles.container}>
-                <View style={styles.digits}>
-                    <Text style={styles.numDigits}>
-                        You got {this.props.correctDigits} digits in {this.props.time} seconds
-                    </Text>
-                    <Text style={styles.numDigits}>
-                        with {this.props.numWrong} mistakes
-                    </Text>
-                </View>
-                <Text style={styles.numDigits}>{this.state.message}</Text>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.message}>
+                    You got {this.props.correctDigits} digits in {this.props.time} seconds
+                </Text>
+                <Text style={style.message}>
+                    with {this.props.numWrong} mistakes
+                </Text>
+                <Text style={style.numDigits}>{this.state.message}</Text>
 
-                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.reset} style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
@@ -282,14 +280,14 @@ class ThreeWrong extends React.Component {
     }
     render(props) {
         return(
-            <View style={styles.container}>
-                <Text style={styles.numDigits}>
+            <View style={style.contentSpaceBetween}>
+                <Text style={style.numDigits}>
                     Oh no! You got three wrong!
                 </Text>
-                <Text style={styles.numDigits}>
+                <Text style={style.numDigits}>
                     Better luck next time!
                 </Text>
-                <TouchableHighlight onPress={this.props.reset} style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={styles.centerNav}>Try again</Text></TouchableHighlight>
+                <TouchableHighlight onPress={this.props.reset} style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
         )
     }
@@ -297,13 +295,8 @@ class ThreeWrong extends React.Component {
 
 
 
-const styles = StyleSheet.create({
+const timed = StyleSheet.create({
 
-    subTitleContainer: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     subTitle: {
         color:'#810000',
         fontSize: 32,
