@@ -14,6 +14,7 @@ module.exports = StyleSheet.create({
         flex: 1
     },
     content: {
+        alignSelf: 'center',
         alignItems: 'center',
         flex: 2
     },
@@ -59,6 +60,9 @@ module.exports = StyleSheet.create({
         color: '#d7933f',
         fontSize: 18,
         lineHeight: 20,
+        maxWidth: 400,
+        paddingLeft: 5,
+        paddingRight: 5,
         textAlign: 'center'
     },
     messageLeft: {

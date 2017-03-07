@@ -30,7 +30,7 @@ export default class Home extends React.Component {
                     <View style={style.top}>
                         <Text style={style.title}>PI DAY</Text>
                     </View>
-                    <View style={style.container}>
+                    <View style={style.content}>
                         <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Memorize') } underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={style.roundedBtnText}> Memorize </Text>
                         </TouchableHighlight>
