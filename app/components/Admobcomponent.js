@@ -15,7 +15,7 @@ export default class AdmobComponent extends React.Component {
         return(
             <AdMobBanner
                 bannerSize="smartBannerPortrait"
-                adUnitID="ca-app-pub-3940256099942544/6300978111"
+                adUnitID="ca-app-pub-2794177008243568/9903145739"
                 testDeviceID="EMULATOR"
                 style={styles.ad}
                 didFailToReceiveAdWithError={(err) => {
