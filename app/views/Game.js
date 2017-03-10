@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  ScrollView,
-  AsyncStorage,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    ScrollView,
+    AsyncStorage,
+    Image
 } from 'react-native';
 
 import style from '../components/Style';
@@ -31,9 +31,9 @@ export default class Game extends React.Component {
         }
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route, // Matches route.name
-      })
+        this.props.navigator.push({
+            name: route, // Matches route.name
+        })
     }
     enterDigit(value) {
         if(this.state.pi[this.state.digits] == value) {

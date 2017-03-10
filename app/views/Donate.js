@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight
 } from 'react-native';
 
 import style from '../components/Style';
@@ -30,8 +30,6 @@ export default class Donate extends React.Component {
                     <View style={style.top}>
                         <Text style={style.title}>Donate</Text>
                     </View>
-
-
                     <View style={style.contentSpaceBetween}>
                         <Text style={style.message}>
                             If you&#39;re feeling generous, please consider donating. Your support allows us to continue to make quality content. Thanks!

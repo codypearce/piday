@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  ScrollView
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    ScrollView
 } from 'react-native';
 
 import style from '../components/Style';
@@ -18,9 +18,9 @@ export default class Learn extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return (
@@ -85,6 +85,4 @@ const learn = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#810000',
     },
-
-
 });

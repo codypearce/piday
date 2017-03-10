@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    Image
 } from 'react-native';
 
 import style from '../components/Style';
@@ -18,9 +18,9 @@ export default class Home extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return (
