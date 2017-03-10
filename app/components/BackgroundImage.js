@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  Image,
-  Alert
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    Alert
 } from 'react-native';
 
 import AdmobComponent from './Admobcomponent';

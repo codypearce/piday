@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
-import {
-  AdMobBanner
-} from 'react-native-admob'
-
+import { AdMobBanner } from 'react-native-admob'
 
 export default class AdmobComponent extends React.Component {
     render() {

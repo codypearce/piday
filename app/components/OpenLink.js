@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  TouchableOpacity,
-  Image,
-  Linking
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableOpacity,
+    Linking
 } from 'react-native';
 
 export default class OpenLink extends React.Component {

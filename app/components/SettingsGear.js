@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  Image
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    Image
 } from 'react-native';
 
 export default class SettingsGear extends React.Component {
