@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  Image,
-  TouchableHighlight
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    Image,
+    TouchableHighlight
 } from 'react-native';
 
 
@@ -15,9 +15,9 @@ export default class Glossary extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return(

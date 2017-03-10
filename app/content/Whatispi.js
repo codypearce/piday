@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  TouchableOpacity,
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight
 } from 'react-native';
 
 
@@ -16,9 +15,9 @@ export default class Whatispi extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return(

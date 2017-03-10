@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
@@ -15,9 +15,9 @@ export default class Pipop extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return(

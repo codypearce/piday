@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
@@ -15,9 +15,9 @@ export default class Whatispiday extends React.Component {
         super(props);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         return(
@@ -31,7 +31,6 @@ export default class Whatispiday extends React.Component {
                     <OpenLink url="http://adrianapollo.com/pi_day.pdf" title={'A History of Pi Day'} />
                     <OpenLink url="http://www.exploratorium.edu/pi/index.html" title={'San Francisco Exploratorium'} />
                     <OpenLink url="https://blogs.scientificamerican.com/observations/how-much-pi-do-you-need/" title={'Pi Approximation Day'} />
-
                 </View>
             </View>
         )
