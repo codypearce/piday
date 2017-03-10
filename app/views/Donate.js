@@ -38,7 +38,7 @@ export default class Donate extends React.Component {
                         </Text>
                         <View >
                             <Text style={style.messageLeft}>You can donate by visiting our website at </Text>
-                            <OpenLink style={style.message} url={"https://pidayapp.com"} title={"https://pidayapp.com"} />
+                            <OpenLink style={style.message} url={"http://pidayapp.com"} title={"http://pidayapp.com"} />
                         </View>
                     </View>
                 </View>
