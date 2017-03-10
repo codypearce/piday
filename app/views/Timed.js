@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  Picker,
-  AsyncStorage
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    Picker,
+    AsyncStorage
 } from 'react-native';
 
 import style from '../components/Style';
@@ -90,7 +90,7 @@ export default class Timed extends React.Component {
         let minutes = Math.floor(time / 60);
         let seconds = time % 60;
         if(seconds > 59) {
-            seconds = '0'
+            seconds = '0';
         }
         if(minutes <= 0){
             minutes = '0';
@@ -299,7 +299,6 @@ class ThreeWrong extends React.Component {
 
 
 const timed = StyleSheet.create({
-
     subTitle: {
         color:'#810000',
         fontSize: 32,
@@ -313,6 +312,4 @@ const timed = StyleSheet.create({
         alignSelf: 'center',
         color: '#810000',
     },
-
-
 });

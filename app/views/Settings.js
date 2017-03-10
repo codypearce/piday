@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  Alert
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    Alert
 } from 'react-native';
 
 import style from '../components/Style';

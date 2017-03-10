@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  ScrollView
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    ScrollView
 } from 'react-native';
 
 import style from '../components/Style';
@@ -32,9 +32,9 @@ export default class LearnPage extends React.Component {
         this._navigate = this._navigate.bind(this);
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route,
-      })
+        this.props.navigator.push({
+            name: route,
+        })
     }
     render() {
         var page = null;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Navigator,
-  TouchableHighlight,
-  AsyncStorage
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    TouchableHighlight,
+    AsyncStorage
 } from 'react-native';
 
 import style from '../components/Style';
@@ -64,7 +64,7 @@ export default class Records extends React.Component {
             <BackgroundImage>
                 <BackBtn navigate={() => this._navigate('Settings') } />
                 <View style={style.wrapper}>
-                <View style={style.top}>
+                    <View style={style.top}>
                         <Text style={style.title}>Records</Text>
                     </View>
 
@@ -76,7 +76,6 @@ export default class Records extends React.Component {
                         <Text style={style.messageLeft}>Timed 60 seconds record: {this.state.timedBest60}</Text>
                         <Text style={style.messageLeft}>Timed 180 seconds record: {this.state.timedBest180}</Text>
                         <Text style={style.messageLeft}>Timed 300 seconds record: {this.state.timedBest300}</Text>
-
                     </View>
                 </View>
             </BackgroundImage>
