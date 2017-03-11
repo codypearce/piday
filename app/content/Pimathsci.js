@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
-
+import styles from '../components/ContentStyle.js';
 
 export default class Pimathsci extends React.Component {
     constructor(props) {
@@ -57,7 +57,6 @@ export default class Pimathsci extends React.Component {
                 <Image style={styles.image} source={require('../images/sin.png')}/>
                 <Text style={styles.caption}>“The sine function is periodic”</Text>
 
-
                 <View>
                     <Text style={styles.message}>References and Further Reading:</Text>
                     <OpenLink url={"http://mathworld.wolfram.com/Degree.htm"} title={"Angular Degree"}/>
@@ -71,33 +70,3 @@ export default class Pimathsci extends React.Component {
         )
     }
 }
-const styles = StyleSheet.create({
-    message: {
-        color: '#d7933f',
-        fontSize: 14,
-        marginBottom: 20,
-        width: 300,
-        lineHeight: 25
-    },
-    caption: {
-        color: 'white',
-        fontSize: 14,
-        width: 300,
-        marginBottom: 25
-    },
-    image: {
-        flex: 1,
-        resizeMode: 'contain',
-        width: 300,
-        height: 150,
-        margin: 0
-    },
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    link: {
-        color: '#916127'
-    },
-});
