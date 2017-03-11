@@ -31,4 +31,7 @@ module.exports = StyleSheet.create({
     link: {
         color: '#916127'
     },
+    bold: {
+        fontWeight: 'bold'
+    },
 });
