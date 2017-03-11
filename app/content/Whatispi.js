@@ -8,7 +8,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-
+import styles from '../components/ContentStyle.js';
 
 export default class Whatispi extends React.Component {
     constructor(props) {
@@ -29,21 +29,3 @@ export default class Whatispi extends React.Component {
         )
     }
 }
-const styles = StyleSheet.create({
-    message: {
-        color: '#d7933f',
-        fontSize: 14,
-        marginBottom: 20,
-        width: 300,
-        lineHeight: 25
-    },
-
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    link: {
-        color: '#916127'
-    },
-});

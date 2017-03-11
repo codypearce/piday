@@ -10,7 +10,19 @@ module.exports = StyleSheet.create({
         width: 300,
         lineHeight: 25
     },
-
+    caption: {
+        color: 'white',
+        fontSize: 14,
+        width: 300,
+        marginBottom: 25
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'contain',
+        width: 300,
+        height: 150,
+        margin: 0
+    },
     container: {
         flexDirection: 'column',
         justifyContent: 'center',
