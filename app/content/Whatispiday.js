@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
+import styles from '../components/ContentStyle.js';
 
 export default class Whatispiday extends React.Component {
     constructor(props) {
@@ -36,21 +37,3 @@ export default class Whatispiday extends React.Component {
         )
     }
 }
-const styles = StyleSheet.create({
-    message: {
-        color: '#d7933f',
-        fontSize: 14,
-        marginBottom: 20,
-        width: 300,
-        lineHeight: 25
-    },
-
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    link: {
-        color: '#916127'
-    },
-});
