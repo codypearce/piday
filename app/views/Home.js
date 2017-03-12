@@ -12,6 +12,7 @@ import style from '../components/Style';
 
 import BackgroundImage from '../components/BackgroundImage';
 import SettingsGear from '../components/SettingsGear';
+import RoundedBtn from '../components/RoundedBtn';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -31,9 +32,8 @@ export default class Home extends React.Component {
                         <Text style={style.title}>PI DAY</Text>
                     </View>
                     <View style={style.content}>
-                        <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Memorize') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}> Memorize </Text>
-                        </TouchableHighlight>
+                        <RoundedBtn text={'Memorize'} navigate={() => this._navigate('Memorize') } />
+
                         <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Game') } underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={style.roundedBtnText}> Play </Text>
                         </TouchableHighlight>
