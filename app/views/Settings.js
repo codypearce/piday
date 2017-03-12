@@ -12,6 +12,7 @@ import style from '../components/Style';
 
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
+import RoundedBtn from '../components/RoundedBtn';
 
 export default class Settings extends React.Component {
     constructor(props) {
@@ -58,21 +59,11 @@ export default class Settings extends React.Component {
                                 Turn off ads
                             </Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Donate') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}>
-                                Donate
-                            </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('Records') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}>
-                                Records
-                            </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('About') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}>
-                                About
-                            </Text>
-                        </TouchableHighlight>
+
+                        <RoundedBtn text={'Donate'} navigate={() => this._navigate('Donate') } />
+                        <RoundedBtn text={'Records'} navigate={() => this._navigate('Records') } />
+                        <RoundedBtn text={'About'} navigate={() => this._navigate('About') } />
+
                     </View>
                 </View>
             </BackgroundImage>
