@@ -33,19 +33,10 @@ export default class Home extends React.Component {
                     </View>
                     <View style={style.content}>
                         <RoundedBtn text={'Memorize'} navigate={() => this._navigate('Memorize') } />
-
-                        <TouchableHighlight  style={style.roundedBtn} onPress={ () => this._navigate('Game') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}> Play </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('Timed') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}> Timed </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('Quiz') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}> Quiz </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight style={style.roundedBtn} onPress={ () => this._navigate('Learn') } underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={style.roundedBtnText}> Learn </Text>
-                        </TouchableHighlight>
+                        <RoundedBtn text={'Play'} navigate={() => this._navigate('Game') } />
+                        <RoundedBtn text={'Timed'} navigate={() => this._navigate('Timed') } />
+                        <RoundedBtn text={'Quiz'} navigate={() => this._navigate('Quiz') } />
+                        <RoundedBtn text={'Learn'} navigate={() => this._navigate('Learn') } />
                     </View>
                 </View>
             </BackgroundImage>
