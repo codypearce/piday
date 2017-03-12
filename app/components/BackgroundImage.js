@@ -3,6 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
+    Image,
     Navigator,
     Alert
 } from 'react-native';
@@ -20,19 +21,20 @@ export default class BackgroundImage extends React.Component {
         const InAppBilling = require("react-native-billing");
         InAppBilling.open()
         .then(() => {
-            InAppBilling.isPurchased('turnofads').then((value) =>{
-                if(value) {
+            InAppBilling.isPurchased('turnoffads').then((value) => {
+                if(value == true) {
                     this.setState({
                         showAd: false
                     })
-                    return InAppBilling.close()
+                } else {
+                    this.setState({
+                        showAd: true
+                    })
                 }
             })
         })
         .then((details) => {
-            this.setState({
-                showAd: true
-            })
+
             return InAppBilling.close()
         })
         .catch((err) => {

@@ -26,24 +26,19 @@ export default class Settings extends React.Component {
         const InAppBilling = require("react-native-billing");
         InAppBilling.open()
         .then(() => {
-            InAppBilling.isPurchased('turnofads').then((value) =>{
-                if(value) {
+            InAppBilling.isPurchased('turnoffads').then((value) => {
+                if(value == true) {
                     Alert.alert(`You alreay purchased this. Thanks!`);
                     return InAppBilling.close()
                 }
-                InAppBilling.purchase('turnofads');
-                Alert.alert(`Please refresh the app to turn off ads`);
             })
         })
         .then((details) => {
-            InAppBilling.loadOwnedPurchasesFromGoogle().then((value) =>{
-                if(value) {
-                    Alert.alert(`Enjoy your ad-free experience!`);
-                    return InAppBilling.close()
-                } else {
-                    return InAppBilling.close()
-                }
-            })
+            InAppBilling.purchase('turnoffads').then((details) => {
+                Alert.alert(`Thanks for turning off ads!`);
+                return InAppBilling.close()
+            });
+
         })
         .catch((err) => {
             console.log(err);
