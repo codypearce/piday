@@ -12,6 +12,7 @@ import style from '../components/Style';
 
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';
+import LearnBtn from '../components/LearnBtn';
 
 export default class Learn extends React.Component {
     constructor(props) {
@@ -34,9 +35,7 @@ export default class Learn extends React.Component {
                     </View>
                     <View style={style.content}>
                         <ScrollView>
-                            <TouchableHighlight onPress={ () => this._navigate('Whatispi') } style={learn.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
-                                <Text style={learn.learnBtnText}>What is Pi?</Text>
-                            </TouchableHighlight>
+                            <LearnBtn text={'What is Pi?'} navigate={() => this._navigate('Whatispi') } />
                             <TouchableHighlight onPress={ () => this._navigate('Whatispiday') }  style={learn.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                                 <Text style={learn.learnBtnText}>What is Pi Day?</Text>
                             </TouchableHighlight>
