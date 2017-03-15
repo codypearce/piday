@@ -26,7 +26,8 @@
         ]
     },
     "plugins": [
-        "react"
+        "react",
+        "react-native"
     ],
     "globals": {
     }
