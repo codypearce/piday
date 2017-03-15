@@ -1,11 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View
+    StyleSheet
 } from 'react-native';
 
-import { AdMobBanner } from 'react-native-admob'
+import { AdMobBanner } from 'react-native-admob';
 
 export default class AdmobComponent extends React.Component {
     render() {
@@ -16,10 +15,11 @@ export default class AdmobComponent extends React.Component {
                 testDeviceID="EMULATOR"
                 style={styles.ad}
                 didFailToReceiveAdWithError={(err) => {
+                    /*eslint-disable no-console */
                     console.log(err);
                 }}
              />
-        )
+        );
     }
 }
 
