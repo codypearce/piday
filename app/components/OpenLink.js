@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View,
-    Navigator,
     TouchableOpacity,
     Linking
 } from 'react-native';
 
 export default class OpenLink extends React.Component {
 
-    handleClick = ()  => {
+    handleClick = () => {
         var url = this.props.url;
         Linking.canOpenURL(url).then(supported => {
             if (supported) {
@@ -21,11 +19,11 @@ export default class OpenLink extends React.Component {
         });
     }
     render() {
-        return(
+        return (
             <TouchableOpacity style={styles.settings} onPress={ this.handleClick } >
                 <Text style={styles.link}>{this.props.title}</Text>
             </TouchableOpacity>
-        )
+        );
     }
 }
 
