@@ -1,9 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
     View,
-    Navigator,
     TouchableHighlight,
     Image
 } from 'react-native';
@@ -16,7 +15,7 @@ export default class BackBtn extends React.Component {
                     <Image source={require('../images/arrow.png')}/>
                 </TouchableHighlight>
             </View>
-        )
+        );
     }
 }
 
