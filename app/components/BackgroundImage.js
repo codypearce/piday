@@ -1,11 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
-    View,
-    Image,
-    Navigator,
-    Alert
+    Image
 } from 'react-native';
 
 import AdmobComponent from './Admobcomponent';
@@ -15,27 +12,26 @@ export default class BackgroundImage extends React.Component {
         super(props);
         this.state = {
             showAd: null
-        }
+        };
     }
     componentDidMount() {
-        const InAppBilling = require("react-native-billing");
+        const InAppBilling = require('react-native-billing');
         InAppBilling.open()
         .then(() => {
             InAppBilling.isPurchased('turnoffads').then((value) => {
                 if(value == true) {
                     this.setState({
                         showAd: false
-                    })
+                    });
                 } else {
                     this.setState({
                         showAd: true
-                    })
+                    });
                 }
-            })
+            });
         })
         .then((details) => {
-
-            return InAppBilling.close()
+            return InAppBilling.close();
         })
         .catch((err) => {
             console.log(err);
@@ -54,7 +50,7 @@ export default class BackgroundImage extends React.Component {
                 {this.props.children}
                 {ad}
             </Image>
-        )
+        );
     }
 }
 
