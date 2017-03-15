@@ -23,7 +23,10 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/jsx-uses-vars": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-in-jsx-scope": 2
     },
     "plugins": [
         "react",
