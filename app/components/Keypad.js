@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator,
     TouchableHighlight
 } from 'react-native';
 
@@ -18,7 +17,7 @@ export default class Keypad extends React.Component {
         let rowOne = [1, 2, 3],
             rowTwo = [4, 5, 6],
             rowThree = [7, 8, 9],
-            rowFour = [0, "."];
+            rowFour = [0, '.'];
 
         return(
             <View style={styles.keypad}>
@@ -27,7 +26,7 @@ export default class Keypad extends React.Component {
                 <View style={styles.keyRow}>{this.mapKeys(rowThree)}</View>
                 <View style={styles.keyRow}>{this.mapKeys(rowFour)}</View>
             </View>
-        )
+        );
     }
 }
 
@@ -38,7 +37,7 @@ class Key extends React.Component {
             <TouchableHighlight className="key" onPress={this.props.enterDigit.bind(this, value)} underlayColor="rgba(215, 147, 63,.3)">
                 <Text style={styles.key}>{value.toString()}</Text>
             </TouchableHighlight>
-        )
+        );
     }
 }
 
