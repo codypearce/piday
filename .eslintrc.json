@@ -5,12 +5,16 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
     },
     "rules": {
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
@@ -21,6 +25,9 @@
             "always"
         ]
     },
+    "plugins": [
+        "react"
+    ],
     "globals": {
     }
 }

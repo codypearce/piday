@@ -12,7 +12,7 @@ import style from './Style';
 export default class LearnBtn extends React.Component {
 
     render() {
-        return(
+        return (
             <TouchableHighlight onPress={this.props.navigate} style={learn.learnBtn} underlayColor="rgba(215, 147, 63,.3)">
                 <Text style={learn.learnBtnText}>{this.props.text}</Text>
             </TouchableHighlight>
