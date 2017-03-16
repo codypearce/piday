@@ -26,19 +26,19 @@ module.exports = StyleSheet.create({
     title: {
         color:'#810000',
         fontSize: 58,
-        fontWeight: "700",
+        fontWeight: '700',
         fontFamily: 'Roboto'
     },
     titleSmall: {
         color:'#810000',
         fontSize: 38,
-        fontWeight: "700",
+        fontWeight: '700',
         fontFamily: 'Roboto'
     },
     titleSmallest: {
         color:'#810000',
         fontSize: 30,
-        fontWeight: "700",
+        fontWeight: '700',
         fontFamily: 'Roboto'
     },
     roundedBtnText: {
@@ -77,4 +77,4 @@ module.exports = StyleSheet.create({
         textAlign: 'center'
     },
 
-})
+});
