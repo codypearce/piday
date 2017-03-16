@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    Image,
-    TouchableHighlight
+    Image
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
@@ -19,7 +16,7 @@ export default class Pimathsci extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return(
@@ -67,6 +64,6 @@ export default class Pimathsci extends React.Component {
                     <OpenLink url={"http://physics.stackexchange.com/questions/74254/why-is-there-a-factor-of-4-pi-in-certain-force-equations"} title={"Pi in Electromagnetism"} />
                 </View>
             </View>
-        )
+        );
     }
 }
