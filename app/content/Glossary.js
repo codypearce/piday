@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    Image,
-    TouchableHighlight
 } from 'react-native';
 
 import styles from '../components/ContentStyle.js';
@@ -18,7 +14,7 @@ export default class Glossary extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return(
@@ -66,6 +62,6 @@ export default class Glossary extends React.Component {
                 <Text style={styles.message}><Text style={styles.bold}>Transcendental number</Text>: An irrational number that cannot be expressed as the solution to a polynomial equation with whole number coefficients. Examples include Euler’s number and pi.</Text>
                 <Text style={styles.message}><Text style={styles.bold}>Version number</Text>: A number attached to a software release indicating that changes have been made to a previous version of the software.</Text>
             </View>
-        )
+        );
     }
 }
