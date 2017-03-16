@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
-    View,
-    Navigator,
     TouchableHighlight,
 } from 'react-native';
 
@@ -16,6 +13,6 @@ export default class RoundedBtn extends React.Component {
             <TouchableHighlight  style={style.roundedBtn} onPress={ this.props.navigate } underlayColor="rgba(215, 147, 63,.3)">
                 <Text style={style.roundedBtnText}>{this.props.text}</Text>
             </TouchableHighlight>
-        )
+        );
     }
 }
