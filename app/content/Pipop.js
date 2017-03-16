@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
@@ -18,7 +15,7 @@ export default class Pipop extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return(
@@ -41,6 +38,6 @@ export default class Pipop extends React.Component {
                    <OpenLink url={"http://jnsilva.ludicum.org/HMR13_14/Indiana.pdf"} title={"Indiana Legislature Redefining Pi"} />
                </View>
              </View>
-        )
+        );
     }
 }

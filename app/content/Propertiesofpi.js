@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    Image,
-    TouchableHighlight
+    Image
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
@@ -19,7 +16,7 @@ export default class Propertiesofpi extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return(
@@ -53,6 +50,6 @@ export default class Propertiesofpi extends React.Component {
                     <OpenLink url={"http://www.cut-the-knot.org/do_you_know/GoldenRatio.shtml"} title={"The Golden Ratio"} />
                 </View>
             </View>
-        )
+        );
     }
 }
