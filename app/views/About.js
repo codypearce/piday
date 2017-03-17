@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight
 } from 'react-native';
 
 import style from '../components/Style';
@@ -19,7 +16,7 @@ export default class About extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return (
@@ -39,6 +36,6 @@ export default class About extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }
