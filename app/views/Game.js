@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight,
-    ScrollView,
-    AsyncStorage,
-    Image
+    TouchableHighlight
 } from 'react-native';
 
 import style from '../components/Style';
@@ -28,12 +23,12 @@ export default class Game extends React.Component {
             pi: piVal.piString,
             gameOver: false,
             showThree: true
-        }
+        };
     }
     _navigate(route){
         this.props.navigator.push({
             name: route, // Matches route.name
-        })
+        });
     }
     enterDigit(value) {
         if(this.state.pi[this.state.digits] == value) {
@@ -53,7 +48,7 @@ export default class Game extends React.Component {
            display: '',
            digits: 0,
            gameOver: false
-       })
+       });
    }
    formatDisplay(digits) {
        if(digits.length > 9) {
@@ -67,9 +62,9 @@ export default class Game extends React.Component {
         let content = null;
         let showThree = null;
         if(this.state.gameOver) {
-            content = <GameOver resetGame={this.resetGame} correctDigits={this.state.digits} />
+            content = <GameOver resetGame={this.resetGame} correctDigits={this.state.digits} />;
         } else {
-            content = <Keypad enterDigit={this.enterDigit} />
+            content = <Keypad enterDigit={this.enterDigit} />;
         }
         if(this.state.digits < 9) {
             showThree = '3.';
@@ -87,7 +82,6 @@ export default class Game extends React.Component {
                         </Text>
                     </View>
 
-
                     <View style={style.content}>
                         <Text style={style.numDigits}>
                             {this.state.digits} Digits
@@ -96,7 +90,7 @@ export default class Game extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }
 class GameOver extends React.Component {
@@ -106,7 +100,7 @@ class GameOver extends React.Component {
         this.state = {
             message: null,
             record: 0
-        }
+        };
 
     }
     componentWillMount() {
@@ -157,6 +151,6 @@ class GameOver extends React.Component {
 
                 <TouchableHighlight onPress={this.props.resetGame}  style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)" ><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
-        )
+        );
     }
 }
