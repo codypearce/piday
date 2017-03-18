@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight,
     ScrollView
 } from 'react-native';
 
@@ -21,7 +18,7 @@ export default class Learn extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return (
@@ -46,27 +43,6 @@ export default class Learn extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-
-
-        )
+        );
     }
 }
-const learn = StyleSheet.create({
-    learnBtnText: {
-        fontSize: 16,
-        marginBottom: 5,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-        paddingTop: 7,
-        paddingBottom: 7
-    },
-    learnBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        alignSelf: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: '#810000',
-    },
-});
