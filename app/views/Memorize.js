@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight,
     ScrollView
 } from 'react-native';
 
@@ -21,7 +18,7 @@ export default class Memorize extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         return (
@@ -40,6 +37,6 @@ export default class Memorize extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }

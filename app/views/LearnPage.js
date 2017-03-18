@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight,
     ScrollView
 } from 'react-native';
 
@@ -28,13 +25,13 @@ export default class LearnPage extends React.Component {
         super(props);
         this.state ={
             test: 'testing'
-        }
+        };
         this._navigate = this._navigate.bind(this);
     }
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     render() {
         var page = null;
@@ -80,6 +77,6 @@ export default class LearnPage extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }
