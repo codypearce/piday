@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight,
     AsyncStorage
 } from 'react-native';
 
@@ -24,12 +21,12 @@ export default class Records extends React.Component {
             timedBest60: 0,
             timedBest180: 0,
             timedBest300: 0
-        }
+        };
     }
     _navigate(route){
-      this.props.navigator.push({
-        name: route, // Matches route.name
-      })
+        this.props.navigator.push({
+            name: route, // Matches route.name
+        });
     }
     componentWillMount() {
         this.getValue();
@@ -79,6 +76,6 @@ export default class Records extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }

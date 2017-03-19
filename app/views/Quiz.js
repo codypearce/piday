@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator,
     TouchableHighlight
 } from 'react-native';
 
@@ -28,12 +27,12 @@ export default class Quiz extends React.Component {
             currentQuestion: 0,
             currentChoices: 0,
             currentAnswer: 0
-        }
+        };
     }
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     componentWillMount() {
         this.setUpQuestions();
@@ -49,7 +48,7 @@ export default class Quiz extends React.Component {
         }
         this.setState({
             questionsArr: questionsArr
-        })
+        });
     }
     updateQuestion(newIdx) {
         // why pass in value? because react isn't waiting until this.state.questionIdx is updated before calling update question even though it's in the callback
@@ -59,19 +58,19 @@ export default class Quiz extends React.Component {
             currentQuestion: src.question,
             currentChoices: [src.choices[0], src.choices[1], src.choices[2], src.choices[3]],
             currentAnswer: src.answer
-        })
+        });
     }
     startQuiz() {
         this.updateQuestion(0); // should start at index 0, have to pass in value so yea
         this.setState({
             isStarted: true
-        })
+        });
     }
     answerQuestion(choice) {
         if(choice == this.state.currentAnswer) {
             this.setState({
                 score: this.state.score + 1,
-            })
+            });
         }
         if(this.state.questionIdx >= 9) {
             this.endQuiz();
@@ -91,7 +90,7 @@ export default class Quiz extends React.Component {
     endQuiz() {
         this.setState({
             endQuiz: true
-        })
+        });
     }
     reset() {
         this.setState({
@@ -103,7 +102,7 @@ export default class Quiz extends React.Component {
             currentQuestion: 0,
             currentChoices: 0,
             currentAnswer: 0
-        })
+        });
         this.setUpQuestions();
     }
     render() {
@@ -111,15 +110,15 @@ export default class Quiz extends React.Component {
         let top = null;
 
         if(this.state.isStarted == false) {
-            content = <StartButton startQuiz={this.startQuiz} />
-            top = <Text style={style.title}>Quiz</Text>
+            content = <StartButton startQuiz={this.startQuiz} />;
+            top = <Text style={style.title}>Quiz</Text>;
 
         } else if(this.state.isStarted == true && this.state.endQuiz == false) {
-            content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />
-            top = <Text style={quiz.question}>{this.state.currentQuestion}</Text>
+            content = <Question question={this.state.currentQuestion} choices={this.state.currentChoices} answerQuestion={this.answerQuestion} />;
+            top = <Text style={quiz.question}>{this.state.currentQuestion}</Text>;
         } else {
-            content = <Endquiz score={this.state.score} reset={this.reset}/>
-            top = <Text style={style.title}>{this.state.score}0%</Text>
+            content = <Endquiz score={this.state.score} reset={this.reset}/>;
+            top = <Text style={style.title}>{this.state.score}0%</Text>;
         }
         return (
             <BackgroundImage>
@@ -129,7 +128,7 @@ export default class Quiz extends React.Component {
                     {content}
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }
 class StartButton extends React.Component {
@@ -144,7 +143,7 @@ class StartButton extends React.Component {
                     <Text style={style.roundedBtnText}>Start</Text>
                 </TouchableHighlight>
             </View>
-        )
+        );
     }
 }
 
@@ -173,7 +172,7 @@ class Question extends React.Component {
                     </TouchableHighlight>
                 </View>
             </View>
-        )
+        );
     }
 }
 class Endquiz extends React.Component {
@@ -202,14 +201,14 @@ class Endquiz extends React.Component {
                     </TouchableHighlight>
                 </View>
             </View>
-        )
+        );
     }
 }
 const quiz = StyleSheet.create({
     question: {
         color:'#810000',
         fontSize: 18,
-        fontWeight: "700",
+        fontWeight: '700',
         fontFamily: 'Roboto',
         width: 275,
         textAlign: 'center',
