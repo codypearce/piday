@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Navigator,
     TouchableHighlight,
     Alert
 } from 'react-native';
@@ -21,10 +19,10 @@ export default class Settings extends React.Component {
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     pay() {
-        const InAppBilling = require("react-native-billing");
+        const InAppBilling = require('react-native-billing');
         InAppBilling.open()
         .then(() => {
             InAppBilling.isPurchased('turnoffads').then((value) => {
@@ -32,12 +30,12 @@ export default class Settings extends React.Component {
                     Alert.alert(`You alreay purchased this. Thanks!`);
                     return InAppBilling.close()
                 }
-            })
+            });
         })
         .then((details) => {
             InAppBilling.purchase('turnoffads').then((details) => {
                 Alert.alert(`Thanks for turning off ads!`);
-                return InAppBilling.close()
+                return InAppBilling.close();
             });
 
         })
@@ -67,6 +65,6 @@ export default class Settings extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }

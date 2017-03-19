@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator,
     TouchableHighlight,
     Picker,
     AsyncStorage
@@ -34,12 +33,12 @@ export default class Timed extends React.Component {
             gameOver: false,
             started: false,
             numWrong: 0
-        }
+        };
     }
     _navigate(route){
         this.props.navigator.push({
             name: route,
-        })
+        });
     }
     componentWillUnmount() {
         this.reset();
@@ -95,7 +94,7 @@ export default class Timed extends React.Component {
         if(minutes <= 0){
             minutes = '0';
         }
-        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
     }
     formatDisplay(digits) {
         if(digits.length > 10) {
@@ -138,11 +137,11 @@ export default class Timed extends React.Component {
             showThree = '';
         }
         if(this.state.started == false) {
-            top = <Text style={style.title}>Timed</Text>
+            top = <Text style={style.title}>Timed</Text>;
 
         } else if(this.state.started == true) {
-            top = <Text style={style.titleSmall}>{showThree}{this.formatDisplay(this.state.display)}</Text>
-            subTop= <Text style={timed.subTitle}>{this.formatTime(this.state.time)}</Text>
+            top = <Text style={style.titleSmall}>{showThree}{this.formatDisplay(this.state.display)}</Text>;
+            subTop= <Text style={timed.subTitle}>{this.formatTime(this.state.time)}</Text>;
         }
         return (
             <BackgroundImage>
@@ -158,7 +157,7 @@ export default class Timed extends React.Component {
                     </View>
                 </View>
             </BackgroundImage>
-        )
+        );
     }
 }
 class StartScreen extends React.Component {
@@ -188,7 +187,7 @@ class StartScreen extends React.Component {
                     </Picker>
                 </View>
             </View>
-        )
+        );
     }
 }
 
@@ -209,7 +208,7 @@ class TimedGame extends React.Component {
                 <Keypad enterDigit={this.props.enterDigit} />
             </View>
 
-        )
+        );
     }
 }
 class Endgame extends React.Component {
@@ -218,7 +217,7 @@ class Endgame extends React.Component {
         this.state = {
             message: null,
             record: 0
-        }
+        };
 
     }
     componentWillMount() {
@@ -274,7 +273,7 @@ class Endgame extends React.Component {
 
                 <TouchableHighlight onPress={this.props.reset} style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
-        )
+        );
     }
 }
 class ThreeWrong extends React.Component {
@@ -292,7 +291,7 @@ class ThreeWrong extends React.Component {
                 </Text>
                 <TouchableHighlight onPress={this.props.reset} style={style.roundedBtn} underlayColor="rgba(215, 147, 63,.3)"><Text style={style.roundedBtnText}>Try again</Text></TouchableHighlight>
             </View>
-        )
+        );
     }
 }
 
@@ -302,7 +301,7 @@ const timed = StyleSheet.create({
     subTitle: {
         color:'#810000',
         fontSize: 32,
-        fontWeight: "700",
+        fontWeight: '700',
         fontFamily: 'Roboto',
     },
     picker: {
