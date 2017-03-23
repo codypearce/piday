@@ -13,6 +13,7 @@ Make sure you have react native installed, android stuido, and have either an em
 ```
 git clone https://github.com/codypearce/piday.git
 cd piday
+npm install
 ```
 Then you need to start react native and run it on android
 
