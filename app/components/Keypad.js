@@ -42,7 +42,6 @@ class Key extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
     keyRow: {
         flexDirection: 'row',
         justifyContent: 'center',
