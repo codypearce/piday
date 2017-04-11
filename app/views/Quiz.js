@@ -238,5 +238,4 @@ const quiz = StyleSheet.create({
         color:'#810000',
         padding: 5
     }
-
 });

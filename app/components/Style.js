@@ -41,21 +41,6 @@ module.exports = StyleSheet.create({
         fontWeight: '700',
         fontFamily: 'Roboto'
     },
-    roundedBtnText: {
-        fontSize: 22,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-    },
-    roundedBtn: {
-        width: 200,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginBottom: 13,
-        paddingTop: 8,
-        paddingBottom: 8
-    },
     message: {
         color: '#d7933f',
         fontSize: 18,
