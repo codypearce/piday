@@ -6,7 +6,7 @@ import {
     AsyncStorage
 } from 'react-native';
 
-import style from '../components/Style';
+import style from '../styles/Style';
 
 import BackgroundImage from '../components/BackgroundImage';
 import BackBtn from '../components/BackBtn';

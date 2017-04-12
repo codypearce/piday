@@ -5,7 +5,7 @@ import {
     View,
 } from 'react-native';
 
-import styles from '../components/ContentStyle.js';
+import styles from '../styles/ContentStyle.js';
 
 export default class Glossary extends React.Component {
     constructor(props) {

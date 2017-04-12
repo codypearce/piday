@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import OpenLink from '../components/OpenLink';
-import styles from '../components/ContentStyle.js';
+import styles from '../styles/ContentStyle.js';
 
 export default class Propertiesofpi extends React.Component {
     constructor(props) {

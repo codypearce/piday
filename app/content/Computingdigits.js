@@ -8,7 +8,7 @@ import {
 
 
 import OpenLink from '../components/OpenLink';
-import styles from '../components/ContentStyle.js';
+import styles from '../styles/ContentStyle.js';
 
 export default class Computingdigits extends React.Component {
     constructor(props) {

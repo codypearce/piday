@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-import {
-    StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { AdMobBanner } from 'react-native-admob';
 
