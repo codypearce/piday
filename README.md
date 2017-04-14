@@ -6,6 +6,12 @@ A react native pi game with multiple game modes.
 
 <img src="https://raw.githubusercontent.com/codypearce/piday/master/assets/images/piday-screenshot1.png" height="350">
 
+## Features
+
+* Play: Practice reciting the digits of pi
+* Timed: Try to get as many as digits in the allotted time
+* Quiz: Answer trivia questions about pi
+* Learn: Learn more about pi, its history and role in science and math
 
 ## Development 
 Make sure you have react native installed, android stuido, and have either an emulator or phone ready.
