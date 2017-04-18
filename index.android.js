@@ -11,7 +11,7 @@ import {
   BackAndroid
 } from 'react-native';
 
-
+import BackgroundImage from './app/containers/BackgroundImage';
 import Home from './app/views/Home';
 import Memorize from './app/views/Memorize';
 import Game from './app/views/Game';
