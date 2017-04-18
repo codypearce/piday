@@ -5,7 +5,7 @@ import {
     Image
 } from 'react-native';
 
-import AdmobComponent from './Admobcomponent';
+import AdmobComponent from '../components/Admobcomponent';
 
 export default class BackgroundImage extends React.Component {
     constructor(props) {
