@@ -42,14 +42,6 @@ export default class Game extends React.Component {
                 gameOver: true
             });
         }
-
-   }
-   resetGame() {
-       this.setState({
-           display: '',
-           digits: 0,
-           gameOver: false
-       });
    }
    formatDisplay(digits) {
        if(digits.length > 9) {
@@ -58,6 +50,13 @@ export default class Game extends React.Component {
            return slice.join('');
        }
        return digits;
+   }
+   resetGame() {
+       this.setState({
+           display: '',
+           digits: 0,
+           gameOver: false
+       });
    }
     render() {
         let content = null;
@@ -102,7 +101,6 @@ class GameOver extends React.Component {
             message: null,
             record: 0
         };
-
     }
     componentWillMount() {
         this.getValue();
@@ -121,7 +119,6 @@ class GameOver extends React.Component {
             });
         }
         this.setValue();
-
     }
 
     async setValue() {
