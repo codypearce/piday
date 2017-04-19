@@ -6,7 +6,7 @@ import {
 
 import style from '../styles/Style';
 
-import BackgroundImage from '../components/BackgroundImage';
+import BackgroundImage from '../containers/BackgroundImage';
 import SettingsGear from '../components/SettingsGear';
 import RoundedBtn from '../components/RoundedBtn';
 

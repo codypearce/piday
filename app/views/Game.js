@@ -8,7 +8,7 @@ import {
 
 import style from '../styles/Style';
 
-import BackgroundImage from '../components/BackgroundImage';
+import BackgroundImage from '../containers/BackgroundImage';
 import BackBtn from '../components/BackBtn';
 import Keypad from '../components/Keypad';
 import piVal from '../components/PI';
